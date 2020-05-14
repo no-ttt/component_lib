@@ -7,6 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "babel": "babel src  --out-dir dist",
     "build": "npm run babel && npm run styleguide:build ",
+    "start": "styleguidist server",
     "styleguide": "styleguidist server",
     "styleguide:build": "styleguidist build"
   },
@@ -26,7 +27,6 @@
     "@babel/plugin-proposal-class-properties": "^7.8.3",
     "@babel/preset-env": "^7.9.6",
     "@babel/preset-react": "^7.9.4",
-    "@babel/preset-stage-0": "^7.8.3",
     "css-loader": "^3.5.3",
     "react-styleguidist": "^11.0.6",
     "style-loader": "^1.2.1",
