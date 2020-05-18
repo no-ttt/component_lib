@@ -5,7 +5,7 @@
 1. 下載此專案
 2. 修改 pacjage.json
 
-    ![範本](/img/package.png)
+    ![範本](/img/package.jpg)
 
 3. 於 src 收集react component，每個 component 建立獨立資料夾
 4. 執行 `npm run start`查看 domo 
