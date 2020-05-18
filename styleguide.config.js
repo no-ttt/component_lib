@@ -18,6 +18,17 @@ module.exports = {
       ]
     }
   },
+  template: {
+    head: {
+      links: [
+        {
+          rel: 'stylesheet',
+          href:
+            'https://use.fontawesome.com/releases/v5.4.1/css/all.css'
+        }
+      ]
+    }
+  },
   require: [
     path.join(__dirname, 'public/w3.css')
   ],
