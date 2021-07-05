@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
-import './test.styl'
 import PropTypes from 'prop-types'
+import CSSModules from 'react-css-modules'
+import styles from '../style/Example.styl'
 
-export default class Example extends Component {
+export class Example extends Component {
     static propTypes = {
         /** 文字一*/
         text: PropTypes.string.isRequired,
@@ -16,9 +17,11 @@ export default class Example extends Component {
     render() {
         const { text, text2 } = this.props;
         return (
-            <div className="test styl">
+            <div className="example">
                 { text }, {text2}
             </div>
         )
     }
 }
+
+export default CSSModules(Example, styles)

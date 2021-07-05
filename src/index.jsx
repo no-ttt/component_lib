@@ -1,1 +1,1 @@
-export {default as Example} from "./component/Example";
+export {default as Example} from "./Example/Example";

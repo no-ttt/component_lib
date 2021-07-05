@@ -1,5 +1,6 @@
 const pkg = require('./package.json');
 const path = require('path');
+const CopyPlugin = require('copy-webpack-plugin');
 module.exports = {
   title: `${pkg.name} v${pkg.version}`,
   components: 'src/*/*.jsx',
@@ -17,9 +18,22 @@ module.exports = {
         }, {
           test: /\.styl?/,
           use: ["style-loader", "css-loader", "stylus-loader"]
+        }, {
+          test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,
+          loader: 'url-loader',
+          options: {
+            limit: 10000
+          }
         }
       ]
-    }
+    },
+    plugins: [
+      new CopyPlugin({
+        patterns: [
+          { from: path.join(__dirname, 'src/style'), to: path.join(__dirname, 'dist/style') },
+        ]
+      }),
+    ],
   },
   template: {
     head: {
@@ -28,13 +42,11 @@ module.exports = {
           rel: 'stylesheet',
           href:
             'https://use.fontawesome.com/releases/v5.4.1/css/all.css'
-        }
+        },
       ]
     }
   },
-  require: [
-    path.join(__dirname, 'public/w3.css')
-  ],
+  require: [],
   getComponentPathLine(componentPath) {
     const name = path.basename(componentPath, '.jsx');
 
