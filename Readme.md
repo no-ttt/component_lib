@@ -1,3 +1,6 @@
+
+[![pipeline status](https://gitlab.wke.csie.ncnu.edu.tw/tdx/component_lib/badges/master/pipeline.svg)](https://gitlab.wke.csie.ncnu.edu.tw/tdx/component_lib/-/commits/master)
+
 # react component 函式庫範本
 > 收集 reuse component
 
