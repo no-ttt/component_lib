@@ -1,1 +1,1 @@
-export {default as Example} from "./Example/Example";
+export {default as Avatar} from "./Avatar/Avatar";
