@@ -33,9 +33,9 @@ export class NavBar extends Component {
 				icon.push (<HomeIcon fontSize="large" />)
 
 			option.push (
-				<div className="navbar_btn">
-					<div className="navbar_frame">{icon}</div>
-					<div className="navbar_title">{title[i].name}</div>
+				<div className="navbar-btn">
+					<div className="navbar-frame">{icon}</div>
+					<div className="navbar-title">{title[i].name}</div>
 				</div>
 			);
 
@@ -43,7 +43,7 @@ export class NavBar extends Component {
 		}
 
 		return (
-			<div className="navbar_sort">
+			<div className="navbar-sort">
 				{option}
 			</div>
 		)

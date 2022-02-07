@@ -23,7 +23,7 @@ export class Avatar extends Component {
 		const { alt, src, width } = this.props;
 		return (
 			<div>
-				<img title={alt} src={src} alt={alt} width={width} className="avatar_frame"></img>
+				<img title={alt} src={src} alt={alt} width={width} className="avatar-frame"></img>
 			</div>
 		)
 	}

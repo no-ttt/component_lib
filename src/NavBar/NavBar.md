@@ -7,7 +7,7 @@
   ];
 
   <div>
-    <NavBar title={title}></NavBar>
+    <NavBar title={title} />
   </div>
 
 ```
