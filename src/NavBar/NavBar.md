@@ -6,8 +6,12 @@
     { icon: "home", name: "首頁" },
   ];
 
-  <div>
-    <NavBar title={title} />
+  const listItems = title.map((t) =>
+    <NavBar icon={t.icon} name={t.name} />
+  );
+
+  <div style={{ display: "flex", justifyContent: "space-around" }}>
+    { listItems }
   </div>
 
 ```
