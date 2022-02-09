@@ -9,7 +9,7 @@ import HomeIcon from '@material-ui/icons/Home'
 
 export class NavBar extends Component {
 	static propTypes = {
-		/** 指定 icon */
+		/** 指定 icon (dashboard, schedule, like, home) */
 		icon: PropTypes.string.isRequired,
 		/** 功能名稱 */
 		name: PropTypes.string.isRequired,
