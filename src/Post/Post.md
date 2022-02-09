@@ -5,7 +5,11 @@
     { title: "愛河", src: "https://pic.pimg.tw/anrine910070/1602321228-4026170466-g.jpg", addr: "高雄" },
   ];
 
-  <div>
-    <Post post={post} width={280} height={220} />
+  const listItems = post.map((t) =>
+    <Post title={t.title} src={t.src} sddr={t.addr} width={280} height={220} />
+  );
+
+  <div style={{ display: "flex", justifyContent: "space-around" }}>
+    { listItems }
   </div>
 ```

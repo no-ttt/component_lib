@@ -24,26 +24,21 @@ export class Post extends Component {
 	}
 
 	render() {
-		const { post, width, height } = this.props;
-		let allPost = [];
+		const { title, src, addr, width, height } = this.props;
 
-		for (let i = 0; i < post.length; i++) {
-			allPost.push (
+		return (
+			<div className="post-sort">
 				<div>
-					<img title={post[i].title} src={post[i].src} alt={post[i].alt} width={width} height={height} className="post-image"></img>
+					<img title={title} src={src} alt={title} width={width} height={height} className="post-image"></img>
 					<div className="post-des">
-						<div className="post-name">{post[i].title}</div>
+						<div className="post-name">{title}</div>
 						<div className="post-addr">
 							<LocationOnIcon color="action" fontSize="small" />
-							<div className="post-addr-txt">{post[i].addr}</div>
+							<div className="post-addr-txt">{addr}</div>
 						</div>
 					</div>
 				</div>
-			)
-		}
-
-		return (
-			<div className="post-sort">{allPost}</div>
+			</div>
 		)
 	}
 }
