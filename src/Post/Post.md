@@ -6,7 +6,7 @@
   ];
 
   const listItems = post.map((t) =>
-    <Post title={t.title} src={t.src} sddr={t.addr} width={280} height={220} />
+    <Post title={t.title} src={t.src} addr={t.addr} width={280} height={220} />
   );
 
   <div style={{ display: "flex", justifyContent: "space-around" }}>
