@@ -11,16 +11,16 @@ export class Post extends Component {
 		/** 景點圖片連結網址 */
 		src: PropTypes.string.isRequired,
 		/** 景點位置 */
-    addr: PropTypes.string.isRequired,
-    /** 圖片寬度 */
-    width: PropTypes.number,
-    /** 圖片高度 */
-    height: PropTypes.number,
+		addr: PropTypes.string.isRequired,
+		/** 圖片寬度 */
+		width: PropTypes.number,
+		/** 圖片高度 */
+		height: PropTypes.number,
 	}
 
 	static defaultProps = {
-    width: 280,
-    height: 220,
+		width: 280,
+		height: 220,
 	}
 
 	render() {
@@ -29,8 +29,8 @@ export class Post extends Component {
 
 		for (let i = 0; i < post.length; i++) {
 			allPost.push (
-        <div>
-          <img title={post[i].title} src={post[i].src} alt={post[i].alt} width={width} height={height} className="post-image"></img>
+				<div>
+					<img title={post[i].title} src={post[i].src} alt={post[i].alt} width={width} height={height} className="post-image"></img>
 					<div className="post-des">
 						<div className="post-name">{post[i].title}</div>
 						<div className="post-addr">
