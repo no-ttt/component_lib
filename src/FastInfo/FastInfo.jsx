@@ -54,7 +54,7 @@ export class FastInfo extends Component {
 								<tr>
 									<td valign="top" className="fastInfo-td">地址</td>
 									<td>
-										<a href={"https://www.google.com.tw/maps/@"+posLat.toFixed(7).toString()+","+posLon.toFixed(7).toString()+",15z"} target="_blank" >{addr}</a>
+										<a href={"https://www.google.com.tw/maps/@"+posLat.toFixed(7).toString()+","+posLon.toFixed(7).toString()+",15z"} target="_blank" style={{ color: "#d2691e", textDecoration: "none" }}>{addr}</a>
 									</td>
 								</tr>
 							</tbody>
