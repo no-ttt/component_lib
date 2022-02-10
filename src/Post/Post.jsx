@@ -15,23 +15,25 @@ export class Post extends Component {
 		width: PropTypes.number,
 		/** 圖片高度 */
 		height: PropTypes.number,
+		/** 字體大小 */
+		fontSize: PropTypes.number,
 	}
 
 	static defaultProps = {
 		width: 220,
 		height: 220,
+		fontSize: 16,
 	}
 
 	render() {
-		const { title, src, addr, width, height } = this.props;
+		const { title, src, addr, width, height, fontSize } = this.props;
 		return (
 			<div>
 				<div className="post-pic">
 					<img title={title} src={src} alt={title} width={width} height={height} className="post-image"></img>
 				</div>
 				<div className="post-des">
-					<div className="post-name">{title}</div>
-
+					<div className="post-name" style={{ fontSize: fontSize }}>{title}</div>
 				</div>
 			</div>
 		)
