@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import CSSModules from 'react-css-modules'
 import styles from '../style/Post.styl'
-import LocationOnIcon from '@material-ui/icons/LocationOn'
 
 export class Post extends Component {
 	static propTypes = {
@@ -19,24 +18,20 @@ export class Post extends Component {
 	}
 
 	static defaultProps = {
-		width: 280,
+		width: 220,
 		height: 220,
 	}
 
 	render() {
 		const { title, src, addr, width, height } = this.props;
-
 		return (
-			<div className="post-sort">
-				<div>
+			<div>
+				<div className="post-pic">
 					<img title={title} src={src} alt={title} width={width} height={height} className="post-image"></img>
-					<div className="post-des">
-						<div className="post-name">{title}</div>
-						<div className="post-addr">
-							<LocationOnIcon color="action" fontSize="small" />
-							<div className="post-addr-txt">{addr}</div>
-						</div>
-					</div>
+				</div>
+				<div className="post-des">
+					<div className="post-name">{title}</div>
+
 				</div>
 			</div>
 		)
