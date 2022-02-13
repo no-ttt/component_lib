@@ -9,6 +9,8 @@ dev-deploy:
     - npm install 
     - npm run babel
     - git add dist/*
+    - git config --global user.email "WKE_CICD@wke"
+    - git config --global user.name "WKE_CICD"
     - git commit -m "deploy"
     - git push origin master
 
