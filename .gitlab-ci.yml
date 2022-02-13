@@ -1,3 +1,5 @@
+stages:
+  - deploy
 pages:
   cache:
     paths:
@@ -11,3 +13,14 @@ pages:
       - public
   only:
     - release
+
+
+dev-deploy:
+  stage: deploy
+  only:
+    - master
+  script:
+    - npm run babel
+    - git add dist/*
+    - git commit -m "deploy"
+    - git push origin master
