@@ -1,8 +1,12 @@
 dev-deploy:
   stage: deploy
+  cache:
+  paths:
+    - node_modules
   only:
     - master
   script:
+    - npm install 
     - npm run babel
     - git add dist/*
     - git commit -m "deploy"
