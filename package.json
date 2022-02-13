@@ -1,5 +1,5 @@
 {
-  "name": "wke_react_component",
+  "name": "travel_component",
   "version": "1.0.0",
   "description": "",
   "main": "dist/index.js",
@@ -14,11 +14,14 @@
     "styleguide:build": "styleguidist build"
   },
   "keywords": [],
-  "author": "HJHsu",
+  "author": "no",
   "private": true,
   "license": "ISC",
   "dependencies": {
+    "@material-ui/core": "^4.12.3",
+    "@material-ui/icons": "^4.11.2",
     "babel-loader": "^8.2.2",
+    "classnames": "^2.3.1",
     "prop-types": "^15.6.1",
     "react": "^16.14.0",
     "react-css-modules": "^4.7.11",
