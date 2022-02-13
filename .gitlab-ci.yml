@@ -12,7 +12,7 @@ dev-deploy:
     - git config --global user.email "WKE_CICD@wke"
     - git config --global user.name "WKE_CICD"
     - git commit -m "deploy"
-    - git push origin master
+    - git push 
 
 pages:
   cache:
