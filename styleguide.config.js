@@ -46,7 +46,6 @@ module.exports = {
 			],
 		},
 	},
-	require: [path.join(__dirname, "style/styles.styl")],
 	getComponentPathLine(componentPath) {
 		const name = path.basename(componentPath, ".jsx")
 
