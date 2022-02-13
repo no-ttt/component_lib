@@ -7,8 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "babel": "babel src  --out-dir dist",
     "build": "npm run babel && npm run styleguide:build ",
-    "release": "npm run babel && npm run git",
-    "git": " git add dist/* && git commit -m 'deploy' && git push origin",
+    "release": "npm run build && npm run git",
+    "git": " git add . && git commit -m 'deploy' && git push origin",
     "start": "styleguidist server",
     "styleguide": "styleguidist server",
     "styleguide:build": "styleguidist build"

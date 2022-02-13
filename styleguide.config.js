@@ -32,7 +32,8 @@ module.exports = {
 		},
 		plugins: [
 			new CopyPlugin({
-				patterns: [{ from: path.join(__dirname, "src/style"), to: path.join(__dirname, "dist/style") }],
+				patterns: [{ from: path.join(__dirname, "src/style"), to: path.join(__dirname, "dist/style") },{ from: path.join(__dirname, "src/img"), to: path.join(__dirname, "dist/img") }],
+        
 			}),
 		],
 	},
