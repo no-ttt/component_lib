@@ -1,8 +1,8 @@
 dev-deploy:
   stage: deploy
   cache:
-  paths:
-    - node_modules
+    paths:
+      - node_modules
   only:
     - master
   script:
