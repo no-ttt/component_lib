@@ -1,20 +1,3 @@
-dev-deploy:
-  stage: deploy
-  cache:
-    paths:
-      - node_modules
-  only:
-    - master
-  script:
-    - npm install 
-    - npm run babel
-    - git add dist/*
-    - git config --global user.email "WKE_CICD@wke"
-    - git config --global user.name "WKE_CICD"
-    - git commit -m "deploy"
-    - git config --global http.sslverify "false"
-    - git push origin HEAD:master
-    - git config --global http.sslverify "true"
 pages:
   cache:
     paths:
