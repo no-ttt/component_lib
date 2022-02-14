@@ -29,10 +29,6 @@ export class FastInfo extends Component {
 		posLon: PropTypes.number,
 	}
 
-	static defaultProps = {
-		
-	}
-
 	render() {
 		const { spotName, des, phone, addr, picture, open, ticket, remark, traffic, posLat, posLon } = this.props;
 		return (
