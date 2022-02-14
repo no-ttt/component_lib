@@ -3,75 +3,114 @@ import classNames from "classnames"
 import PropTypes from 'prop-types'
 import CSSModules from 'react-css-modules'
 import styles from '../style/Carousel.styl'
+import Post from '../Post/Post.jsx'
 
 export class Carousel extends Component {
 	static propTypes = {
-		/** 旅程標題 */
-		title: PropTypes.string.isRequired,
+		/** 一頁放多少個 post */
+		cols: PropTypes.number,
+		/** 間距 */
+		gap: PropTypes.number,
+		/** 所有 post */
+		post: PropTypes.string.isRequired,
+		/** 圖片寬度 */
+		width: PropTypes.number,
+		/** 圖片高度 */
+		height: PropTypes.number,
+		/** 字體大小 */
+		fontSize: PropTypes.number,
 	}
 
 	static defaultProps = {
+		cols: 5,
+		gap: 10,
+		width: 220,
+		height: 220,
+		fontSize: 16,
 	}
 
 	constructor(props) {
 		super(props);
 		this.state = {
-			pic1: 0,
-			pic2: 1,
+			currentPage: 0,
 		}
 	}
 
-	render() {
-		const {  } = this.props;
-		const data = [
-			{
-				key: 1,
-				src: "https://www.w3schools.com/w3css/img_lights.jpg",
-			}, {
-				key: 2,
-				src: "https://www.w3schools.com/w3css/img_mountains.jpg",
-			}, {
-				key: 3,
-				src: "https://www.w3schools.com/w3css/img_forest.jpg",
-			},
-		];
 
-		const next = () => {
+	render() {
+		const { cols, gap, post, width, height, fontSize } = this.props;
+		
+		const itemSetList = post.reduce((result, item, i) => {
+			if (i % cols === 0) {
+				result.push([
+					<div key={i} className="item">
+						<Post title={item.title} src={item.src} width={width} height={height} fontSize={fontSize} />
+					</div>
+				])
+			} else {
+				result[result.length - 1].push(
+					<div key={i} className="item">
+						<Post title={item.title} src={item.src} width={width} height={height} fontSize={fontSize} />
+					</div>
+				)
+			}
+	
+			return result
+		}, [])
+
+		const page = Math.ceil(post.length / cols)
+
+		const handlePrev = () => {
 			this.setState({
-				pic1: data.length - 1 > this.state.pic1 ? this.state.pic1 + 1 : 0,
-				pic2: data.length - 1 > this.state.pic2 ? this.state.pic2 + 1 : 0,
-			
+				currentPage: this.state.currentPage - 1
 			})
 		}
-		const prev = () => {
+
+		const handleNext = () => {
 			this.setState({
-				pic1: this.state.pic1 > 0 ? this.state.pic1 - 1 : data.length - 1,
-				pic2: this.state.pic2 > 0 ? this.state.pic2 - 1 : data.length - 1,
+				currentPage: this.state.currentPage + 1
 			})
 		}
+
 
 		return (
-			<div>
-				<div className="layout">
-					<div className="slider">
-						{data.map((el, id) => (
-							<div className={classNames("slider-slide", {"slider-slide-active": this.state.pic1 === id })} key={el.key} >
-								<img className="slider-img" src={el.src} alt="" />
-							</div>
-						))}
-					</div>
-					<div className="slider">
-						{data.map((el, id) => (
-							<div className={classNames("slider-slide", {"slider-slide-active": this.state.pic2 === id })} key={el.key} >
-								<img className="slider-img" src={el.src} alt="" />
-							</div>
-						))}
-					</div>
-				</div>
-					<button onClick={prev}>prev</button>
-					<button onClick={next}>next</button>
+			<div className="Carousel">
+				<span 
+					className="Carousel_btn--prev" 
+					hidden={this.state.currentPage <= 0} 
+					onClick={handlePrev} 
+				/>
+
+				<div className="Carousel_railWrapper">
+        <div
+          className="Carousel_rail"
+          style={{
+            gridTemplateColumns: `repeat(${page}, 100%)`,
+            left: `calc(${-100 * this.state.currentPage}% - ${gap * this.state.currentPage}px)`,
+            gridColumnGap: `${gap}px`
+          }}
+        >
+          {itemSetList.map((set, i) => (
+            <div
+              key={i}
+              style={{
+                display: 'grid',
+                gridTemplateColumns: `repeat(${cols}, 1fr)`,
+                gridGap: `${gap}px`
+              }}
+            >
+              {set}
+            </div>
+          ))}
+        </div>
+      </div>
+				
+				<span 
+					className="Carousel_btn--next" 
+					hidden={this.state.currentPage=== page - 1} 
+					onClick={handleNext} 
+				/>
 			</div>
-			
 		)
 	}
 }
