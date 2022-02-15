@@ -11,6 +11,6 @@
   ];
 	
   <div>
-    <Carousel cols={3} gap={5} post={post} width={220} height={220} fontSize={16} />
+    <Carousel cols={4} gap={5} post={post} width={200} height={200} fontSize={16} />
   </div>
 ```

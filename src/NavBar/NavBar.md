@@ -1,17 +1,13 @@
 ```jsx
-  let title = [
+  let feature = [
     { icon: "dashboard", name: "地圖筆記" }, 
     { icon: "schedule", name: "安排行程" },
     { icon: "like", name: "收藏" },
     { icon: "home", name: "首頁" },
   ];
 
-  const listItems = title.map((t) =>
-    <NavBar icon={t.icon} name={t.name} size={40} />
-  );
-
-  <div style={{ display: "flex", justifyContent: "space-around" }}>
-    { listItems }
+  <div>
+    <NavBar feature={feature} width={800} iconSize={40} fontSize={14} />
   </div>
 
 ```

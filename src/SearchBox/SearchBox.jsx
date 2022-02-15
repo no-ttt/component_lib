@@ -19,14 +19,21 @@ export class SearchBox extends Component {
 		height: 35,
 	}
 
+	
+	searchContent = (event) => {
+		this.props.func(event.target.value);
+	}
+	
 	render() {
 		const { width, height, func } = this.props;
 		return (
 			<div>
 				<label className="searchbox_block">
 					<SearchIcon className="searchbox_icon" />
-					<input type="text" placeholder="想去哪？" 
-						className="searchbox_input" style={{ width: width, height: height }} />
+					<input type="text" placeholder="想去哪 ?" 
+						className="searchbox_input" style={{ width: width, height: height }}
+						onChange={this.searchContent}
+					/>
 				</label>
 			</div>
 		)

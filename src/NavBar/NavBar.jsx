@@ -9,42 +9,52 @@ import HomeIcon from '@material-ui/icons/Home'
 
 export class NavBar extends Component {
 	static propTypes = {
-		/** 指定 icon (dashboard, schedule, like, home) */
-		icon: PropTypes.string.isRequired,
-		/** 功能名稱 */
-		name: PropTypes.string.isRequired,
+		/** nabar 所有物件 (dashboard, schedule, like, home) */
+		feature: PropTypes.array.isRequired,
+		/** navbar 長度 */
+		width: PropTypes.number,
 		/** icon 大小 */
-		size: PropTypes.number,
+		iconSize: PropTypes.number,
+		/** 字體大小 */
+		fontSize: PropTypes.number,
 	}
 
 	static defaultProps = {
-		size: 40,
+		width: 800,
+		iconSize: 40,
+		fontSize: 14,
 	}
 
 
 	render() {
-		const { icon, name , size } = this.props;
+		const { feature, width, iconSize, fontSize } = this.props;
 		let option = [];
 		let iconStyle = [];
 
-		if (icon == "dashboard")
-			iconStyle.push (<DashboardIcon />)
-		if (icon == "schedule")
-			iconStyle.push (<DateRangeIcon />)
-		if (icon == "like")
-			iconStyle.push (<FavoriteBorderIcon />)
-		if (icon == "home")
-			iconStyle.push (<HomeIcon />)
+		for (let i = 0; i < feature.length; i++) {
+			if (feature[i].icon == "dashboard")
+				iconStyle.push (<DashboardIcon />)
+			if (feature[i].icon == "schedule")
+				iconStyle.push (<DateRangeIcon />)
+			if (feature[i].icon == "like")
+				iconStyle.push (<FavoriteBorderIcon />)
+			if (feature[i].icon == "home")
+				iconStyle.push (<HomeIcon />)
 
-		option.push (
-			<div className="navbar-btn">
-				<div className="navbar-frame" style={{width: size, height: size}}>{iconStyle}</div>
-				<div className="navbar-title">{name}</div>
-			</div>
-		);
+			option.push (
+				<div className="navbar-btn">
+					<div className="navbar-frame" style={{width: iconSize, height: iconSize}}>{iconStyle}</div>
+					<div className="navbar-title" style={{fontSize: fontSize}}>{feature[i].name}</div>
+				</div>
+			);
+
+			iconStyle = []
+		}
 
 		return (
-			<div>{option}</div>
+			<div className="navbar-layout" style={{width: width}}>
+				{option}
+			</div>
 		)
 	}
 }
