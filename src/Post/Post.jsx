@@ -9,8 +9,6 @@ export class Post extends Component {
 		title: PropTypes.string.isRequired,
 		/** 景點圖片連結網址 */
 		src: PropTypes.string.isRequired,
-		/** 景點位置 */
-		addr: PropTypes.string.isRequired,
 		/** 圖片寬度 */
 		width: PropTypes.number,
 		/** 圖片高度 */
@@ -26,7 +24,7 @@ export class Post extends Component {
 	}
 
 	render() {
-		const { title, src, addr, width, height, fontSize } = this.props;
+		const { title, src, width, height, fontSize } = this.props;
 		return (
 			<div>
 				<div className="post-pic">
