@@ -13,25 +13,32 @@ export class NavBar extends Component {
 		icon: PropTypes.string.isRequired,
 		/** 功能名稱 */
 		name: PropTypes.string.isRequired,
+		/** icon 大小 */
+		size: PropTypes.number,
 	}
 
+	static defaultProps = {
+		size: 40,
+	}
+
+
 	render() {
-		const { icon, name } = this.props;
+		const { icon, name , size } = this.props;
 		let option = [];
 		let iconStyle = [];
 
 		if (icon == "dashboard")
-			iconStyle.push (<DashboardIcon fontSize="large" />)
+			iconStyle.push (<DashboardIcon />)
 		if (icon == "schedule")
-			iconStyle.push (<DateRangeIcon fontSize="large" />)
+			iconStyle.push (<DateRangeIcon />)
 		if (icon == "like")
-			iconStyle.push (<FavoriteBorderIcon fontSize="large" />)
+			iconStyle.push (<FavoriteBorderIcon />)
 		if (icon == "home")
-			iconStyle.push (<HomeIcon fontSize="large" />)
+			iconStyle.push (<HomeIcon />)
 
 		option.push (
 			<div className="navbar-btn">
-				<div className="navbar-frame">{iconStyle}</div>
+				<div className="navbar-frame" style={{width: size, height: size}}>{iconStyle}</div>
 				<div className="navbar-title">{name}</div>
 			</div>
 		);
