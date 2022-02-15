@@ -7,7 +7,7 @@
   ];
 
   const listItems = title.map((t) =>
-    <NavBar icon={t.icon} name={t.name} />
+    <NavBar icon={t.icon} name={t.name} size={40} />
   );
 
   <div style={{ display: "flex", justifyContent: "space-around" }}>
