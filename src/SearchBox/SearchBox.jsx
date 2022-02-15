@@ -18,6 +18,11 @@ export class SearchBox extends Component {
 		width: 400,
 		height: 35,
 	}
+
+	
+	searchContent = (event) => {
+		this.props.func(event.target.value);
+	}
 	
 	render() {
 		const { width, height, func } = this.props;
@@ -27,7 +32,7 @@ export class SearchBox extends Component {
 					<SearchIcon className="searchbox_icon" />
 					<input type="text" placeholder="想去哪 ?" 
 						className="searchbox_input" style={{ width: width, height: height }}
-						onChange={(e) => func(e.target.value)}
+						onChange={this.searchContent}
 					/>
 				</label>
 			</div>
