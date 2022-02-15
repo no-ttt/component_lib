@@ -3,7 +3,7 @@ import classNames from "classnames"
 import PropTypes from 'prop-types'
 import CSSModules from 'react-css-modules'
 import styles from '../style/Carousel.styl'
-import Post from '../Post/Post.jsx'
+import Post from '../Post/Post'
 
 export class Carousel extends Component {
 	static propTypes = {
