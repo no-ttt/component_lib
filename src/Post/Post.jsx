@@ -26,7 +26,7 @@ export class Post extends Component {
 	render() {
 		const { title, src, width, height, fontSize } = this.props;
 		return (
-			<div>
+			<div className="post-layout">
 				<div className="post-pic">
 					<img title={title} src={src} alt={title} width={width} height={height} className="post-image"></img>
 				</div>
