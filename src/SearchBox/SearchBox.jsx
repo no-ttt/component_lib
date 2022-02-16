@@ -25,7 +25,6 @@ export class SearchBox extends Component {
 		}
 	}
 	
-	
 	render() {
 		const { width, height } = this.props;
 		return (
