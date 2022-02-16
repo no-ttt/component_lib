@@ -38,7 +38,7 @@ export class TravelCard extends Component {
 				<div className="travelCard-layout">
 					<img src={src} alt={title} width={width-15} height={height-80} className="travelCard-pic"></img>
 					<div className="travelCard-des">
-						<div className="travelCard-title" style={{ fontSize: titleFontSize }}>{title}</div>
+						<div className="travelCard-title" style={{ fontSize: titleFontSize, width: width-20 }}>{title}</div>
 						<div className="travelCard-people">
 							<PeopleIcon fontSize="small" />
 							<div className="travelCard-people-txt" style={{ fontSize: titleFontSize }}>{people}</div>
