@@ -5,7 +5,7 @@
   ];
 
   const listItems = info.map((t) =>
-    <TravelCard title={t.title} src={t.src} time={t.time} loc={t.loc} people={t.people} width={280} height={220} titleFontSize={16} desFontSize={14} />
+    <TravelCard title={t.title} src={t.src} time={t.time} people={t.people} />
   );
 
   <div style={{ display: "flex", justifyContent: "space-around" }}>
