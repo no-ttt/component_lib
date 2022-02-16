@@ -19,20 +19,22 @@ export class SearchBox extends Component {
 		height: 35,
 	}
 
-	
-	searchContent = (event) => {
-		this.props.func(event.target.value);
+	_handleKeyDown = (e) => {
+		if (e.key === 'Enter') {
+		  this.props.func(e.target.value);
+		}
 	}
 	
+	
 	render() {
-		const { width, height, func } = this.props;
+		const { width, height } = this.props;
 		return (
 			<div>
 				<label className="searchbox_block">
 					<SearchIcon className="searchbox_icon" />
 					<input type="text" placeholder="想去哪 ?" 
 						className="searchbox_input" style={{ width: width, height: height }}
-						onChange={this.searchContent}
+						onKeyDown={this._handleKeyDown}
 					/>
 				</label>
 			</div>
