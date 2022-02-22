@@ -45,8 +45,6 @@ export class PostWall extends Component {
 								<img title={t.title} src={t.src} alt={t.tile} className="postwall-img"></img>
 							</div>
 						</div>
-
-						
 					</div>
 				)}
 			</div>
