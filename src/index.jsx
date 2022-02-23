@@ -6,3 +6,4 @@ export {default as TravelCard} from "./TravelCard/TravelCard";
 export {default as Carousel} from "./Carousel/Carousel";
 export {default as SearchBox} from "./SearchBox/SearchBox";
 export {default as PostWall} from "./PostWall/PostWall";
+export {default as DragDropList} from "./DragDropList/DragDropList";
