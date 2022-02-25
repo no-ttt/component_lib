@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import CSSModules from 'react-css-modules'
 import styles from '../style/DragDropList.styl'
 import DeleteIcon from '@material-ui/icons/Delete'
 
@@ -84,5 +85,6 @@ export class DragDropList extends Component {
 			</div>
 		)
 	}
-
 }
+
+export default CSSModules(DragDropList, styles)
