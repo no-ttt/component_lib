@@ -76,7 +76,7 @@ export class DragDropList extends Component {
 							<div>{item.title}</div>
 						</div>
 						<button className="dragdroplist-btn" 
-							onClick={() => this.setState({ list: this.state.list.filter(listItem => listItem !== item)})}
+							onClick={() => this.setState({list: this.state.list.filter(listItem => listItem !== item)})}
 						>
 							<DeleteIcon />
 						</button>
