@@ -5,43 +5,47 @@ import styles from '../style/Popup.styl'
 
 export class Popup extends Component {
 	static propTypes = {
+		/** 觸發彈跳窗的元件 */
+		click: PropTypes.string.isRequired,
 		/** 彈跳窗的內容 */
 		content: PropTypes.string.isRequired,
+		/** 彈跳窗的寬度 */
+		width: PropTypes.number,
+		/** 彈跳窗的高度 */
+		height: PropTypes.number,
 	}
 
 	static defaultProps = {
-
+		width: 400,
+		height: 200,
 	}
 
 	constructor(props) {
 		super(props);
 		this.state = {
-			displayModal: false,
+			isOpen: false,
 		}
-		this.modalOpen = this.modalOpen.bind(this);
-		this.modalClose = this.modalClose.bind(this);
+		this.togglePopup = this.togglePopup.bind(this);
 	}
 
-	modalOpen = () => {
+	togglePopup = () => {
 		this.setState({
-			displayModal: true
+			isOpen: !this.state.isOpen
 		})
-		console.log(this.state.displayModal)
-	}
-
-	modalClose = () => {
-		this.setState({
-			displayModal: false
-		})
-		console.log(this.state.displayModal)
 	}
 
 	render() {
-		const { content } = this.props;
+		const { click, content, width, height } = this.props;
 		return (
 			<div>
-				<button onClick={this.modalOpen}>Click me!</button>
-				<div className="Modal">{content}</div>
+				<button onClick={this.togglePopup} className="popup-btn">{click}</button>
+				{this.state.isOpen && 
+					<div className="popup-box" onClick={this.togglePopup}>
+						<div className="popup-mesg" style={{width: width, height: height}}>
+							{content}
+						</div>
+					</div>
+				}
 			</div>
 		)
 	}
