@@ -12,12 +12,15 @@ export class Rating extends Component {
 		max: PropTypes.number,
 		/** 星星是否固定 */
 		fixed: PropTypes.boolean,
+		/** 星星大小 */
+		size: PropTypes.string,
 	}
 
 	static defaultProps = {
 		starDefault: 3,
 		max: 5,
 		fixed: false,
+		size: "",
 	}
 
 	constructor(props) {
@@ -25,15 +28,25 @@ export class Rating extends Component {
 		this.state =  {
 			rating: this.props.starDefault,
 			hover: this.props.starDefault,
-			fixed:  this.props.fixed,
+			fixed: this.props.fixed,
 		}
 	}
 
 	render() {
 		const { rating, hover, fixed } = this.state;
-		const { max } = this.props;
-		return (
-			<div className="star-rating">
+		const { max, size } = this.props;
+		let starStyle = [];
+
+		if (size === "large") {
+			starStyle.push(<StarIcon className="rating-icon" fontSize="large" />)
+		} else if (size === "small") {
+			starStyle.push(<StarIcon className="rating-icon" fontSize="small" />)
+		} else {
+			starStyle.push(<StarIcon className="rating-icon" />)
+		}
+		
+			return (
+			<div>
 				{
 					[...Array(max)].map((star, index) => {
 						index += 1;
@@ -46,7 +59,7 @@ export class Rating extends Component {
 								onMouseEnter={() => !fixed && this.setState({hover: index})}
 								onMouseLeave={() => !fixed && this.setState({hover: rating})}
 							>
-								<StarIcon />
+								{starStyle}
 							</button>
 						);
 					})

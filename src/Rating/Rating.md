@@ -1,3 +1,5 @@
 ```jsx
-<Rating starDefault={3} max={5} fixed={false} />
+  <div>
+    <Rating starDefault={3} max={5} fixed={false} size={"small"} />
+  </div>
 ```
