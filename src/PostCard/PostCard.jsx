@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import CSSModules from 'react-css-modules'
 import styles from '../style/PostCard.styl'
 import LocationOnIcon from '@material-ui/icons/LocationOn'
+import Rating from '../Rating/Rating'
 
 export class PostCard extends Component {
 	static propTypes = {
@@ -30,11 +31,14 @@ export class PostCard extends Component {
 						<LocationOnIcon fontSize="small" />
 						<div className="postcard-addr">{addr}</div>
 					</div>
+					<div className="postcard-rating">
+						<Rating starDefault={3} max={5} fixed={true} size={"small"} />
+					</div>
+					
 				</div>
 			</div>
 		)
 	}
-
 }
 
 export default CSSModules(PostCard, styles)
