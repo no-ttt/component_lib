@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import CSSModules from 'react-css-modules'
-import styles from '../style/FastInfo.styl'
+import styles from '../style/PostInfo.styl'
 
-export class FastInfo extends Component {
+export class PostInfo extends Component {
 	static propTypes = {
 		/** 景點名稱 */
 		spotName: PropTypes.string.isRequired,
@@ -32,23 +32,23 @@ export class FastInfo extends Component {
 	render() {
 		const { spotName, des, phone, addr, picture, open, ticket, remark, traffic, posLat, posLon } = this.props;
 		return (
-			<div className="fastInfo-frame">
-				<div className="fastInfo-des">
-					<img src={picture} width="300" height="200" className="fastInfo-image"></img>
-					<div className="fastInfo-des-distance">
-						<div className="fastInfo-spotName-txt">{spotName}</div>
-						<table className="fastInfo-table">
+			<div className="postInfo-frame">
+				<div className="postInfo-des">
+					<img src={picture} width="500" height="300" className="postInfo-image"></img>
+					<div className="postInfo-des-distance">
+						<div className="postInfo-spotName-txt">{spotName}</div>
+						<table className="postInfo-table">
 							<tbody>
 								<tr>
-									<td valign="top" className="fastInfo-td">簡介</td>
-									<td>{des}</td>
+									<td valign="top" className="postInfo-td">簡介</td>
+									<td className="postInfo-td-text">{des}</td>
 								</tr>
 								<tr>
-									<td valign="top" className="fastInfo-td">電話</td>
+									<td valign="top" className="postInfo-td">電話</td>
 									<td>{phone}</td>
 								</tr>
 								<tr>
-									<td valign="top" className="fastInfo-td">地址</td>
+									<td valign="top" className="postInfo-td">地址</td>
 									<td>
 										<a href={"https://www.google.com.tw/maps/@"+posLat.toFixed(7).toString()+","+posLon.toFixed(7).toString()+",15z"} target="_blank" style={{ color: "#d2691e", textDecoration: "none" }}>{addr}</a>
 									</td>
@@ -57,22 +57,23 @@ export class FastInfo extends Component {
 						</table>
 					</div>
 				</div>
-				<div className="fastInfo-other">
-					<table className="fastInfo-other-table">
+				<div className="postInfo-hr"></div>
+				<div className="postInfo-other">
+					<table className="postInfo-other-table">
 						<tbody>
 							<tr>
-								<td valign="top" className="fastInfo-other-td">開放時間</td>
+								<td valign="top" className="postInfo-other-td">開放時間</td>
 								<td>{open}</td>
 							</tr>
 							<tr>
-								<td valign="top" className="fastInfo-other-td">門票資訊</td>
+								<td valign="top" className="postInfo-other-td">門票資訊</td>
 								<td>{ticket}</td>
 							</tr>						<tr>
-								<td valign="top" className="fastInfo-other-td">注意事項</td>
+								<td valign="top" className="postInfo-other-td">注意事項</td>
 								<td>{remark}</td>
 							</tr>
 							<tr>
-								<td valign="top" className="fastInfo-other-td">交通方式</td>
+								<td valign="top" className="postInfo-other-td">交通方式</td>
 								<td>{traffic}</td>
 							</tr>
 						</tbody>
@@ -83,4 +84,4 @@ export class FastInfo extends Component {
 	}
 }
 
-export default CSSModules(FastInfo, styles)
+export default CSSModules(PostInfo, styles)
