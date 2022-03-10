@@ -8,6 +8,6 @@
   ];
 
   <div>
-    <DragDropList listItem={listItem} width={250} height={60} />
+    <DragDropList listItem={listItem} changeList={(list) => {console.log(list)}} width={250} height={60} />
   </div>
 ```

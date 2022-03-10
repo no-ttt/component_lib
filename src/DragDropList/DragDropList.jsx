@@ -28,8 +28,6 @@ export class DragDropList extends Component {
 		this.draggingItem = React.createRef();
 		// 被取代位置的元素
 		this.dragOverItem = React.createRef();
-		this.handleDragStart = this.handleDragStart.bind(this);
-		this.handleDragEnter = this.handleDragEnter.bind(this);
 	}
 
 	handleDragStart = (e, position) => {
@@ -57,6 +55,18 @@ export class DragDropList extends Component {
 		})
 	}
 
+	handleonDragEnd = () => {
+		this.props.changeList(this.state.list)
+	}
+
+	handleDelete = (item) => {
+		let updateList = this.state.list.filter(listItem => listItem !== item)
+		this.setState({
+			list: updateList
+		})
+		this.props.changeList(updateList)
+	}
+
 	render() {
 		const { width, height } = this.props;
 		return (
@@ -65,7 +75,8 @@ export class DragDropList extends Component {
           <div
             onDragStart={(e) => this.handleDragStart(e, index)}
             onDragOver={(e) => e.preventDefault()}
-            onDragEnter={(e) => this.handleDragEnter(e, index)}
+						onDragEnter={(e) => this.handleDragEnter(e, index)}
+						onDragEnd={(e) => this.handleonDragEnd(e, index)}
             key={index}
 						draggable
 						className="dragdroplist-frame"
@@ -76,7 +87,7 @@ export class DragDropList extends Component {
 							<div>{item.title}</div>
 						</div>
 						<button className="dragdroplist-btn" 
-							onClick={() => this.setState({list: this.state.list.filter(listItem => listItem !== item)})}
+							onClick={this.handleDelete.bind(this, item)}
 						>
 							<DeleteIcon />
 						</button>
