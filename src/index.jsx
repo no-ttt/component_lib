@@ -9,5 +9,5 @@ export {default as PostWall} from "./PostWall/PostWall";
 export {default as DragDropList} from "./DragDropList/DragDropList";
 export {default as Popup} from "./Popup/Popup";
 export {default as Rating} from "./Rating/Rating";
-export {default as PostCard} from "./PostCard/PostCard";
 export {default as Tabs} from "./Tabs/Tabs";
+export {default as HintImg} from "./HintImg/HintImg";
