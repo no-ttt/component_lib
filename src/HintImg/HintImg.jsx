@@ -9,12 +9,18 @@ export class HintImg extends Component {
 		src: PropTypes.string.isRequired,
 		/** 內容文字 */
 		content: PropTypes.string,
+		/** 控制遮罩 */
+		mask: PropTypes.boolean,
+	}
+
+	static defaultProps = {
+		mask: false,
 	}
 
 	render() {
 		const { src, content, mask } = this.props;
 		return (
-			<div className="hintImg-cover">
+			<div className={mask ? "hintImg-cover" : "hintImg-no-cover"}>
 				<div className="hintImg-txt">{content}</div>	
 				<img src={src} alt="bg" width="250" height="200" className="hintImg-bg" />
 			</div>
