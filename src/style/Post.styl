@@ -7,6 +7,19 @@
 
 .post-pic {
 	overflow: hidden;
+	position: relative;
+}
+
+.post-cover {
+	background-color: black;
+	opacity: 0;
+	position: absolute;
+	border-radius: 100%;
+}
+
+.post-cover:hover {
+	opacity: 0.5;
+	transition: all 0.5s ease-out;
 }
 
 .post-image {
@@ -34,7 +47,7 @@
 .post-sort {
 	display: flex;
 	justify-content: space-around;
-	fles-direction: row;
+	flex-direction: row;
 }
 
 .post-image:hover {
