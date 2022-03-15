@@ -15,20 +15,24 @@ export class Post extends Component {
 		height: PropTypes.number,
 		/** 字體大小 */
 		fontSize: PropTypes.number,
+		/** 邊框形狀(Square & Circle) */
+		borderStyle: PropTypes.string,
 	}
 
 	static defaultProps = {
 		width: 220,
 		height: 220,
 		fontSize: 16,
+		borderStyle: "Square",
 	}
 
 	render() {
-		const { title, src, width, height, fontSize } = this.props;
+		const { title, src, width, height, fontSize, borderStyle } = this.props;
 		return (
 			<div className="post-layout">
 				<div className="post-pic">
-					<img title={title} src={src} alt={title} width={width} height={height} className="post-image"></img>
+					{ borderStyle === "Circle" && <div className="post-cover" style={{width: width, height: height}}></div> }
+					<img title={title} src={src} alt={title} width={width} height={height} className="post-image" style={borderStyle==="Circle" ? {borderRadius: "100%"} : {}}></img>
 				</div>
 				<div className="post-des">
 					<div className="post-name" style={{ fontSize: fontSize }}>{title}</div>

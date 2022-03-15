@@ -7,8 +7,8 @@
     { title: "魚你相遇", src: "https://www.viviantrip.com/wp-content/uploads/2021/03/%E6%B5%B7%E7%94%9F%E9%A4%A8-4.jpg", day: "1", like: "8" },
     { title: "親近大自然", src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR813SKMm9B_vyUViP54He3z4u92UGXC9S3PA&usqp=CAU", day: "4", like: "21" },
 	];
-	
+
   <div>
-    <PostWall cols={3} gap={20} post={post} />
+    <PostWall post={post} cols={3} gap={20} mask={true} text={true} />
   </div>
 ```

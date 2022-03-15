@@ -1,0 +1,46 @@
+.hintImg-no-cover {
+	position: relative;
+  	width: 250px;
+  	height: 200px;
+	display: flex;
+	justify-content: center;
+}
+
+.hintImg-cover {
+	position: relative;
+  	width: 250px;
+  	height: 200px;
+	display: flex;
+	justify-content: center;
+}
+
+.hintImg-cover::before {
+	content: " ";
+	position: absolute;
+  	width: 250px;
+  	height: 200px;
+	background-color: rgba(0, 0, 0, 0.3);
+}
+
+.hintImg-txt {
+	color: white;
+	position: absolute;
+	opacity: 0;
+	transform: translatey(150px);
+	transition: all 1s ease-out;
+}
+
+.hintImg-cover:hover .hintImg-txt {
+	opacity: 1;
+	transform: translatey(100px);
+}
+
+.hintImg-no-cover:hover .hintImg-txt {
+	opacity: 1;
+	transform: translatey(90px);
+}
+
+.hintImg-bg {
+	object-fit: cover;
+}
+
