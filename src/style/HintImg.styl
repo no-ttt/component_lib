@@ -2,6 +2,8 @@
 	position: relative;
   width: 250px;
   height: 200px;
+	display: flex;
+	justify-content: center;
 }
 
 .hintImg-cover::before {
@@ -16,16 +18,13 @@
 	color: white;
 	position: absolute;
 	opacity: 0;
-	width: 250px;
-  height: 200px;
-	transform: translatey(130px);
+	transform: translatey(150px);
 	transition: all 1s ease-out;
-	broder: 1px red solid;
 }
 
-.hintImg-txt:hover {
+.hintImg-cover:hover .hintImg-txt {
 	opacity: 1;
-	transform: translatey(70px);
+	transform: translatey(90px);
 }
 
 .hintImg-bg {
