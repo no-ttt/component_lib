@@ -1,15 +1,15 @@
 .hintImg-no-cover {
 	position: relative;
-  width: 250px;
-  height: 200px;
+  width: 100%;
+  height: 100%;
 	display: flex;
 	justify-content: center;
 }
 
 .hintImg-cover {
 	position: relative;
-  width: 250px;
-  height: 200px;
+  width: 100%;
+  height: 100%;
 	display: flex;
 	justify-content: center;
 }
@@ -17,29 +17,30 @@
 .hintImg-cover::before {
 	content: " ";
 	position: absolute;
-  width: 250px;
-  height: 200px;
-	background-color: rgba(0, 0, 0, 0.3);
+  width: 100%;
+  height: 100%;
+	background-color: rgba(0, 0, 0, 0.2);
 }
 
 .hintImg-txt {
 	position: absolute;
 	opacity: 0;
-	transform: translatey(250px);
+	transform: translatey(900%);
 	transition: all 1s ease-out;
 }
 
 .hintImg-cover:hover .hintImg-txt {
 	opacity: 1;
-	transform: translatey(140px);
+	transform: translatey(600%);
 }
 
 .hintImg-no-cover:hover .hintImg-txt {
 	opacity: 1;
-	transform: translatey(140px);
+	transform: translatey(600%);
 }
 
 .hintImg-bg {
 	object-fit: cover;
+	width: 100%;
 }
 
