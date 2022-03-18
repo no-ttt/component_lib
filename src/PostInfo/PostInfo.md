@@ -26,6 +26,6 @@
   };
 
   <div style={{ display: "flex", justifyContent: "center" }}>
-    <PostCard spotName={info.ScenicSpotName} des={info.Description} phone={info.Phone} addr={info.Address} picture={info.Picture.PictureUrl1} />
+    <PostInfo spotName={info.ScenicSpotName} des={info.DescriptionDetail} phone={info.Phone} addr={info.Address} picture={info.Picture.PictureUrl1} open={info.OpenTime} ticket={info.TicketInfo} remark={info.Remarks} traffic={info.TravelInfo} posLon={info.Position.PositionLon} posLat={info.Position.PositionLat} />
   </div>
 ```
