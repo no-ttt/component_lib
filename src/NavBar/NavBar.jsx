@@ -42,9 +42,9 @@ export class NavBar extends Component {
 				iconStyle.push (<HomeIcon />)
 
 			option.push (
-				<div className="navbar-btn" style={{width: featureSize+40}}>
-					<div className="navbar-frame" style={{width: featureSize, height: featureSize}} >{iconStyle}</div>
-					<div className="navbar-title" style={{fontSize: fontSize}}>{feature[i].name}</div>
+				<div className="navbar-btn" style={{ width: featureSize+40 }}>
+					<div className="navbar-frame" style={{ width: featureSize, height: featureSize }} >{iconStyle}</div>
+					<div className="navbar-title" style={{ fontSize: fontSize }}>{feature[i].name}</div>
 				</div>
 			);
 
@@ -52,7 +52,7 @@ export class NavBar extends Component {
 		}
 
 		return (
-			<div className="navbar-layout" style={{width: width}}>
+			<div className="navbar-layout" style={{ width: width }}>
 				{option}
 			</div>
 		)
