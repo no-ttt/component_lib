@@ -10,6 +10,8 @@ export class SearchBox extends Component {
 		width: PropTypes.number,
 		/** 搜尋欄高度 */
 		height: PropTypes.number,
+		/** 提示字大小 */
+		fontSize: PropTypes.number,
 		/** event */
 		func: PropTypes.func,
 	}
@@ -17,6 +19,7 @@ export class SearchBox extends Component {
 	static defaultProps = {
 		width: 400,
 		height: 35,
+		fontSize: 16,
 	}
 
 	_handleKeyDown = (e) => {
@@ -26,16 +29,14 @@ export class SearchBox extends Component {
 	}
 	
 	render() {
-		const { width, height } = this.props;
+		const { width, height, fontSize } = this.props;
 		return (
-			<div>
-				<label className="searchbox_block">
-					<SearchIcon className="searchbox_icon" />
-					<input type="text" placeholder="想去哪 ?" 
-						className="searchbox_input" style={{ width: width, height: height }}
-						onKeyDown={this._handleKeyDown}
-					/>
-				</label>
+			<div className="searchbox_block" style={{ width: width, height: height }}>
+				<SearchIcon className="searchbox_icon" />
+				<input type="text" placeholder="想去哪 ?" 
+					className="searchbox_input" style={{ fontSize: fontSize }}
+					onKeyDown={this._handleKeyDown}
+				/>
 			</div>
 		)
 	}
