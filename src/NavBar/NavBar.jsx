@@ -9,25 +9,25 @@ import HomeIcon from '@material-ui/icons/Home'
 
 export class NavBar extends Component {
 	static propTypes = {
-		/** nabar 所有物件 (dashboard, schedule, like, home) */
+		/** nabar 所有物件 (需傳入 icon & name ; icon : dashboard, schedule, like, home) */
 		feature: PropTypes.array.isRequired,
 		/** navbar 長度 */
 		width: PropTypes.number,
-		/** icon 大小 */
-		iconSize: PropTypes.number,
+		/** 物件大小 */
+		featureSize: PropTypes.number,
 		/** 字體大小 */
 		fontSize: PropTypes.number,
 	}
 
 	static defaultProps = {
-		width: 800,
-		iconSize: 40,
+		width: 300,
+		featureSize: 40,
 		fontSize: 14,
 	}
 
 
 	render() {
-		const { feature, width, iconSize, fontSize } = this.props;
+		const { feature, name, width, featureSize, fontSize } = this.props;
 		let option = [];
 		let iconStyle = [];
 
@@ -42,9 +42,9 @@ export class NavBar extends Component {
 				iconStyle.push (<HomeIcon />)
 
 			option.push (
-				<div className="navbar-btn">
-					<div className="navbar-frame" style={{width: iconSize, height: iconSize}}>{iconStyle}</div>
-					<div className="navbar-title" style={{fontSize: fontSize}}>{feature[i].name}</div>
+				<div className="navbar-btn" style={{ width: featureSize+40 }}>
+					<div className="navbar-frame" style={{ width: featureSize, height: featureSize }} >{iconStyle}</div>
+					<div className="navbar-title" style={{ fontSize: fontSize }}>{feature[i].name}</div>
 				</div>
 			);
 
@@ -52,7 +52,7 @@ export class NavBar extends Component {
 		}
 
 		return (
-			<div className="navbar-layout" style={{width: width}}>
+			<div className="navbar-layout" style={{ width: width }}>
 				{option}
 			</div>
 		)

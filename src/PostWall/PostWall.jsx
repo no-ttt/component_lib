@@ -6,7 +6,11 @@ import styles from '../style/PostWall.styl'
 export class PostWall extends Component {
 	static propTypes = {
 		/** 貼文內容 */
-		post: PropTypes.array,
+		post: PropTypes.array.isRequired,
+		/** 單個貼文寬度 */
+		postWidth: PropTypes.number,
+		/** 單個貼文高度 */
+		postHeight: PropTypes.number,
 		/** 列的貼文數量*/
 		cols: PropTypes.number,
 		/** 間距 */
@@ -18,6 +22,8 @@ export class PostWall extends Component {
 	}
 
 	static defaultProps = {
+		postWidth: 280,
+		postHeight: 200,
 		cols: 3,
 		gap: 20,
 		mask: true,
@@ -25,12 +31,12 @@ export class PostWall extends Component {
 	}
 
 	render() {
-		const { cols, gap, post, mask, text } = this.props;
+		const { post, postWidth, postHeight, cols, gap, mask, text } = this.props;
 		return (
 			<div style={{
 				display: 'grid', 
-				gridTemplateColumns: `repeat(${cols}, 30%)`,
-				gridGap: `${gap}px`,	
+				gridTemplateColumns: `repeat(${cols}, ${postWidth}px)`,
+				gridGap: `${gap}px`,
 			}}>
 				{post.map((t) => 
 					<div className="postwall-layout">
@@ -38,20 +44,21 @@ export class PostWall extends Component {
 						{ text && 
 							<div className="postwall-des-layout">
 								<div>
-									<span className="postwall-des" style={{fontSize: 20}}>{t.day}</span>
+									<span className="postwall-des" style={{ fontSize: 20 }}>{t.day}</span>
 									<span>&nbsp;</span>
-									<span className="postwall-des" style={{fontSize: 14}}>DAYS</span>
+									<span className="postwall-des" style={{ fontSize: 14 }}>DAYS</span>
 								</div>
 								<div>
-									<span className="postwall-des" style={{fontSize: 20}}>{t.like}</span>
+									<span className="postwall-des" style={{ fontSize: 20 }}>{t.like}</span>
 									<span>&nbsp;</span>
-									<span className="postwall-des" style={{fontSize: 14}}>LIKES</span>
+									<span className="postwall-des" style={{ fontSize: 14 }}>LIKES</span>
 								</div>
 							</div>
 						}
-						<div className="postwall-img-overfit">
-							<div className={mask ? "postwall-cover" : "postwall-no-cover"}>
-								<img title={t.title} src={t.src} alt={t.title} className="postwall-img"></img>
+						<div className="postwall-img-overfit" style={{ height: postHeight }}>
+							<div className={ mask ? "postwall-cover" : "postwall-no-cover" }>
+								<img title={t.title} src={t.src} alt={t.title}
+									className="postwall-img"></img>
 							</div>
 						</div>
 					</div>

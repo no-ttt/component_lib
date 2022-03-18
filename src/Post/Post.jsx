@@ -31,8 +31,9 @@ export class Post extends Component {
 		return (
 			<div className="post-layout">
 				<div className="post-pic">
-					{ borderStyle === "Circle" && <div className="post-cover" style={{width: width, height: height}}></div> }
-					<img title={title} src={src} alt={title} width={width} height={height} className="post-image" style={borderStyle==="Circle" ? {borderRadius: "100%"} : {}}></img>
+					{ borderStyle === "Circle" && <div className="post-cover" style={{ width: width, height: height }}></div> }
+					<img title={title} src={src} alt={title} width={width} height={height} 
+						className="post-image" style={ borderStyle==="Circle" ? {borderRadius: "100%"} : {} } />
 				</div>
 				<div className="post-des">
 					<div className="post-name" style={{ fontSize: fontSize }}>{title}</div>

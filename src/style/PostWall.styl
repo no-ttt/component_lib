@@ -5,6 +5,44 @@
 	justify-content: center;
 }
 
+.postwall-img-overfit {
+	overflow: hidden;
+	width: 100%;
+	height: 100%;
+}
+
+.postwall-cover {
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+
+.postwall-cover::before {
+	content: " ";
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	background-color: rgba(0, 0, 0, 0.5);
+}
+
+.postwall-cover:hover {
+	transform: scale(1.2, 1.2);
+	transition: all 1s ease-out;
+}
+
+.postwall-no-cover {
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+
+.postwall-img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+/* content */
 .postwall-title {
 	position: absolute;
 	z-index: 1;
@@ -25,41 +63,6 @@
 .postwall-des {
 	font-family: "cwTeXFangSong", serif;
 	color: white;
-}
-
-.postwall-img-overfit {
-	overflow: hidden;
-}
-
-.postwall-cover {
-	position: relative;
-	width: 280px;
-	height: 200px;
-}
-
-.postwall-cover::before {
-	content: " ";
-	width: 280px;
-	height: 200px;
-	position: absolute;
-	background-color: rgba(0, 0, 0, 0.5);
-}
-
-.postwall-cover:hover {
-	transform: scale(1.2, 1.2);
-	transition: all 1s ease-out;
-}
-
-.postwall-no-cover {
-	position: relative;
-	width: 280px;
-	height: 200px;
-}
-
-.postwall-img {
-	width: 280px;
-	height: 200px;
-	object-fit: cover;
 }
 
 @import url(https://fonts.googleapis.com/earlyaccess/cwtexfangsong.css);
