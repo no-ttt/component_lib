@@ -7,7 +7,7 @@
   ];
 
   <div>
-    <NavBar feature={feature} width={800} iconSize={40} fontSize={14} />
+    <NavBar feature={feature} width={800} featureSize={50} fontSize={14} />
   </div>
 
 ```
