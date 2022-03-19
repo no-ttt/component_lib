@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import CSSModules from 'react-css-modules'
 import styles from '../style/NavBar.styl'
+import Avatar from '../Avatar/Avatar'
 import DashboardIcon from '@material-ui/icons/Dashboard'
 import DateRangeIcon from '@material-ui/icons/DateRange'
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder'
@@ -17,6 +18,8 @@ export class NavBar extends Component {
 		featureSize: PropTypes.number,
 		/** 字體大小 */
 		fontSize: PropTypes.number,
+		/** 頭貼欄位 */
+		avatar: PropTypes.array,
 	}
 
 	static defaultProps = {
@@ -27,7 +30,7 @@ export class NavBar extends Component {
 
 
 	render() {
-		const { feature, name, width, featureSize, fontSize } = this.props;
+		const { feature, width, featureSize, fontSize, avatar } = this.props;
 		let option = [];
 		let iconStyle = [];
 
@@ -43,7 +46,7 @@ export class NavBar extends Component {
 
 			option.push (
 				<div className="navbar-btn" style={{ width: featureSize+40 }}>
-					<div className="navbar-frame" style={{ width: featureSize, height: featureSize }} >{iconStyle}</div>
+					<div className="navbar-frame" style={{ width: featureSize, height: featureSize }}>{iconStyle}</div>
 					<div className="navbar-title" style={{ fontSize: fontSize }}>{feature[i].name}</div>
 				</div>
 			);
@@ -54,6 +57,11 @@ export class NavBar extends Component {
 		return (
 			<div className="navbar-layout" style={{ width: width }}>
 				{option}
+				<Avatar
+					alt={avatar[0].alt}
+					src={avatar[0].src}
+					width={this.props.featureSize}
+				/>
 			</div>
 		)
 	}
