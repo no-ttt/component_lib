@@ -6,13 +6,8 @@
     { icon: "home", name: "首頁" },
   ];
 
-  let avatar = [{ 
-    src: "https://p3-tt.byteimg.com/origin/pgc-image/def93625146b46f8980a39f6e0057b2f?from=pc", 
-    alt: "蠟筆小新" 
-  }];
-
   <div>
-    <NavBar feature={feature} width={800} featureSize={50} fontSize={14} avatar={avatar} />
+    <NavBar feature={feature} width={800} featureSize={50} fontSize={14} />
   </div>
 
 ```

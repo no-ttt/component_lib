@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import CSSModules from 'react-css-modules'
 import styles from '../style/NavBar.styl'
-import Avatar from '../Avatar/Avatar'
 import DashboardIcon from '@material-ui/icons/Dashboard'
 import DateRangeIcon from '@material-ui/icons/DateRange'
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder'
@@ -18,8 +17,6 @@ export class NavBar extends Component {
 		featureSize: PropTypes.number,
 		/** 字體大小 */
 		fontSize: PropTypes.number,
-		/** 頭貼欄位 */
-		avatar: PropTypes.array,
 	}
 
 	static defaultProps = {
@@ -30,24 +27,24 @@ export class NavBar extends Component {
 
 
 	render() {
-		const { feature, width, featureSize, fontSize, avatar } = this.props;
+		const { feature, width, featureSize, fontSize } = this.props;
 		let option = [];
 		let iconStyle = [];
 
 		for (let i = 0; i < feature.length; i++) {
-			if (feature[i].icon == "dashboard")
+			if (feature[i].icon === "dashboard")
 				iconStyle.push (<DashboardIcon />)
-			if (feature[i].icon == "schedule")
+			if (feature[i].icon === "schedule")
 				iconStyle.push (<DateRangeIcon />)
-			if (feature[i].icon == "like")
+			if (feature[i].icon === "like")
 				iconStyle.push (<FavoriteBorderIcon />)
-			if (feature[i].icon == "home")
+			if (feature[i].icon === "home")
 				iconStyle.push (<HomeIcon />)
 
 			option.push (
 				<div className="navbar-btn" style={{ width: featureSize+40 }}>
-					<div className="navbar-frame" style={{ width: featureSize, height: featureSize }}>{iconStyle}</div>
-					<div className="navbar-title" style={{ fontSize: fontSize }}>{feature[i].name}</div>
+					<div className="navbar-frame" style={{ width: featureSize, height: featureSize }}>{ iconStyle }</div>
+					<div className="navbar-title" style={{ fontSize: fontSize }}>{ feature[i].name }</div>
 				</div>
 			);
 
@@ -56,12 +53,7 @@ export class NavBar extends Component {
 
 		return (
 			<div className="navbar-layout" style={{ width: width }}>
-				{option}
-				<Avatar
-					alt={avatar[0].alt}
-					src={avatar[0].src}
-					width={this.props.featureSize}
-				/>
+				{ option }
 			</div>
 		)
 	}
