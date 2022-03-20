@@ -11,3 +11,4 @@ export {default as Popup} from "./Popup/Popup";
 export {default as Rating} from "./Rating/Rating";
 export {default as Tabs} from "./Tabs/Tabs";
 export {default as HintImg} from "./HintImg/HintImg";
+export {default as Dropdown} from "./Dropdown/Dropdown";
