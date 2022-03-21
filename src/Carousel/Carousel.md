@@ -10,7 +10,7 @@
     {title: "金門砲台", src: "https://kinmen.travel/image/723/?r=1606814446331"},
   ];
 
-  let Item = ({data}) => {
+  let Item = ({ data }) => {
     return (
       <div>
         <img src={data.src} alt={data.title} width={200} height={150} style={{ objectFit: "cover" }} />
