@@ -6,9 +6,13 @@ import styles from '../style/Tabs.styl'
 export class Tabs extends Component {
 	static propTypes = {
 		/** 標籤的標題 */
-		tabTitle: PropTypes.array.isRequired,
-		/** 標籤的內容 */
-		tabContent: PropTypes.array.isRequired,
+		title: PropTypes.array.isRequired,
+		/** 標籤內相關資訊 */
+		data: PropTypes.array,
+	}
+
+	static defaultProps = {
+		data: [],
 	}
 
 	constructor(props) {
@@ -19,16 +23,18 @@ export class Tabs extends Component {
 	}
 
 	render() {
-		const { tabTitle, tabContent } = this.props;
+		const { title, data, children } = this.props;
 		return (
 			<div>
 				<div class="tab">
-					{tabTitle.map((subtitle, index) => (
-						<button style={{borderBottom: this.state.contentIndex == index ? "1px black solid": ""}} onClick={() => this.setState({contentIndex: index})}>{subtitle}</button>
+					{title.map((subtitle, index) => (
+						<button style={{ borderBottom: this.state.contentIndex == index ? "1px black solid": "" }} onClick={() => this.setState({ contentIndex: index })}>{ subtitle }</button>
 					))}
 				</div>
 				
-				<div className="tab-content">{tabContent[this.state.contentIndex]}</div>
+				<div className="tab-content">
+					{ React.cloneElement(children, { data: data[this.state.contentIndex] }) }
+				</div>
 			</div>
 		)
 	}

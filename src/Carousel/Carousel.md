@@ -1,5 +1,5 @@
 ```jsx
-  let post = [
+  let data = [
     { title: "日月潭", src: "https://images.chinatimes.com/newsphoto/2021-07-17/656/20210717002224.jpg" },
     { title: "鹿野高台", src: "https://cdn2.ettoday.net/images/4995/d4995352.jpg" },
     { title: "愛河", src: "https://pic.pimg.tw/anrine910070/1602321228-4026170466-g.jpg" },
@@ -9,8 +9,19 @@
     {title: "阿里山小火車", src: "https://blog.tripbaa.com/wp-content/uploads/2018/07/P1011044.jpg"},
     {title: "金門砲台", src: "https://kinmen.travel/image/723/?r=1606814446331"},
   ];
-	
+
+  let Item = ({ data }) => {
+    return (
+      <div>
+        <img src={data.src} alt={data.title} width={200} height={150} style={{ objectFit: "cover" }} />
+        <div style={{ textAlign: "center" }}>{data.title}</div>
+      </div>
+    )
+  };
+  
   <div>
-    <Carousel cols={4} gap={5} post={post} width={200} height={200} fontSize={16} />
+    <Carousel cols={4} gap={10} data={data} width={200} height={180}>
+      <Item />
+    </Carousel>
   </div>
 ```
