@@ -8,26 +8,23 @@ import KeyboardArrowRightIcon from '@material-ui/icons/KeyboardArrowRight'
 
 export class Carousel extends Component {
 	static propTypes = {
-		/** 一頁放多少個 post */
+		/** 一頁放多少個 item */
 		cols: PropTypes.number,
 		/** 間距 */
 		gap: PropTypes.number,
-		/** 所有 post */
-		post: PropTypes.string.isRequired,
-		/** 圖片寬度 */
+		/** 所有 item 相關資訊 */
+		data: PropTypes.array.isRequired,
+		/** item 的寬度 */
 		width: PropTypes.number,
-		/** 圖片高度 */
+		/** item 高度 */
 		height: PropTypes.number,
-		/** 字體大小 */
-		fontSize: PropTypes.number,
 	}
 
 	static defaultProps = {
-		cols: 5,
-		gap: 10,
-		width: 220,
-		height: 220,
-		fontSize: 16,
+		cols: 3,
+		gap: 0,
+		width: 150,
+		height: 200,
 	}
 
 	constructor(props) {
@@ -39,45 +36,46 @@ export class Carousel extends Component {
 
 
 	render() {
-		const { cols, gap, post, width, height, fontSize } = this.props;
-		
-		const itemSetList = post.reduce((result, item, i) => {
+		const { cols, gap, data, width, height, children } = this.props;
+
+
+		const itemSetList = data.reduce((result, item, i) => {
 			if (i % cols === 0) {
-				result.push([
-					<div key={i}>
-						<Post title={item.title} src={item.src} width={width} height={height} fontSize={fontSize} />
+				result.push ([
+					<div key={i} className="Carousel-item">
+						{ React.cloneElement(children, { data: item, width: width, height: height }) }
 					</div>
 				])
 			} else {
-				result[result.length - 1].push(
-					<div key={i}>
-						<Post title={item.title} src={item.src} width={width} height={height} fontSize={fontSize} />
+				result[result.length - 1].push (
+					<div key={i} className="Carousel-item">
+						{ React.cloneElement(children, { data: item, width: width, height: height }) }
 					</div>
 				)
 			}
-	
+
 			return result
 		}, [])
 
-		const page = Math.ceil(post.length / cols)
+		const page = Math.ceil(data.length / cols)
 
 		const handlePrev = () => {
-			this.setState({
+			this.setState ({
 				currentPage: this.state.currentPage - 1
 			})
 		}
 
 		const handleNext = () => {
-			this.setState({
+			this.setState ({
 				currentPage: this.state.currentPage + 1
 			})
 		}
 
 		return (
 			<div className="Carousel">
-				<div hidden={this.state.currentPage <= 0} >
-					<button 
-						onClick={handlePrev} 
+				<div style={this.state.currentPage <= 0 ? {visibility: "hidden"} : {}}>
+					<button
+						onClick={handlePrev}
 						className="Carousel_btn"
 					>
 						<KeyboardArrowLeftIcon />
@@ -89,7 +87,8 @@ export class Carousel extends Component {
 						style={{
 							gridTemplateColumns: `repeat(${page}, 100%)`,
 							left: `calc(${-100 * this.state.currentPage}% - ${gap * this.state.currentPage}px)`,
-							gridColumnGap: `${gap}px`
+							gridColumnGap: `${gap}px`,
+							width: width * cols + gap * (cols - 1),
 						}}
 					>
 						{itemSetList.map((set, i) => (
@@ -97,19 +96,19 @@ export class Carousel extends Component {
 								key={i}
 								style={{
 									display: 'grid',
-									gridTemplateColumns: `repeat(${cols}, 1fr)`,
+									gridTemplateColumns: `repeat(${cols}, ${width}px)`,
 									gridGap: `${gap}px`
 								}}
 							>
-								{set}
+								{ set }
 							</div>
 						))}
-        	</div>
-      	</div>
-				<div hidden={this.state.currentPage=== page - 1} >
+					</div>
+				</div>
+				<div style={this.state.currentPage === page - 1 ? {visibility: "hidden"} : {}} >
 					<button
 						className="Carousel_btn"
-						onClick={handleNext} 
+						onClick={handleNext}
 					>
 						<KeyboardArrowRightIcon />
 					</button>
