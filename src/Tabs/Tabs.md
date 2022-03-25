@@ -6,9 +6,9 @@
     { content: "Tokyo is the capital of Japan." },
   ];
 
-  let Item =({ data }) => {
+  let Item =({ index }) => {
     return (
-      <div>{ data.content }</div>
+      <div>{ data[index].content }</div>
     )
   };
 

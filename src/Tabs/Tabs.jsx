@@ -28,12 +28,14 @@ export class Tabs extends Component {
 			<div>
 				<div class="tab">
 					{title.map((subtitle, index) => (
-						<button style={{ borderBottom: this.state.contentIndex == index ? "1px black solid": "" }} onClick={() => this.setState({ contentIndex: index })}>{ subtitle }</button>
+						<button 
+							style={{borderBottom: this.state.contentIndex == index ? "1px black solid": ""}} 
+							onClick={() => this.setState({ contentIndex: index })}>{ subtitle }
+						</button>
 					))}
-				</div>
-				
+				</div>	
 				<div className="tab-content">
-					{ React.cloneElement(children, { data: data[this.state.contentIndex] }) }
+					{ React.cloneElement(children, { index: this.state.contentIndex }) }
 				</div>
 			</div>
 		)
