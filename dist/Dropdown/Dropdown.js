@@ -5,7 +5,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports["default"] = exports.TravelCard = void 0;
+exports["default"] = exports.Dropdown = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
@@ -13,9 +13,7 @@ var _propTypes = _interopRequireDefault(require("prop-types"));
 
 var _reactCssModules = _interopRequireDefault(require("react-css-modules"));
 
-var _TravelCard = _interopRequireDefault(require("../style/TravelCard.styl"));
-
-var _People = _interopRequireDefault(require("@material-ui/icons/People"));
+var _Dropdown = _interopRequireDefault(require("../style/Dropdown.styl"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
@@ -45,68 +43,53 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-var TravelCard = function (_Component) {
-  _inherits(TravelCard, _Component);
+var Dropdown = function (_Component) {
+  _inherits(Dropdown, _Component);
 
-  var _super = _createSuper(TravelCard);
+  var _super = _createSuper(Dropdown);
 
-  function TravelCard() {
-    _classCallCheck(this, TravelCard);
+  function Dropdown() {
+    _classCallCheck(this, Dropdown);
 
     return _super.apply(this, arguments);
   }
 
-  _createClass(TravelCard, [{
+  _createClass(Dropdown, [{
     key: "render",
     value: function render() {
       var _this$props = this.props,
-          title = _this$props.title,
-          src = _this$props.src,
-          time = _this$props.time,
-          people = _this$props.people;
+          dropdownBtn = _this$props.dropdownBtn,
+          dropdownItem = _this$props.dropdownItem,
+          dropdownMenuPos = _this$props.dropdownMenuPos;
       return _react["default"].createElement("div", {
-        className: "travelCard-frame",
+        className: "dropdown"
+      }, _react["default"].createElement("div", null, dropdownBtn), _react["default"].createElement("div", {
+        className: "dropdown-content",
         style: {
-          width: 280,
-          height: 220
+          marginTop: dropdownMenuPos
         }
-      }, _react["default"].createElement("div", {
-        className: "travelCard-layout"
-      }, _react["default"].createElement("img", {
-        src: src,
-        alt: title,
-        width: 265,
-        height: 140,
-        className: "travelCard-pic"
-      }), _react["default"].createElement("div", {
-        className: "travelCard-des"
-      }, _react["default"].createElement("div", {
-        className: "travelCard-title",
-        title: title
-      }, title), _react["default"].createElement("div", {
-        className: "travelCard-people"
-      }, _react["default"].createElement(_People["default"], {
-        fontSize: "small"
-      }), _react["default"].createElement("div", {
-        className: "travelCard-people-txt"
-      }, people))), _react["default"].createElement("div", {
-        className: "travelCard-time-txt"
-      }, time)));
+      }, dropdownItem.map(function (item) {
+        return _react["default"].createElement(_react["default"].Fragment, null, item);
+      })));
     }
   }]);
 
-  return TravelCard;
+  return Dropdown;
 }(_react.Component);
 
-exports.TravelCard = TravelCard;
+exports.Dropdown = Dropdown;
 
-_defineProperty(TravelCard, "propTypes", {
-  title: _propTypes["default"].string.isRequired,
-  src: _propTypes["default"].string.isRequired,
-  time: _propTypes["default"].string.isRequired,
-  people: _propTypes["default"].string.isRequired
+_defineProperty(Dropdown, "propTypes", {
+  dropdownBtn: _propTypes["default"].string.isRequired,
+  dropdownItem: _propTypes["default"].array,
+  dropdownMenuPos: _propTypes["default"].number
 });
 
-var _default = (0, _reactCssModules["default"])(TravelCard, _TravelCard["default"]);
+_defineProperty(Dropdown, "defaultProps", {
+  dropdownItem: [],
+  dropdownMenuPos: 30
+});
+
+var _default = (0, _reactCssModules["default"])(Dropdown, _Dropdown["default"]);
 
 exports["default"] = _default;
