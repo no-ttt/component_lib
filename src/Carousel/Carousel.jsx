@@ -42,14 +42,14 @@ export class Carousel extends Component {
 		const itemSetList = data.reduce((result, item, i) => {
 			if (i % cols === 0) {
 				result.push ([
-					<div key={i} className="Carousel-item" style={{ height: height }}>
-						{ React.cloneElement(children, { data: item }) }
+					<div key={i} className="Carousel-item">
+						{ React.cloneElement(children, { data: item, width: width, height: height }) }
 					</div>
 				])
 			} else {
 				result[result.length - 1].push (
-					<div key={i} className="Carousel-item" style={{ height: height }}>
-						{ React.cloneElement(children, { data: item }) }
+					<div key={i} className="Carousel-item">
+						{ React.cloneElement(children, { data: item, width: width, height: height }) }
 					</div>
 				)
 			}
@@ -73,9 +73,9 @@ export class Carousel extends Component {
 
 		return (
 			<div className="Carousel">
-				<div style={ this.state.currentPage <= 0 ? {visibility: "hidden"} : {} }>
+				<div style={this.state.currentPage <= 0 ? {visibility: "hidden"} : {}}>
 					<button
-						onClick={ handlePrev }
+						onClick={handlePrev}
 						className="Carousel_btn"
 					>
 						<KeyboardArrowLeftIcon />
@@ -105,10 +105,10 @@ export class Carousel extends Component {
 						))}
 					</div>
 				</div>
-				<div style={ this.state.currentPage === page - 1 ? {visibility: "hidden"} : {} } >
+				<div style={this.state.currentPage === page - 1 ? {visibility: "hidden"} : {}} >
 					<button
 						className="Carousel_btn"
-						onClick={ handleNext }
+						onClick={handleNext}
 					>
 						<KeyboardArrowRightIcon />
 					</button>
