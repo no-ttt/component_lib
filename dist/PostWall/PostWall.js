@@ -58,47 +58,32 @@ var PostWall = function (_Component) {
     key: "render",
     value: function render() {
       var _this$props = this.props,
-          post = _this$props.post,
+          isImg = _this$props.isImg,
+          data = _this$props.data,
           postWidth = _this$props.postWidth,
           postHeight = _this$props.postHeight,
           cols = _this$props.cols,
           gap = _this$props.gap,
           mask = _this$props.mask,
-          text = _this$props.text;
+          children = _this$props.children;
       return _react["default"].createElement("div", {
         style: {
           display: 'grid',
           gridTemplateColumns: "repeat(".concat(cols, ", ").concat(postWidth, "px)"),
           gridGap: "".concat(gap, "px")
         }
-      }, post.map(function (t) {
+      }, data.map(function (item, index) {
         return _react["default"].createElement("div", {
+          key: index
+        }, isImg ? _react["default"].createElement("div", {
           className: "postwall-layout"
-        }, text && _react["default"].createElement("div", {
-          className: "postwall-title"
-        }, t.title), text && _react["default"].createElement("div", {
-          className: "postwall-des-layout"
-        }, _react["default"].createElement("div", null, _react["default"].createElement("span", {
-          className: "postwall-des",
-          style: {
-            fontSize: 20
-          }
-        }, t.day), _react["default"].createElement("span", null, "\xA0"), _react["default"].createElement("span", {
-          className: "postwall-des",
-          style: {
-            fontSize: 14
-          }
-        }, "DAYS")), _react["default"].createElement("div", null, _react["default"].createElement("span", {
-          className: "postwall-des",
-          style: {
-            fontSize: 20
-          }
-        }, t.like), _react["default"].createElement("span", null, "\xA0"), _react["default"].createElement("span", {
-          className: "postwall-des",
-          style: {
-            fontSize: 14
-          }
-        }, "LIKES"))), _react["default"].createElement("div", {
+        }, _react["default"].createElement("div", {
+          className: "postwall-content"
+        }, children ? _react["default"].cloneElement(children, {
+          data: item,
+          width: postWidth,
+          height: postHeight
+        }) : ""), _react["default"].createElement("div", {
           className: "postwall-img-overfit",
           style: {
             height: postHeight
@@ -106,11 +91,16 @@ var PostWall = function (_Component) {
         }, _react["default"].createElement("div", {
           className: mask ? "postwall-cover" : "postwall-no-cover"
         }, _react["default"].createElement("img", {
-          title: t.title,
-          src: t.src,
-          alt: t.title,
+          src: item.src,
+          alt: item.title,
+          width: postWidth,
+          height: postHeight,
           className: "postwall-img"
-        }))));
+        })))) : children ? _react["default"].cloneElement(children, {
+          data: item,
+          width: postWidth,
+          height: postHeight
+        }) : "");
       }));
     }
   }]);
@@ -121,22 +111,22 @@ var PostWall = function (_Component) {
 exports.PostWall = PostWall;
 
 _defineProperty(PostWall, "propTypes", {
-  post: _propTypes["default"].array.isRequired,
+  isImg: _propTypes["default"].array.bool,
+  data: _propTypes["default"].array.isRequired,
   postWidth: _propTypes["default"].number,
   postHeight: _propTypes["default"].number,
   cols: _propTypes["default"].number,
   gap: _propTypes["default"].number,
-  mask: _propTypes["default"]["boolean"],
-  text: _propTypes["default"]["boolean"]
+  mask: _propTypes["default"].bool
 });
 
 _defineProperty(PostWall, "defaultProps", {
+  isImg: true,
   postWidth: 280,
   postHeight: 200,
   cols: 3,
   gap: 20,
-  mask: true,
-  text: true
+  mask: false
 });
 
 var _default = (0, _reactCssModules["default"])(PostWall, _PostWall["default"]);

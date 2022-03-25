@@ -5,10 +5,13 @@
 	justify-content: center;
 }
 
+.postwall-content {
+	position: absolute;
+	z-index: 1;
+}
+
 .postwall-img-overfit {
 	overflow: hidden;
-	width: 100%;
-	height: 100%;
 }
 
 .postwall-cover {
@@ -31,38 +34,10 @@
 }
 
 .postwall-no-cover {
-	position: relative;
-	width: 100%;
 	height: 100%;
 }
 
 .postwall-img {
-	width: 100%;
 	height: 100%;
 	object-fit: cover;
 }
-
-/* content */
-.postwall-title {
-	position: absolute;
-	z-index: 1;
-	font-size: 30px;
-	font-family: "cwTeXFangSong", serif;
-	color: white;
-}
-
-.postwall-des-layout {
-	width: 140px;
-	display: flex;
-	justify-content: space-between;
-	position: absolute;
-	z-index: 1;
-	margin-top: 50px;
-}
-
-.postwall-des {
-	font-family: "cwTeXFangSong", serif;
-	color: white;
-}
-
-@import url(https://fonts.googleapis.com/earlyaccess/cwtexfangsong.css);
