@@ -67,10 +67,11 @@ var Tabs = function (_Component) {
 
       var _this$props = this.props,
           title = _this$props.title,
-          data = _this$props.data,
           children = _this$props.children;
-      return _react["default"].createElement("div", null, _react["default"].createElement("div", {
-        "class": "tab"
+      return _react["default"].createElement("div", {
+        className: "tab-layout"
+      }, _react["default"].createElement("div", {
+        className: "tab"
       }, title.map(function (subtitle, index) {
         return _react["default"].createElement("button", {
           style: {
@@ -96,8 +97,7 @@ var Tabs = function (_Component) {
 exports.Tabs = Tabs;
 
 _defineProperty(Tabs, "propTypes", {
-  title: _propTypes["default"].array.isRequired,
-  data: _propTypes["default"].array
+  title: _propTypes["default"].array.isRequired
 });
 
 _defineProperty(Tabs, "defaultProps", {
