@@ -12,8 +12,8 @@
     )
   };
 
-  <div>
-    <Tabs title={title} data={data}>
+  <div style={{ display: "flex", justifyContent: "center" }}>
+    <Tabs title={title}>
       <Item />
     </Tabs>
   </div>
