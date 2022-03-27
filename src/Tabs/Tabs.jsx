@@ -7,8 +7,6 @@ export class Tabs extends Component {
 	static propTypes = {
 		/** 標籤的標題 */
 		title: PropTypes.array.isRequired,
-		/** 標籤內相關資訊 */
-		data: PropTypes.array,
 	}
 
 	static defaultProps = {
@@ -23,10 +21,10 @@ export class Tabs extends Component {
 	}
 
 	render() {
-		const { title, data, children } = this.props;
+		const { title, children } = this.props;
 		return (
-			<div>
-				<div class="tab">
+			<div className="tab-layout">
+				<div className="tab">
 					{title.map((subtitle, index) => (
 						<button 
 							style={{borderBottom: this.state.contentIndex == index ? "1px black solid": ""}} 

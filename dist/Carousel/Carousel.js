@@ -82,22 +82,20 @@ var Carousel = function (_Component) {
         if (i % cols === 0) {
           result.push([_react["default"].createElement("div", {
             key: i,
-            className: "Carousel-item",
-            style: {
-              height: height
-            }
+            className: "Carousel-item"
           }, _react["default"].cloneElement(children, {
-            data: item
+            data: item,
+            width: width,
+            height: height
           }))]);
         } else {
           result[result.length - 1].push(_react["default"].createElement("div", {
             key: i,
-            className: "Carousel-item",
-            style: {
-              height: height
-            }
+            className: "Carousel-item"
           }, _react["default"].cloneElement(children, {
-            data: item
+            data: item,
+            width: width,
+            height: height
           })));
         }
 

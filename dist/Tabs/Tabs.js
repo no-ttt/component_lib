@@ -85,7 +85,7 @@ var Tabs = function (_Component) {
       })), _react["default"].createElement("div", {
         className: "tab-content"
       }, _react["default"].cloneElement(children, {
-        data: data[this.state.contentIndex]
+        index: this.state.contentIndex
       })));
     }
   }]);
