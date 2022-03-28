@@ -5,12 +5,12 @@ import styles from '../style/Tabs.styl'
 
 export class Tabs extends Component {
 	static propTypes = {
-		/** 標籤的標題 */
-		title: PropTypes.array.isRequired,
-	}
-
-	static defaultProps = {
-		data: [],
+		/** Tab 的標籤名稱和對應資料 */
+		data: PropTypes.array.isRequired,
+		/** 標籤名稱 */
+		getTitle: PropTypes.func,
+		/** 點擊標籤觸發的 function */
+		clickFunc: PropTypes.func,
 	}
 
 	constructor(props) {
@@ -20,20 +20,28 @@ export class Tabs extends Component {
 		}
 	}
 
+	handleClick = (content, index) => {
+		this.setState({ 
+			contentIndex: index 
+		})
+		this.props.clickFunc(content, index)
+	}
+
 	render() {
-		const { title, children } = this.props;
+		const { data, getTitle, children } = this.props;
 		return (
 			<div className="tab-layout">
 				<div className="tab">
-					{title.map((subtitle, index) => (
+					{data.map((d, index) => (
 						<button 
 							style={{borderBottom: this.state.contentIndex == index ? "1px black solid": ""}} 
-							onClick={() => this.setState({ contentIndex: index })}>{ subtitle }
+							onClick={() => this.handleClick(d, index)}>
+								{ getTitle(d) }
 						</button>
 					))}
 				</div>	
 				<div className="tab-content">
-					{ React.cloneElement(children, { index: this.state.contentIndex }) }
+					{ React.cloneElement(children) }
 				</div>
 			</div>
 		)
