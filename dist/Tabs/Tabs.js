@@ -54,6 +54,15 @@ var Tabs = function (_Component) {
     _classCallCheck(this, Tabs);
 
     _this = _super.call(this, props);
+
+    _defineProperty(_assertThisInitialized(_this), "handleClick", function (content, index) {
+      _this.setState({
+        contentIndex: index
+      });
+
+      _this.props.clickFunc(content, index);
+    });
+
     _this.state = {
       contentIndex: 0
     };
@@ -66,28 +75,25 @@ var Tabs = function (_Component) {
       var _this2 = this;
 
       var _this$props = this.props,
-          title = _this$props.title,
+          data = _this$props.data,
+          getTitle = _this$props.getTitle,
           children = _this$props.children;
       return _react["default"].createElement("div", {
         className: "tab-layout"
       }, _react["default"].createElement("div", {
         className: "tab"
-      }, title.map(function (subtitle, index) {
+      }, data.map(function (d, index) {
         return _react["default"].createElement("button", {
           style: {
             borderBottom: _this2.state.contentIndex == index ? "1px black solid" : ""
           },
           onClick: function onClick() {
-            return _this2.setState({
-              contentIndex: index
-            });
+            return _this2.handleClick(d, index);
           }
-        }, subtitle);
+        }, getTitle(d));
       })), _react["default"].createElement("div", {
         className: "tab-content"
-      }, _react["default"].cloneElement(children, {
-        index: this.state.contentIndex
-      })));
+      }, _react["default"].cloneElement(children)));
     }
   }]);
 
@@ -97,11 +103,9 @@ var Tabs = function (_Component) {
 exports.Tabs = Tabs;
 
 _defineProperty(Tabs, "propTypes", {
-  title: _propTypes["default"].array.isRequired
-});
-
-_defineProperty(Tabs, "defaultProps", {
-  data: []
+  data: _propTypes["default"].array.isRequired,
+  getTitle: _propTypes["default"].func,
+  clickFunc: _propTypes["default"].func
 });
 
 var _default = (0, _reactCssModules["default"])(Tabs, _Tabs["default"]);
