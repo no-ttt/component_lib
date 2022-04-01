@@ -1,57 +1,95 @@
-.postIinfo-frame {
-	width: 80%;	
+.post-info-header {
+	display flex
+	flex-direction row
+	justify-content space-between
+	align-items center
+	padding-right 20px
 }
 
-.postInfo-image {
-	object-fit: cover;
+.post-info-header-icon {
+	display flex
+	flex-direction row
+	justify-content space-between
+	width 7%
 }
 
-.postInfo-des-distance {
-	margin-left: 35px;
-	margin-top: 10px;
+.post-info-spot-name {
+	font-weight bold
+	font-size 30px
 }
 
-.postInfo-spotName-txt {	
-	font-size: 22px;
+.post-info-spot-des-block {
+	display flex
+	flex-direction row
+	align-items center
+	margin-top 5px
+	margin-bottom 15px
 }
 
-.postInfo-table {
-  margin-top: 10px;	
-	margin-left: 5px;
-	font-size: 14px;
+.post-info-spot-des {
+	display flex
+	flex-direction row	
+	align-items center
+	margin-right 20px
 }
 
-.postInfo-td {
-	min-width: 60px;	
+.post-info-detail {
+	display flex
+	flex-direction row
+	align-items center
 }
 
-.postInfo-td-text {
-	font-size: 14px;	
+.post-info-tb {
+	margin-left 40px
+	dislay flex
+	align-items center
 }
 
-
-.postInfo-des {
-	display: flex;
-	justify-content: space-between;	
-	flex-direction: row;
-	margin-bottom: 20px;
+.post-info-tb-title {
+	font-size 20px
+	font-weight bold
+	border-bottom 1px black solid
+	margin-bottom 20px
+	width 20%
 }
 
-.postInfo-hr {
-	border-top: 1px #C4C4C4 solid;
+.post-info-td {
+	font-size 14px
+	min-width 70px
 }
 
-.postInfo-other {
-	height: 180px;
-	margin-top: 20px;
+.post-info-text {
+	font-size 14px
 }
 
-.postInfo-other-table {
-	font-size: 14px;
-	margin-left: 10px;
-	margin-top: 10px;	
-} 
+@media screen and (max-width: 1200px) {
+	.post-info-header-icon {
+		width 10%
+	}
+	.post-info-img-rwd {
+		width 100%
+	}
+	.post-info-detail {
+		flex-direction column
+	}
+	.post-info-tb-title {
+		width 20%
+		margin-top 15px
+	}
+	.post-info-tb {
+		margin-left 0px
+	}
+}
 
-.postInfo-other-td {
-	min-width: 90px;	
+@media screen and (max-width: 500px) {
+	.post-info-spot-des-block {
+		flex-direction column
+		align-items flex-start
+	}
+	.post-info-spot-des {
+		margin-bottom 5px	
+	}
+	.post-info-tb-title {
+		width 20%
+	}
 }
