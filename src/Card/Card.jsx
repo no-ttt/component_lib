@@ -6,9 +6,9 @@ import PeopleIcon from '@material-ui/icons/People'
 
 export class Card extends Component {
 	static propTypes = {
-		/** 旅程標題 */
+		/** 卡片標題 */
 		title: PropTypes.string,
-		/** 旅程代表圖片 */
+		/** 卡片代表圖片 */
 		src: PropTypes.string.isRequired,
 		/** 時間 */
 		time: PropTypes.string,
@@ -29,7 +29,7 @@ export class Card extends Component {
 		time: "",
 		people: "",
 		custom: false,
-		width: 280,
+		width: 240,
 		height: 220,
 		picHeight: 140,
 	}
@@ -39,18 +39,18 @@ export class Card extends Component {
 		return (
 			<div className="card-frame" style={{ width: width, height: height }}>
 				<div className="card-layout">
-					<img src={src} alt={title} width={width-15} height={picHeight} className="card-pic"></img>
+					<img src={src} alt={title} height={picHeight} className="card-pic"></img>
 					{ !custom
 						? <div>
-							<div className="card-des">
-								<div className="card-title">{title}</div>
-								<div className="card-people">
-									<PeopleIcon fontSize="small" />
-									<div className="card-people-txt">{people}</div>
+								<div className="card-des">
+									<div className="card-title">{title}</div>
+									<div className="card-people">
+										<PeopleIcon fontSize="small" />
+										<div className="card-people-txt">{people}</div>
+									</div>
 								</div>
+								<div className="card-time-txt">{time}</div>
 							</div>
-							<div className="card-time-txt">{time}</div>
-						</div>
 						: children
 					}
 				</div>
