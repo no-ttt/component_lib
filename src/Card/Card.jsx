@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import CSSModules from 'react-css-modules'
 import styles from '../style/Card.styl'
 import PeopleIcon from '@material-ui/icons/People'
+import MenuBookIcon from '@material-ui/icons/MenuBook'
 
 export class Card extends Component {
 	static propTypes = {
@@ -16,6 +17,10 @@ export class Card extends Component {
 		people: PropTypes.string,
 		/** 是否客製化 */
 		custom: PropTypes.bool,
+		/** 翻面效果 */
+		flip: PropTypes.bool,
+		/** 翻面背後文字 */
+		flipContent: PropTypes.string,
 		/** 卡片寬度 */
 		width: PropTypes.number,
 		/** 卡片高度 */
@@ -25,35 +30,50 @@ export class Card extends Component {
 	}
 
 	static defaultProps = {
-		title: "",
-		time: "",
-		people: "",
 		custom: false,
+		flip: false,
 		width: 240,
 		height: 220,
 		picHeight: 140,
 	}
 
 	render() {
-		const { title, src, time, people, custom, width, height, picHeight, children } = this.props;
+		const { title, src, time, people, custom, flip, flipContent, width, height, picHeight, children } = this.props;
 		return (
-			<div className="card-frame" style={{ width: width, height: height }}>
-				<div className="card-layout">
-					<img src={src} alt={title} height={picHeight} className="card-pic"></img>
-					{ !custom
-						? <div>
-								<div className="card-des">
-									<div className="card-title">{title}</div>
-									<div className="card-people">
-										<PeopleIcon fontSize="small" />
-										<div className="card-people-txt">{people}</div>
+			<div className={!flip ? "card-frame" : "card-flip"} style={{ width: width, height: height }}>
+				{ !flip 
+					?	<div className="card-layout">
+							<img src={src} alt={title} height={picHeight} className="card-pic" />
+							{ !custom
+								? <div>
+										<div className="card-des">
+											<div className="card-title">{title}</div>
+											<div className="card-people">
+												<PeopleIcon fontSize="small" />
+												<div className="card-people-txt">{people}</div>
+											</div>
+										</div>
+										<div className="card-time-txt">{time}</div>
 									</div>
+								: children
+							}
+						</div>
+					: <div className="card-flip-inner">
+							<div className="card-flip-front">
+								<div className="card-layout">
+									<img src={src} alt={title} height={picHeight} className="card-pic" />
+									{ children }
 								</div>
-								<div className="card-time-txt">{time}</div>
 							</div>
-						: children
-					}
-				</div>
+							<div className="card-flip-back">
+								<div className="card-flip-back-bd">
+									<MenuBookIcon />
+									<div className="card-flip-hr"></div>
+									<div className="card-flip-des">{flipContent}</div>
+								</div>
+							</div>
+						</div>
+				}
 			</div>
 		)
 	}

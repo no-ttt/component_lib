@@ -5,7 +5,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports["default"] = exports.Tabs = void 0;
+exports["default"] = exports.Card = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
@@ -13,7 +13,9 @@ var _propTypes = _interopRequireDefault(require("prop-types"));
 
 var _reactCssModules = _interopRequireDefault(require("react-css-modules"));
 
-var _Tabs = _interopRequireDefault(require("../style/Tabs.styl"));
+var _Card = _interopRequireDefault(require("../style/Card.styl"));
+
+var _People = _interopRequireDefault(require("@material-ui/icons/People"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
@@ -43,71 +45,85 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-var Tabs = function (_Component) {
-  _inherits(Tabs, _Component);
+var Card = function (_Component) {
+  _inherits(Card, _Component);
 
-  var _super = _createSuper(Tabs);
+  var _super = _createSuper(Card);
 
-  function Tabs(props) {
-    var _this;
+  function Card() {
+    _classCallCheck(this, Card);
 
-    _classCallCheck(this, Tabs);
-
-    _this = _super.call(this, props);
-
-    _defineProperty(_assertThisInitialized(_this), "handleClick", function (content, index) {
-      _this.setState({
-        contentIndex: index
-      });
-
-      _this.props.clickFunc(content, index);
-    });
-
-    _this.state = {
-      contentIndex: 0
-    };
-    return _this;
+    return _super.apply(this, arguments);
   }
 
-  _createClass(Tabs, [{
+  _createClass(Card, [{
     key: "render",
     value: function render() {
-      var _this2 = this;
-
       var _this$props = this.props,
-          data = _this$props.data,
-          getTitle = _this$props.getTitle,
+          title = _this$props.title,
+          src = _this$props.src,
+          time = _this$props.time,
+          people = _this$props.people,
+          custom = _this$props.custom,
+          width = _this$props.width,
+          height = _this$props.height,
+          picHeight = _this$props.picHeight,
           children = _this$props.children;
       return _react["default"].createElement("div", {
-        className: "tab-layout"
+        className: "card-frame",
+        style: {
+          width: width,
+          height: height
+        }
       }, _react["default"].createElement("div", {
-        className: "tab"
-      }, data.map(function (d, index) {
-        return _react["default"].createElement("button", {
-          style: {
-            borderBottom: _this2.state.contentIndex == index ? "1px black solid" : ""
-          },
-          onClick: function onClick() {
-            return _this2.handleClick(d, index);
-          }
-        }, getTitle(d));
-      })), _react["default"].createElement("div", {
-        className: "tab-content"
-      }, _react["default"].cloneElement(children)));
+        className: "card-layout"
+      }, _react["default"].createElement("img", {
+        src: src,
+        alt: title,
+        height: picHeight,
+        className: "card-pic"
+      }), !custom ? _react["default"].createElement("div", null, _react["default"].createElement("div", {
+        className: "card-des"
+      }, _react["default"].createElement("div", {
+        className: "card-title"
+      }, title), _react["default"].createElement("div", {
+        className: "card-people"
+      }, _react["default"].createElement(_People["default"], {
+        fontSize: "small"
+      }), _react["default"].createElement("div", {
+        className: "card-people-txt"
+      }, people))), _react["default"].createElement("div", {
+        className: "card-time-txt"
+      }, time)) : children));
     }
   }]);
 
-  return Tabs;
+  return Card;
 }(_react.Component);
 
-exports.Tabs = Tabs;
+exports.Card = Card;
 
-_defineProperty(Tabs, "propTypes", {
-  data: _propTypes["default"].array.isRequired,
-  getTitle: _propTypes["default"].func,
-  clickFunc: _propTypes["default"].func
+_defineProperty(Card, "propTypes", {
+  title: _propTypes["default"].string,
+  src: _propTypes["default"].string.isRequired,
+  time: _propTypes["default"].string,
+  people: _propTypes["default"].string,
+  custom: _propTypes["default"].bool,
+  width: _propTypes["default"].number,
+  height: _propTypes["default"].number,
+  picHeight: _propTypes["default"].number
 });
 
-var _default = (0, _reactCssModules["default"])(Tabs, _Tabs["default"]);
+_defineProperty(Card, "defaultProps", {
+  title: "",
+  time: "",
+  people: "",
+  custom: false,
+  width: 240,
+  height: 220,
+  picHeight: 140
+});
+
+var _default = (0, _reactCssModules["default"])(Card, _Card["default"]);
 
 exports["default"] = _default;

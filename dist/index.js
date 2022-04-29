@@ -27,10 +27,10 @@ Object.defineProperty(exports, "PostInfo", {
     return _PostInfo["default"];
   }
 });
-Object.defineProperty(exports, "TravelCard", {
+Object.defineProperty(exports, "Card", {
   enumerable: true,
   get: function get() {
-    return _TravelCard["default"];
+    return _Card["default"];
   }
 });
 Object.defineProperty(exports, "Carousel", {
@@ -96,7 +96,7 @@ var _Post = _interopRequireDefault(require("./Post/Post"));
 
 var _PostInfo = _interopRequireDefault(require("./PostInfo/PostInfo"));
 
-var _TravelCard = _interopRequireDefault(require("./TravelCard/TravelCard"));
+var _Card = _interopRequireDefault(require("./Card/Card"));
 
 var _Carousel = _interopRequireDefault(require("./Carousel/Carousel"));
 
