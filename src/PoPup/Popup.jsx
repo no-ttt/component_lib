@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import CSSModules from 'react-css-modules'
 import styles from '../style/Popup.styl'
-import CancelIcon from '@material-ui/icons/Cancel'
+import CancelIcon from '@mui/icons-material/Cancel'
 
 export class Popup extends Component {
 	static propTypes = {

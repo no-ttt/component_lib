@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import CSSModules from 'react-css-modules'
 import styles from '../style/Card.styl'
-import PeopleIcon from '@material-ui/icons/People'
-import MenuBookIcon from '@material-ui/icons/MenuBook'
+import PeopleIcon from '@mui/icons-material/People'
+import MenuBookIcon from '@mui/icons-material/MenuBook'
 
 export class Card extends Component {
 	static propTypes = {
