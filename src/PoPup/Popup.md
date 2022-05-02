@@ -1,8 +1,7 @@
 ```jsx
-  const click = <div>Click Me!</div>;
-  const content = <h1>Hello, World!</h1>;
+  const clickBtn = <div>Click Me !</div>;
 	
-  <div>
-    <Popup click={click} content={content} width={400} height={200} />
-  </div>
+  <Popup clickBtn={clickBtn} width={500} height={420} title="建立貼文">
+    <div>Hello, World!</div>
+  </Popup>
 ```
