@@ -1,5 +1,5 @@
 ```jsx
-   import React, { useState } from 'react'
+  import React, { useState } from 'react'
 
   const data = [
     { title:"London", content: "London is the capital city of England." },
