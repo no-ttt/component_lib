@@ -12,7 +12,7 @@ export class Rating extends Component {
 		max: PropTypes.number,
 		/** 星星是否固定 */
 		fixed: PropTypes.boolean,
-		/** 星星大小 */
+		/** 星星大小 (small / large) */
 		size: PropTypes.string,
 	}
 
