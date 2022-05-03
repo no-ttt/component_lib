@@ -28,7 +28,7 @@ export class Progress extends Component {
 			<div style={{ width: "220px" }}>
 				<div className="progress-title-section">
 					<div className="progress-title">評論</div>
-					<div className="progress-comment-num">{commentNum}則評論</div>
+					<div className="progress-comment-num">{commentNum} 則評論</div>
 				</div>
 				<div className="progress-rating-section">
 					<div className="progress-rating">{rating.toFixed(1)}</div>
@@ -41,7 +41,6 @@ export class Progress extends Component {
 							<progress id={"star-" + (5-i)} value={r} max={commentNum} />
 						</div>
 					)}
-					
 				</div>
 			</div>
 		)
