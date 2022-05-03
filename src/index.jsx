@@ -1,7 +1,6 @@
 export {default as Avatar} from "./Avatar/Avatar";
 export {default as NavBar} from "./NavBar/NavBar";
 export {default as Post} from "./Post/Post";
-export {default as PostInfo} from "./PostInfo/PostInfo";
 export {default as Card} from "./Card/Card";
 export {default as Carousel} from "./Carousel/Carousel";
 export {default as SearchBox} from "./SearchBox/SearchBox";
@@ -12,3 +11,5 @@ export {default as Rating} from "./Rating/Rating";
 export {default as Tabs} from "./Tabs/Tabs";
 export {default as HintImg} from "./HintImg/HintImg";
 export {default as Dropdown} from "./Dropdown/Dropdown";
+export {default as Comment} from "./Comment/Comment";
+export {default as Progress} from "./Progress/Progress";
