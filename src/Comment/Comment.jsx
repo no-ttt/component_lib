@@ -75,7 +75,7 @@ export class Comment extends Component {
 						</div>
 					</div>
 					<div className="comment-content">
-						<Rating size="small" fixed={true} />
+						<Rating size="small" fixed={true} starDefault={3} />
 						<div>{content}</div>
 					</div>
 					<div className="comment-img-date">
