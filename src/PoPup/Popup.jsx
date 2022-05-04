@@ -44,7 +44,8 @@ export class Popup extends Component {
 			<div>
 				<button onClick={this.togglePopup} className="popup-btn">{ clickBtn }</button>
 				{this.state.isOpen && 
-					<div className="popup-box" onClick={this.togglePopup}>
+					<div className="popup-window-fixed popup-layout">
+						<div className="popup-window-fixed popup-box" onClick={this.togglePopup} />
 						<div className="popup-mesg" style={{ width: width, height: height }}>
 							<div className="popup-header">
 								<div />
