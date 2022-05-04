@@ -5,5 +5,5 @@
     userName: "test",
   };
 
-  <AddComment clickBtn={clickBtn} title="日月潭" src={userInfo.src} userName={userInfo.userName} returnComment={(rating, comment) => {alert("評分：" + rating + "\n評論：" + comment)}} />
+  <AddComment clickBtn={clickBtn} title="日月潭" src={userInfo.src} userName={userInfo.userName} returnComment={(rating, comment, img) => {alert("評分：" + rating + "\n評論：" + comment + "\n圖片: " + img)}} />
 ```
