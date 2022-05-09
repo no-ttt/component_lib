@@ -24,7 +24,7 @@ export class Comment extends Component {
 		/** 發布日期 */
 		date: PropTypes.string,
 		/** 景點描述 */
-		des: PropTypes.string,
+		directDes: PropTypes.string,
 		/** 模式 (comment or direct) */
 		mode: PropTypes.string,
 	}
@@ -57,7 +57,7 @@ export class Comment extends Component {
 	}
 
 	render() {
-		const { src, userName, rating, content, img, date, mode, des } = this.props;
+		const { src, userName, rating, content, img, date, mode, directDes } = this.props;
 		if (mode === "comment")
 			return (
 				<div>
@@ -75,7 +75,7 @@ export class Comment extends Component {
 						</div>
 					</div>
 					<div className="comment-content">
-						<Rating size="small" fixed={true} starDefault={3} />
+						<Rating size="small" fixed={true} starDefault={rating} />
 						<div>{content}</div>
 					</div>
 					<div className="comment-img-date">
@@ -101,7 +101,7 @@ export class Comment extends Component {
 							<div style={{ fontSize: "12px" }}>置頂</div>
 						</div>
 					</div>
-					<div className="comment-content">{des}</div>
+					<div className="comment-content">{directDes}</div>
 				</div>
 			)
 	}

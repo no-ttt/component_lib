@@ -5,12 +5,18 @@ import styles from '../style/Tabs.styl'
 
 export class Tabs extends Component {
 	static propTypes = {
-		/** Tab 的標籤名稱和對應資料 */
+		/** Tab 的 (title, content) */
 		data: PropTypes.array.isRequired,
-		/** 標籤名稱 */
+		/** 標籤名稱 (d) => {d.title} */
 		getTitle: PropTypes.func,
-		/** 點擊標籤觸發的 function */
+		/** 標籤位置是否置中 */
+		tabPosCenter: PropTypes.bool,
+		/** 點擊標籤觸發 (data) => {setData(data)} */
 		clickFunc: PropTypes.func,
+	}
+
+	static defaultProps = {
+		tabPosCenter: true,
 	}
 
 	constructor(props) {
@@ -28,13 +34,13 @@ export class Tabs extends Component {
 	}
 
 	render() {
-		const { data, getTitle, children } = this.props;
+		const { data, getTitle, children, tabPosCenter } = this.props;
 		return (
 			<div className="tab-layout">
-				<div className="tab">
+				<div className="tab" style={{ display: "flex", justifyContent: tabPosCenter ? "center" : "flex-start" }}>
 					{data.map((d, index) => (
 						<button 
-							style={{borderBottom: this.state.contentIndex == index ? "1px black solid": ""}} 
+							style={{ borderBottom: this.state.contentIndex === index ? "1px black solid" : "" }} 
 							onClick={() => this.handleClick(d, index)}>
 								{ getTitle(d) }
 						</button>

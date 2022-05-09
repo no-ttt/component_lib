@@ -5,5 +5,5 @@
     individualRating: [50, 20, 15, 8, 7]
   };
 
-  <Progress rating={comment.rating} commentNum={comment.commentNum}individualRating={comment.individualRating} />
+  <Progress rating={comment.rating} commentNum={comment.commentNum} individualRating={comment.individualRating} />
 ```

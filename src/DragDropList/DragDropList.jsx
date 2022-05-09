@@ -6,12 +6,14 @@ import DeleteIcon from '@material-ui/icons/Delete'
 
 export class DragDropList extends Component {
 	static propTypes = {
-		/** 所有景點 */
+		/** 所有景點資訊 (title, src) */
 		listItem: PropTypes.array.isRequired,
 		/** 框的寬度 */
 		width: PropTypes.number,
 		/** 框的高度 */
 		height: PropTypes.number,
+		/** 回傳更改後的陣列 (list) => {} */
+		changeList: PropTypes.func,
 	}
 
 	static defaultProps = {
@@ -83,12 +85,10 @@ export class DragDropList extends Component {
 						style={{width: width, height: height}}
 					>
 						<div className="dragdroplist-layout">
-							<img title={item.title} src={item.src} alt={item.title} className="dragdroplist-img-frame"></img>
+							<img title={item.title} src={item.src} alt={item.title} className="dragdroplist-img-frame" width={height-10} height={height-10}></img>
 							<div>{item.title}</div>
 						</div>
-						<button className="dragdroplist-btn" 
-							onClick={this.handleDelete.bind(this, item)}
-						>
+						<button className="dragdroplist-btn" onClick={this.handleDelete.bind(this, item)}>
 							<DeleteIcon />
 						</button>
 					</div>

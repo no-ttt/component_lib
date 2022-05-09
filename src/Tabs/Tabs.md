@@ -10,15 +10,13 @@
  
   let Item = () => {
     return (
-      <div>
+      <div style={{ display: "flex", justifyContent: "center" }}>
         {selectData.content}
       </div>
     )
   };
 
-  <div style={{ display: "flex", justifyContent: "center" }}>
-    <Tabs data={data} getTitle={(d) => d.title} clickFunc={(data) => setSelectData(data)}> 
-      <Item />
-    </Tabs>
-  </div>
+  <Tabs data={data} getTitle={(d) => d.title} clickFunc={(data) => setSelectData(data)} tabPosCenter={true}> 
+    <Item />
+  </Tabs>
 ```

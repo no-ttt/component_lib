@@ -12,7 +12,7 @@ export class SearchBox extends Component {
 		height: PropTypes.number,
 		/** 提示字大小 */
 		fontSize: PropTypes.number,
-		/** event */
+		/** event (text) => {} */
 		func: PropTypes.func,
 	}
 

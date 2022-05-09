@@ -5,3 +5,11 @@
     <div>Hello, World!</div>
   </Popup>
 ```
+### Wthout title
+```jsx
+  const clickBtn = <div>Click Me !</div>;
+
+  <Popup clickBtn={clickBtn} width={200} height={20} close={false} >
+    <div style={{ display: "flex", justifyContent: "center"}}>Hello World!</div>
+  </Popup>
+```

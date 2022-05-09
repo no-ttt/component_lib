@@ -7,7 +7,5 @@
     { title: "虎頭山", src: "https://img.bobblog.tw/flickr/25013636722_fbd5966956_z.jpg" },
   ];
 
-  <div>
-    <DragDropList listItem={listItem} changeList={(list) => {console.log(list)}} width={250} height={60} />
-  </div>
+  <DragDropList listItem={listItem} changeList={(list) => {console.log(list)}} width={250} height={60} />
 ```

@@ -12,9 +12,9 @@ export class Rating extends Component {
 		max: PropTypes.number,
 		/** 星星是否固定 */
 		fixed: PropTypes.boolean,
-		/** 星星大小 (small / large) */
+		/** 星星大小 (small or large) */
 		size: PropTypes.string,
-		/** 回傳數值 */
+		/** 回傳數值 (n) => {} */
 		value: PropTypes.func,
 	}
 
@@ -22,6 +22,7 @@ export class Rating extends Component {
 		starDefault: 0,
 		max: 5,
 		fixed: false,
+
 	}
 
 	constructor(props) {

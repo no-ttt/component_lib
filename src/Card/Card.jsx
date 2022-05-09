@@ -15,7 +15,7 @@ export class Card extends Component {
 		time: PropTypes.string,
 		/** 人數 */
 		people: PropTypes.string,
-		/** 是否客製化 */
+		/** 是否客製化 (只留圖片) */
 		custom: PropTypes.bool,
 		/** 翻面效果 */
 		flip: PropTypes.bool,

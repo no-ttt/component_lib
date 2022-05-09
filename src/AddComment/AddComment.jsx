@@ -19,7 +19,7 @@ export class AddComment extends Component {
 		src: PropTypes.string,
 		/** 使用者名稱 */
 		userName: PropTypes.string,
-		/** 回傳填寫內容 {(rating, comment, img)} => {} */
+		/** 回傳填寫內容 (rating, comment, img) => {} */
 		returnComment: PropTypes.func,
 	}
 
@@ -78,7 +78,7 @@ export class AddComment extends Component {
 								<input type="file" multiple="multiple" draggable="true" onChange={this.onChange} style={{ display: "none" }} ref={this.fileEl} />
 								<div><AddAPhotoIcon sx={{ fontSize: 30 }} /></div>	
 							</label>
-							<div className="add-comment-img-section">
+							<div className="add-comment-img-section" id="add-comment">
 								{ this.state.img.length !== 0 
 									? this.state.img.map((src, i) => 
 										<div key={i} className="add-comment-img">

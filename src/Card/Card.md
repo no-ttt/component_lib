@@ -24,10 +24,14 @@
 
   <div style={{ display: "flex", justifyContent: "space-around" }}>
     <Card src={customData.src} custom={true} picHeight={175}>
-      <div style={{ textAlign: "center", fontWeight: "bold", width: "100%", marginTop: 5 }} >{customData.title}</div>
+      <div style={{ textAlign: "center", fontWeight: "bold", width: "100%", marginTop: 5 }}>
+        {customData.title}
+      </div>
     </Card>
     <Card src={customData.src} custom={true} height={300} picHeight={250} width={250} flip={true} flipContent={customData.des}>
-      <div style={{ textAlign: "center", fontWeight: "bold", width: "100%", marginTop: 10 }} >{customData.title}</div>
+      <div style={{ textAlign: "center", fontWeight: "bold", width: "100%", marginTop: 10 }}>
+        {customData.title}
+      </div>
     </Card>
   </div>
 ```

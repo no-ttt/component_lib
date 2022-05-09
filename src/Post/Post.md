@@ -13,3 +13,19 @@
     { listItems }
   </div>
 ```
+### Circle Style
+```jsx
+  let post = [
+    { title: "東部", src: "https://cdn2.ettoday.net/images/4995/d4995352.jpg" },
+    { title: "南部", src: "https://pic.pimg.tw/anrine910070/1602321228-4026170466-g.jpg" },
+    { title: "北部", src: "https://yuann.tw/wp-content/uploads/2006/06/101_resize.jpg" },
+  ];
+
+  const listItems = post.map((t) =>
+    <Post title={t.title} src={t.src} width={200} height={200} fontSize={16} borderStyle="Circle" />
+  );
+
+  <div style={{ display: "flex", justifyContent: "space-around" }}>
+    { listItems }
+  </div>
+```
