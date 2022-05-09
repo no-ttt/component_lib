@@ -7,15 +7,25 @@ import Avatar from '../Avatar/Avatar'
 import Rating from '../Rating/Rating'
 import AddAPhotoIcon from '@mui/icons-material/AddAPhoto'
 import ClearIcon from '@mui/icons-material/Clear'
+import default_avatar from '../img/default_avatar.png'
 
 export class AddComment extends Component {
 	static propTypes = {
 		/** 觸發元件 */
-		clickBtn: PropTypes.string,
+		clickBtn: PropTypes.string.isRequired,
+		/** 彈跳窗標題文字 */
+		title: PropTypes.string,
+		/** 使用者頭貼 */
+		src: PropTypes.string,
+		/** 使用者名稱 */
+		userName: PropTypes.string,
+		/** 回傳填寫內容 {(rating, comment, img)} => {} */
+		returnComment: PropTypes.func,
 	}
 
 
 	static defaultProps = {
+		src: default_avatar,
 	}
 
 	constructor(props) {
