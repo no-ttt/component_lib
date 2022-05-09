@@ -12,8 +12,8 @@ export class AddComment extends Component {
 	static propTypes = {
 		/** 觸發元件 */
 		clickBtn: PropTypes.string,
-
 	}
+
 
 	static defaultProps = {
 	}
@@ -25,6 +25,7 @@ export class AddComment extends Component {
 			comment: "",
 			img: [],
 		}
+		this.fileEl = React.createRef();
 	}
 
 	onChange = (e) => {
@@ -44,6 +45,7 @@ export class AddComment extends Component {
 	submit = () => {
     // json base64
     // axios.post("/img", { img: this.state.img });
+
 		this.props.returnComment(this.state.rating, this.state.comment, this.state.img)
   };
 
@@ -63,14 +65,18 @@ export class AddComment extends Component {
 							className="add-comment-textarea" onChange={e => this.setState({ comment: e.target.value })} />
 						<div style={{ display: "flex", flexDirection: "row" }}>
 							<label className="add-comment-upload-img-frame">
-								<input type="file" multiple="multiple" draggable="true" onChange={this.onChange} style={{ display: "none" }} />
+								<input type="file" multiple="multiple" draggable="true" onChange={this.onChange} style={{ display: "none" }} ref={this.fileEl} />
 								<div><AddAPhotoIcon sx={{ fontSize: 30 }} /></div>	
 							</label>
 							<div className="add-comment-img-section">
 								{ this.state.img.length !== 0 
 									? this.state.img.map((src, i) => 
 										<div key={i} className="add-comment-img">
-											<button className="add-comment-upload-cancel" onClick={() => this.setState({ img: this.state.img.filter((f, index) => index !== i)})}>
+											<button className="add-comment-upload-cancel" 
+												onClick={() => {
+													this.setState({ img: this.state.img.filter((f, index) => index !== i)}); 
+													this.fileEl.current.value = null;
+												}}>
 												<ClearIcon fontSize="small" />
 											</button>
 											<img className="add-comment-upload-img" src={src} />
