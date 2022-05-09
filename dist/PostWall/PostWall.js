@@ -58,7 +58,6 @@ var PostWall = function (_Component) {
     key: "render",
     value: function render() {
       var _this$props = this.props,
-          isImg = _this$props.isImg,
           data = _this$props.data,
           postWidth = _this$props.postWidth,
           postHeight = _this$props.postHeight,
@@ -75,7 +74,7 @@ var PostWall = function (_Component) {
       }, data.map(function (item, index) {
         return _react["default"].createElement("div", {
           key: index
-        }, isImg ? _react["default"].createElement("div", {
+        }, _react["default"].createElement("div", {
           className: "postwall-layout"
         }, _react["default"].createElement("div", {
           className: "postwall-content"
@@ -96,11 +95,7 @@ var PostWall = function (_Component) {
           width: postWidth,
           height: postHeight,
           className: "postwall-img"
-        })))) : children ? _react["default"].cloneElement(children, {
-          data: item,
-          width: postWidth,
-          height: postHeight
-        }) : "");
+        })))));
       }));
     }
   }]);
@@ -111,7 +106,6 @@ var PostWall = function (_Component) {
 exports.PostWall = PostWall;
 
 _defineProperty(PostWall, "propTypes", {
-  isImg: _propTypes["default"].array.bool,
   data: _propTypes["default"].array.isRequired,
   postWidth: _propTypes["default"].number,
   postHeight: _propTypes["default"].number,
@@ -121,7 +115,6 @@ _defineProperty(PostWall, "propTypes", {
 });
 
 _defineProperty(PostWall, "defaultProps", {
-  isImg: true,
   postWidth: 280,
   postHeight: 200,
   cols: 3,

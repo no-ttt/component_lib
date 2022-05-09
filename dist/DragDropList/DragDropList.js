@@ -151,7 +151,9 @@ var DragDropList = function (_Component) {
           title: item.title,
           src: item.src,
           alt: item.title,
-          className: "dragdroplist-img-frame"
+          className: "dragdroplist-img-frame",
+          width: height - 10,
+          height: height - 10
         }), _react["default"].createElement("div", null, item.title)), _react["default"].createElement("button", {
           className: "dragdroplist-btn",
           onClick: _this2.handleDelete.bind(_this2, item)
@@ -168,7 +170,8 @@ exports.DragDropList = DragDropList;
 _defineProperty(DragDropList, "propTypes", {
   listItem: _propTypes["default"].array.isRequired,
   width: _propTypes["default"].number,
-  height: _propTypes["default"].number
+  height: _propTypes["default"].number,
+  changeList: _propTypes["default"].func
 });
 
 _defineProperty(DragDropList, "defaultProps", {

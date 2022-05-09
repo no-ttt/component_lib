@@ -5,7 +5,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports["default"] = exports.Rating = void 0;
+exports["default"] = exports.AddComment = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
@@ -13,9 +13,19 @@ var _propTypes = _interopRequireDefault(require("prop-types"));
 
 var _reactCssModules = _interopRequireDefault(require("react-css-modules"));
 
-var _Rating = _interopRequireDefault(require("../style/Rating.styl"));
+var _AddComment = _interopRequireDefault(require("../style/AddComment.styl"));
 
-var _Star = _interopRequireDefault(require("@mui/icons-material/Star"));
+var _Popup = _interopRequireDefault(require("../PoPup/Popup"));
+
+var _Avatar = _interopRequireDefault(require("../Avatar/Avatar"));
+
+var _Rating = _interopRequireDefault(require("../Rating/Rating"));
+
+var _AddAPhoto = _interopRequireDefault(require("@mui/icons-material/AddAPhoto"));
+
+var _Clear = _interopRequireDefault(require("@mui/icons-material/Clear"));
+
+var _default_avatar = _interopRequireDefault(require("../img/default_avatar.png"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
@@ -57,91 +67,158 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-var Rating = function (_Component) {
-  _inherits(Rating, _Component);
+var AddComment = function (_Component) {
+  _inherits(AddComment, _Component);
 
-  var _super = _createSuper(Rating);
+  var _super = _createSuper(AddComment);
 
-  function Rating(props) {
+  function AddComment(props) {
     var _this;
 
-    _classCallCheck(this, Rating);
+    _classCallCheck(this, AddComment);
 
     _this = _super.call(this, props);
 
-    _defineProperty(_assertThisInitialized(_this), "setValue", function (index) {
-      _this.setState({
-        rating: index
-      });
+    _defineProperty(_assertThisInitialized(_this), "onChange", function (e) {
+      var file = e.target.files.item(0);
+      var fileReader = new FileReader();
+      fileReader.addEventListener("load", _this.fileLoad);
+      fileReader.readAsDataURL(file);
+    });
 
-      _this.props.value(index);
+    _defineProperty(_assertThisInitialized(_this), "fileLoad", function (e) {
+      _this.setState({
+        img: [].concat(_toConsumableArray(_this.state.img), [e.target.result])
+      });
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "submit", function () {
+      _this.props.returnComment(_this.state.rating, _this.state.comment, _this.state.img);
     });
 
     _this.state = {
-      rating: _this.props.starDefault,
-      hover: _this.props.starDefault,
-      fixed: _this.props.fixed
+      rating: 0,
+      comment: "",
+      img: []
     };
+    _this.fileEl = _react["default"].createRef();
     return _this;
   }
 
-  _createClass(Rating, [{
+  _createClass(AddComment, [{
     key: "render",
     value: function render() {
       var _this2 = this;
 
-      var _this$state = this.state,
-          rating = _this$state.rating,
-          hover = _this$state.hover,
-          fixed = _this$state.fixed;
       var _this$props = this.props,
-          max = _this$props.max,
-          size = _this$props.size;
-      return _react["default"].createElement("div", null, _toConsumableArray(Array(max)).map(function (star, index) {
-        index += 1;
-        return _react["default"].createElement("button", {
-          key: index,
-          className: index <= (hover || rating) ? "on" : "off",
+          clickBtn = _this$props.clickBtn,
+          title = _this$props.title,
+          src = _this$props.src,
+          userName = _this$props.userName;
+      console.log(this.state.img);
+      return _react["default"].createElement(_Popup["default"], {
+        clickBtn: clickBtn,
+        width: 400,
+        height: 480,
+        title: title
+      }, _react["default"].createElement("div", null, _react["default"].createElement("div", {
+        className: "add-comment-user-info"
+      }, _react["default"].createElement(_Avatar["default"], {
+        alt: "user_avatar",
+        src: src,
+        width: 45
+      }), _react["default"].createElement("div", {
+        "class": "add-comment-user"
+      }, userName)), _react["default"].createElement("div", {
+        className: "add-comment-section"
+      }, _react["default"].createElement(_Rating["default"], {
+        max: 5,
+        fixed: false,
+        size: "large",
+        value: function value(n) {
+          return _this2.setState({
+            rating: n
+          });
+        }
+      }), _react["default"].createElement("textarea", {
+        id: "comment",
+        name: "comment",
+        rows: "8",
+        placeholder: "\u5BEB\u4E9B\u4EC0\u9EBC\uFF1F",
+        className: "add-comment-textarea",
+        onChange: function onChange(e) {
+          return _this2.setState({
+            comment: e.target.value
+          });
+        }
+      }), _react["default"].createElement("div", {
+        style: {
+          display: "flex",
+          flexDirection: "row"
+        }
+      }, _react["default"].createElement("label", {
+        className: "add-comment-upload-img-frame"
+      }, _react["default"].createElement("input", {
+        type: "file",
+        multiple: "multiple",
+        draggable: "true",
+        onChange: this.onChange,
+        style: {
+          display: "none"
+        },
+        ref: this.fileEl
+      }), _react["default"].createElement("div", null, _react["default"].createElement(_AddAPhoto["default"], {
+        sx: {
+          fontSize: 30
+        }
+      }))), _react["default"].createElement("div", {
+        className: "add-comment-img-section",
+        id: "add-comment"
+      }, this.state.img.length !== 0 ? this.state.img.map(function (src, i) {
+        return _react["default"].createElement("div", {
+          key: i,
+          className: "add-comment-img"
+        }, _react["default"].createElement("button", {
+          className: "add-comment-upload-cancel",
           onClick: function onClick() {
-            return !fixed && _this2.setValue(index);
-          },
-          onMouseEnter: function onMouseEnter() {
-            return !fixed && _this2.setState({
-              hover: index
+            _this2.setState({
+              img: _this2.state.img.filter(function (f, index) {
+                return index !== i;
+              })
             });
-          },
-          onMouseLeave: function onMouseLeave() {
-            return !fixed && _this2.setState({
-              hover: rating
-            });
+
+            _this2.fileEl.current.value = null;
           }
-        }, _react["default"].createElement(_Star["default"], {
-          className: "rating-icon",
-          fontSize: size
+        }, _react["default"].createElement(_Clear["default"], {
+          fontSize: "small"
+        })), _react["default"].createElement("img", {
+          className: "add-comment-upload-img",
+          src: src
         }));
-      }));
+      }) : "")), _react["default"].createElement("button", {
+        className: "add-comment-btn",
+        onClick: this.submit
+      }, "\u6211\u8981\u767C\u4F48"))));
     }
   }]);
 
-  return Rating;
+  return AddComment;
 }(_react.Component);
 
-exports.Rating = Rating;
+exports.AddComment = AddComment;
 
-_defineProperty(Rating, "propTypes", {
-  starDefault: _propTypes["default"].number,
-  max: _propTypes["default"].number,
-  fixed: _propTypes["default"]["boolean"],
-  size: _propTypes["default"].string,
-  value: _propTypes["default"].func
+_defineProperty(AddComment, "propTypes", {
+  clickBtn: _propTypes["default"].string.isRequired,
+  title: _propTypes["default"].string,
+  src: _propTypes["default"].string,
+  userName: _propTypes["default"].string,
+  returnComment: _propTypes["default"].func
 });
 
-_defineProperty(Rating, "defaultProps", {
-  starDefault: 0,
-  max: 5,
-  fixed: false
+_defineProperty(AddComment, "defaultProps", {
+  src: _default_avatar["default"]
 });
 
-var _default = (0, _reactCssModules["default"])(Rating, _Rating["default"]);
+var _default = (0, _reactCssModules["default"])(AddComment, _AddComment["default"]);
 
 exports["default"] = _default;
