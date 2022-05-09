@@ -15,7 +15,7 @@ export class Post extends Component {
 		height: PropTypes.number,
 		/** 字體大小 */
 		fontSize: PropTypes.number,
-		/** 邊框形狀(Square & Circle) */
+		/** 邊框形狀 (Square or Circle) */
 		borderStyle: PropTypes.string,
 	}
 

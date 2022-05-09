@@ -6,8 +6,5 @@
     { icon: "home", name: "首頁" },
   ];
 
-  <div>
-    <NavBar feature={feature} width={800} featureSize={50} fontSize={14} />
-  </div>
-
+  <NavBar feature={feature} width={800} />
 ```

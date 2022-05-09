@@ -14,7 +14,7 @@
     )
   };
 
-  <PostWall isImg={true} data={data} postWidth={280} postHeight={200} cols={3} gap={20} mask={true}>
+  <PostWall data={data} postWidth={280} postHeight={200} cols={3} gap={20} mask={true}>
     <Item />
   </PostWall>
 ```

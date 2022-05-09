@@ -1,8 +1,15 @@
 ```jsx
-  const click = <div>Click Me!</div>;
-  const content = <h1>Hello, World!</h1>;
+  const clickBtn = <div>Click Me !</div>;
 	
-  <div>
-    <Popup click={click} content={content} width={400} height={200} />
-  </div>
+  <Popup clickBtn={clickBtn} width={500} height={420} title="建立貼文">
+    <div>Hello, World!</div>
+  </Popup>
+```
+### Wthout title
+```jsx
+  const clickBtn = <div>Click Me !</div>;
+
+  <Popup clickBtn={clickBtn} width={200} height={20} close={false} >
+    <div style={{ display: "flex", justifyContent: "center"}}>Hello World!</div>
+  </Popup>
 ```

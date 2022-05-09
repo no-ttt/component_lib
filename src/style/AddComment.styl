@@ -1,0 +1,105 @@
+.add-comment-user-info {
+	display flex
+	flex-direction row
+	align-items center
+}
+
+.add-comment-user {
+	font-size 18px
+	font-weight bold
+	margin-left 10px
+}
+
+.add-comment-section {
+	margin-left 10px
+}
+
+.add-comment-textarea {
+	margin-top 10px
+	border 1px #C4C4C4 solid
+	border-radius 5px
+	outline none
+	padding 10px 10px
+	width 92%
+}
+
+.add-comment-upload-img-frame {
+	border 1px #C4C4C4 dashed
+	border-radius 5px
+	width 80px
+	height 80px
+	margin-top 20px
+	display flex
+	justify-content center
+	align-items center
+	cursor pointer
+	display flex 
+	flex-direction row
+}
+
+.add-comment-upload-img-frame:hover {
+	border 1px gray dashed
+}
+
+.add-comment-img-section {
+	display flex 
+	flex-direction row
+	width 75%
+	height 90px
+	overflow-y auto
+	margin-top 20px
+}
+
+.add-comment-img {
+	position relative
+}
+
+.add-comment-upload-img {
+	border-radius 5px
+	width 80px
+	height 80px
+	object-fit cover
+	margin-left 10px
+}
+
+.add-comment-img:hover .add-comment-upload-cancel {
+	display block
+	position absolute
+	margin-left 70px
+}
+
+.add-comment-upload-cancel {
+	display none
+}
+
+.add-comment-btn {
+	background rgba(128, 128, 128, 0.6)
+	width 92%
+	height 30px
+	margin-left 10px
+	margin-top 20px
+	border-radius 5px
+	outline none
+	font-size 18px
+}
+
+.add-comment-btn:hover {
+	background #FAECBB
+}
+
+/* width */
+#add-comment::-webkit-scrollbar {
+  height 4px
+}
+
+/* Track */
+#add-comment::-webkit-scrollbar-track {
+  background-color white
+  border-radius 10px
+}
+ 
+/* Handle */
+#add-comment::-webkit-scrollbar-thumb {
+  background black
+  border-radius 10px
+}

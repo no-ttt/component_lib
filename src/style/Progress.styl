@@ -1,0 +1,62 @@
+.progress-title-section {
+	display flex
+	justify-content space-between
+	align-items flex-end
+
+}
+
+.progress-title {
+	font-size 30px
+	font-weight bold
+}
+
+.progress-comment-num {
+	font-size 14px
+	color grey
+}
+
+.progress-rating-section {
+	display flex
+	justify-content space-between
+	margin-top 15px
+	width 100%
+}
+
+.progress-rating {
+	font-size 25px
+	font-weight normal
+}
+
+.progress-section {
+	margin-top 10px
+}
+
+.progress-individual {
+	display flex 
+	justify-content space-between
+	align-items flex-end
+	margin-bottom 5px
+}
+
+.progress-label {
+	font-size 16px
+	font-weight bold
+}
+
+progress {
+	background white
+	appearance none /*设置iOS下清除灰色背景*/
+	-webkit-appearance none
+}
+	/*设置进度条颜色*/
+	::-webkit-progress-value {
+		background #ffd700
+		border-radius 20px
+		height 10px
+	}
+
+	/*设置进度条背景颜色*/
+	::-webkit-progress-bar {
+		background white
+	}
+

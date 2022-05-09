@@ -12,7 +12,7 @@ export class Carousel extends Component {
 		cols: PropTypes.number,
 		/** 間距 */
 		gap: PropTypes.number,
-		/** 所有 item 相關資訊 */
+		/** 所有 item 相關資訊 (title, src)*/
 		data: PropTypes.array.isRequired,
 		/** item 的寬度 */
 		width: PropTypes.number,
@@ -34,11 +34,8 @@ export class Carousel extends Component {
 		}
 	}
 
-
 	render() {
 		const { cols, gap, data, width, height, children } = this.props;
-
-
 		const itemSetList = data.reduce((result, item, i) => {
 			if (i % cols === 0) {
 				result.push ([

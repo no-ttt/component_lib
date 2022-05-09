@@ -1,20 +1,22 @@
 ```jsx
-  const title = ["London", "Paris", "Tokyo"];
-  const data = [
-    { content: "London is the capital city of England." },
-    { content: "Paris is the capital of France." },
-    { content: "Tokyo is the capital of Japan." },
-  ];
+  import React, { useState } from 'react'
 
-  let Item =({ index }) => {
+  const data = [
+    { title:"London", content: "London is the capital city of England." },
+    { title:"Paris", content: "Paris is the capital of France." },
+    { title:"Tokyo", content: "Tokyo is the capital of Japan." },
+  ];
+  const [selectData, setSelectData] = useState(data[0]);
+ 
+  let Item = () => {
     return (
-      <div>{ data[index].content }</div>
+      <div style={{ display: "flex", justifyContent: "center" }}>
+        {selectData.content}
+      </div>
     )
   };
 
-  <div style={{ display: "flex", justifyContent: "center" }}>
-    <Tabs title={title}>
-      <Item />
-    </Tabs>
-  </div>
+  <Tabs data={data} getTitle={(d) => d.title} clickFunc={(data) => setSelectData(data)} tabPosCenter={true}> 
+    <Item />
+  </Tabs>
 ```
