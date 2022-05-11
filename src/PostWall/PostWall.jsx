@@ -32,7 +32,7 @@ export class PostWall extends Component {
 		return (
 			<div style={{
 				display: 'grid', 
-				gridTemplateColumns: `repeat(${cols}, ${postWidth}px)`,
+				gridTemplateColumns: `repeat(${cols}, 1fr)`,
 				gridGap: `${gap}px`,
 			}}>
 				{data.map((item, index) => 
@@ -41,9 +41,9 @@ export class PostWall extends Component {
 							<div className="postwall-content">
 								{ children ? React.cloneElement(children, { data: item, width: postWidth, height: postHeight }) : "" }
 							</div>
-							<div className="postwall-img-overfit" style={{ height: postHeight }}>
+							<div className="postwall-img-overfit" style={{ width: postWidth, height: postHeight }}>
 								<div className={ mask ? "postwall-cover" : "postwall-no-cover" }>
-									<img src={item.src} alt={item.title} width={postWidth} height={postHeight} className="postwall-img" />
+									<img src={item.src} alt={item.title} className="postwall-img" />
 								</div>
 							</div>
 						</div>
