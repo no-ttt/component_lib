@@ -68,7 +68,7 @@ var PostWall = function (_Component) {
       return _react["default"].createElement("div", {
         style: {
           display: 'grid',
-          gridTemplateColumns: "repeat(".concat(cols, ", ").concat(postWidth, "px)"),
+          gridTemplateColumns: "repeat(".concat(cols, ", 1fr)"),
           gridGap: "".concat(gap, "px")
         }
       }, data.map(function (item, index) {
@@ -85,6 +85,7 @@ var PostWall = function (_Component) {
         }) : ""), _react["default"].createElement("div", {
           className: "postwall-img-overfit",
           style: {
+            width: postWidth,
             height: postHeight
           }
         }, _react["default"].createElement("div", {
@@ -92,8 +93,6 @@ var PostWall = function (_Component) {
         }, _react["default"].createElement("img", {
           src: item.src,
           alt: item.title,
-          width: postWidth,
-          height: postHeight,
           className: "postwall-img"
         })))));
       }));
