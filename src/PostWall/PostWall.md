@@ -8,13 +8,15 @@
     { title: "親近大自然", src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR813SKMm9B_vyUViP54He3z4u92UGXC9S3PA&usqp=CAU" },
   ];
 
-  const Item = ({ data, postWidth, postHeight }) =>{
+  const Item = ({ data, postWidth, postHeight }) => {
     return (
       <div style={{ color: "white" }}>{data.title}</div>
     )
   };
 
-  <PostWall data={data} postWidth={280} postHeight={200} cols={3} gap={20} mask={true}>
-    <Item />
-  </PostWall>
+  <div style={{ width: "100%" }}>
+    <PostWall data={data} postWidth={280} postHeight={200} cols={3} gap={20} mask={true}>
+      <Item />
+    </PostWall>
+  </div>
 ```
