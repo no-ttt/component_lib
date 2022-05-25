@@ -77,15 +77,20 @@ var Tabs = function (_Component) {
       var _this$props = this.props,
           data = _this$props.data,
           getTitle = _this$props.getTitle,
-          children = _this$props.children;
+          children = _this$props.children,
+          tabPosCenter = _this$props.tabPosCenter;
       return _react["default"].createElement("div", {
         className: "tab-layout"
       }, _react["default"].createElement("div", {
-        className: "tab"
+        className: "tab",
+        style: {
+          display: "flex",
+          justifyContent: tabPosCenter ? "center" : "flex-start"
+        }
       }, data.map(function (d, index) {
         return _react["default"].createElement("button", {
           style: {
-            borderBottom: _this2.state.contentIndex == index ? "1px black solid" : ""
+            borderBottom: _this2.state.contentIndex === index ? "1px black solid" : ""
           },
           onClick: function onClick() {
             return _this2.handleClick(d, index);
@@ -105,7 +110,12 @@ exports.Tabs = Tabs;
 _defineProperty(Tabs, "propTypes", {
   data: _propTypes["default"].array.isRequired,
   getTitle: _propTypes["default"].func,
+  tabPosCenter: _propTypes["default"].bool,
   clickFunc: _propTypes["default"].func
+});
+
+_defineProperty(Tabs, "defaultProps", {
+  tabPosCenter: true
 });
 
 var _default = (0, _reactCssModules["default"])(Tabs, _Tabs["default"]);

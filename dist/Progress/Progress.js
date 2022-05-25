@@ -5,7 +5,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports["default"] = exports.NavBar = void 0;
+exports["default"] = exports.Progress = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
@@ -13,15 +13,9 @@ var _propTypes = _interopRequireDefault(require("prop-types"));
 
 var _reactCssModules = _interopRequireDefault(require("react-css-modules"));
 
-var _NavBar = _interopRequireDefault(require("../style/NavBar.styl"));
+var _Progress = _interopRequireDefault(require("../style/Progress.styl"));
 
-var _Dashboard = _interopRequireDefault(require("@material-ui/icons/Dashboard"));
-
-var _DateRange = _interopRequireDefault(require("@material-ui/icons/DateRange"));
-
-var _FavoriteBorder = _interopRequireDefault(require("@material-ui/icons/FavoriteBorder"));
-
-var _Home = _interopRequireDefault(require("@material-ui/icons/Home"));
+var _Rating = _interopRequireDefault(require("../Rating/Rating"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
@@ -51,64 +45,77 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-var NavBar = function (_Component) {
-  _inherits(NavBar, _Component);
+var Progress = function (_Component) {
+  _inherits(Progress, _Component);
 
-  var _super = _createSuper(NavBar);
+  var _super = _createSuper(Progress);
 
-  function NavBar() {
-    _classCallCheck(this, NavBar);
+  function Progress() {
+    _classCallCheck(this, Progress);
 
     return _super.apply(this, arguments);
   }
 
-  _createClass(NavBar, [{
+  _createClass(Progress, [{
     key: "render",
     value: function render() {
       var _this$props = this.props,
-          feature = _this$props.feature,
-          width = _this$props.width;
-      var option = [];
-      var iconStyle = [];
-
-      for (var i = 0; i < feature.length; i++) {
-        if (feature[i].icon === "dashboard") iconStyle.push(_react["default"].createElement(_Dashboard["default"], null));
-        if (feature[i].icon === "schedule") iconStyle.push(_react["default"].createElement(_DateRange["default"], null));
-        if (feature[i].icon === "like") iconStyle.push(_react["default"].createElement(_FavoriteBorder["default"], null));
-        if (feature[i].icon === "home") iconStyle.push(_react["default"].createElement(_Home["default"], null));
-        option.push(_react["default"].createElement("div", {
-          className: "navbar-btn"
-        }, _react["default"].createElement("div", {
-          className: "navbar-frame"
-        }, iconStyle), _react["default"].createElement("div", {
-          className: "navbar-title"
-        }, feature[i].name)));
-        iconStyle = [];
-      }
-
+          rating = _this$props.rating,
+          commentNum = _this$props.commentNum,
+          individualRating = _this$props.individualRating;
+      var ratingTag = ["非常好", "很好", "一般", "有點差", "爛透了"];
       return _react["default"].createElement("div", {
-        className: "navbar-layout",
         style: {
-          width: width
+          width: "220px"
         }
-      }, option);
+      }, _react["default"].createElement("div", {
+        className: "progress-title-section"
+      }, _react["default"].createElement("div", {
+        className: "progress-title"
+      }, "\u8A55\u8AD6"), _react["default"].createElement("div", {
+        className: "progress-comment-num"
+      }, commentNum, " \u5247\u8A55\u8AD6")), _react["default"].createElement("div", {
+        className: "progress-rating-section"
+      }, _react["default"].createElement("div", {
+        className: "progress-rating"
+      }, rating.toFixed(1)), _react["default"].createElement(_Rating["default"], {
+        starDefault: rating,
+        max: 5,
+        fixed: true
+      })), _react["default"].createElement("div", {
+        className: "progress-section"
+      }, individualRating.map(function (r, i) {
+        return _react["default"].createElement("div", {
+          key: i,
+          className: "progress-individual"
+        }, _react["default"].createElement("label", {
+          className: "progress-label"
+        }, ratingTag[i]), _react["default"].createElement("progress", {
+          id: "star-" + (5 - i),
+          value: r,
+          max: commentNum
+        }));
+      })));
     }
   }]);
 
-  return NavBar;
+  return Progress;
 }(_react.Component);
 
-exports.NavBar = NavBar;
+exports.Progress = Progress;
 
-_defineProperty(NavBar, "propTypes", {
-  feature: _propTypes["default"].array.isRequired,
-  width: _propTypes["default"].number
+_defineProperty(Progress, "propTypes", {
+  rating: _propTypes["default"].number,
+  commentNum: _propTypes["default"].number,
+  individualRating: _propTypes["default"].array
 });
 
-_defineProperty(NavBar, "defaultProps", {
-  width: 300
+_defineProperty(Progress, "defaultProps", {
+  rating: 5,
+  commentNum: 0,
+  individualRating: 0
 });
 
-var _default = (0, _reactCssModules["default"])(NavBar, _NavBar["default"]);
+var _default = (0, _reactCssModules["default"])(Progress, _Progress["default"]);
 
 exports["default"] = _default;

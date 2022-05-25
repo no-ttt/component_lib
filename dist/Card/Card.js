@@ -15,7 +15,9 @@ var _reactCssModules = _interopRequireDefault(require("react-css-modules"));
 
 var _Card = _interopRequireDefault(require("../style/Card.styl"));
 
-var _People = _interopRequireDefault(require("@material-ui/icons/People"));
+var _People = _interopRequireDefault(require("@mui/icons-material/People"));
+
+var _MenuBook = _interopRequireDefault(require("@mui/icons-material/MenuBook"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
@@ -65,17 +67,19 @@ var Card = function (_Component) {
           time = _this$props.time,
           people = _this$props.people,
           custom = _this$props.custom,
+          flip = _this$props.flip,
+          flipContent = _this$props.flipContent,
           width = _this$props.width,
           height = _this$props.height,
           picHeight = _this$props.picHeight,
           children = _this$props.children;
       return _react["default"].createElement("div", {
-        className: "card-frame",
+        className: !flip ? "card-frame" : "card-flip",
         style: {
           width: width,
           height: height
         }
-      }, _react["default"].createElement("div", {
+      }, !flip ? _react["default"].createElement("div", {
         className: "card-layout"
       }, _react["default"].createElement("img", {
         src: src,
@@ -94,7 +98,26 @@ var Card = function (_Component) {
         className: "card-people-txt"
       }, people))), _react["default"].createElement("div", {
         className: "card-time-txt"
-      }, time)) : children));
+      }, time)) : children) : _react["default"].createElement("div", {
+        className: "card-flip-inner"
+      }, _react["default"].createElement("div", {
+        className: "card-flip-front"
+      }, _react["default"].createElement("div", {
+        className: "card-layout"
+      }, _react["default"].createElement("img", {
+        src: src,
+        alt: title,
+        height: picHeight,
+        className: "card-pic"
+      }), children)), _react["default"].createElement("div", {
+        className: "card-flip-back"
+      }, _react["default"].createElement("div", {
+        className: "card-flip-back-bd"
+      }, _react["default"].createElement(_MenuBook["default"], null), _react["default"].createElement("div", {
+        className: "card-flip-hr"
+      }), _react["default"].createElement("div", {
+        className: "card-flip-des"
+      }, flipContent)))));
     }
   }]);
 
@@ -109,16 +132,16 @@ _defineProperty(Card, "propTypes", {
   time: _propTypes["default"].string,
   people: _propTypes["default"].string,
   custom: _propTypes["default"].bool,
+  flip: _propTypes["default"].bool,
+  flipContent: _propTypes["default"].string,
   width: _propTypes["default"].number,
   height: _propTypes["default"].number,
   picHeight: _propTypes["default"].number
 });
 
 _defineProperty(Card, "defaultProps", {
-  title: "",
-  time: "",
-  people: "",
   custom: false,
+  flip: false,
   width: 240,
   height: 220,
   picHeight: 140

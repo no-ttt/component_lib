@@ -21,12 +21,6 @@ Object.defineProperty(exports, "Post", {
     return _Post["default"];
   }
 });
-Object.defineProperty(exports, "PostInfo", {
-  enumerable: true,
-  get: function get() {
-    return _PostInfo["default"];
-  }
-});
 Object.defineProperty(exports, "Card", {
   enumerable: true,
   get: function get() {
@@ -87,14 +81,30 @@ Object.defineProperty(exports, "Dropdown", {
     return _Dropdown["default"];
   }
 });
+Object.defineProperty(exports, "Comment", {
+  enumerable: true,
+  get: function get() {
+    return _Comment["default"];
+  }
+});
+Object.defineProperty(exports, "Progress", {
+  enumerable: true,
+  get: function get() {
+    return _Progress["default"];
+  }
+});
+Object.defineProperty(exports, "AddComment", {
+  enumerable: true,
+  get: function get() {
+    return _AddComment["default"];
+  }
+});
 
 var _Avatar = _interopRequireDefault(require("./Avatar/Avatar"));
 
 var _NavBar = _interopRequireDefault(require("./NavBar/NavBar"));
 
 var _Post = _interopRequireDefault(require("./Post/Post"));
-
-var _PostInfo = _interopRequireDefault(require("./PostInfo/PostInfo"));
 
 var _Card = _interopRequireDefault(require("./Card/Card"));
 
@@ -115,5 +125,11 @@ var _Tabs = _interopRequireDefault(require("./Tabs/Tabs"));
 var _HintImg = _interopRequireDefault(require("./HintImg/HintImg"));
 
 var _Dropdown = _interopRequireDefault(require("./Dropdown/Dropdown"));
+
+var _Comment = _interopRequireDefault(require("./Comment/Comment"));
+
+var _Progress = _interopRequireDefault(require("./Progress/Progress"));
+
+var _AddComment = _interopRequireDefault(require("./AddComment/AddComment"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }

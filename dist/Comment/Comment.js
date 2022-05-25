@@ -5,7 +5,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports["default"] = exports.Popup = void 0;
+exports["default"] = exports.Comment = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
@@ -13,9 +13,19 @@ var _propTypes = _interopRequireDefault(require("prop-types"));
 
 var _reactCssModules = _interopRequireDefault(require("react-css-modules"));
 
-var _Popup = _interopRequireDefault(require("../style/Popup.styl"));
+var _Comment = _interopRequireDefault(require("../style/Comment.styl"));
 
-var _Cancel = _interopRequireDefault(require("@mui/icons-material/Cancel"));
+var _Avatar = _interopRequireDefault(require("../Avatar/Avatar"));
+
+var _Rating = _interopRequireDefault(require("../Rating/Rating"));
+
+var _ThumbUpOffAlt = _interopRequireDefault(require("@mui/icons-material/ThumbUpOffAlt"));
+
+var _ThumbUpAlt = _interopRequireDefault(require("@mui/icons-material/ThumbUpAlt"));
+
+var _PushPin = _interopRequireDefault(require("@mui/icons-material/PushPin"));
+
+var _MoreVert = _interopRequireDefault(require("@mui/icons-material/MoreVert"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
@@ -45,90 +55,133 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-var Popup = function (_Component) {
-  _inherits(Popup, _Component);
+var Comment = function (_Component) {
+  _inherits(Comment, _Component);
 
-  var _super = _createSuper(Popup);
+  var _super = _createSuper(Comment);
 
-  function Popup(props) {
+  function Comment(props) {
     var _this;
 
-    _classCallCheck(this, Popup);
+    _classCallCheck(this, Comment);
 
     _this = _super.call(this, props);
 
-    _defineProperty(_assertThisInitialized(_this), "togglePopup", function () {
-      _this.setState({
-        isOpen: !_this.state.isOpen
+    _defineProperty(_assertThisInitialized(_this), "isClick", function () {
+      if (_this.state.click === false) _this.setState({
+        clickNum: _this.state.clickNum + 1,
+        click: !_this.state.click
+      });else _this.setState({
+        clickNum: _this.state.clickNum - 1,
+        click: !_this.state.click
       });
     });
 
     _this.state = {
-      isOpen: false
+      click: false,
+      clickNum: _this.props.like
     };
-    _this.togglePopup = _this.togglePopup.bind(_assertThisInitialized(_this));
+    _this.isClick = _this.isClick.bind(_assertThisInitialized(_this));
     return _this;
   }
 
-  _createClass(Popup, [{
+  _createClass(Comment, [{
     key: "render",
     value: function render() {
       var _this$props = this.props,
-          clickBtn = _this$props.clickBtn,
-          width = _this$props.width,
-          height = _this$props.height,
-          children = _this$props.children,
-          title = _this$props.title,
-          close = _this$props.close;
-      return _react["default"].createElement("div", null, _react["default"].createElement("button", {
-        onClick: this.togglePopup,
-        className: "popup-btn"
-      }, clickBtn), this.state.isOpen && _react["default"].createElement("div", {
-        className: "popup-window-fixed popup-layout"
+          src = _this$props.src,
+          userName = _this$props.userName,
+          rating = _this$props.rating,
+          content = _this$props.content,
+          img = _this$props.img,
+          date = _this$props.date,
+          mode = _this$props.mode,
+          directDes = _this$props.directDes;
+      if (mode === "comment") return _react["default"].createElement("div", null, _react["default"].createElement("div", {
+        className: "comment-header"
       }, _react["default"].createElement("div", {
-        className: "popup-window-fixed popup-box",
-        onClick: this.togglePopup
+        className: "comment-title"
+      }, _react["default"].createElement(_Avatar["default"], {
+        alt: "user_avatar",
+        src: src,
+        width: 45
       }), _react["default"].createElement("div", {
-        className: "popup-mesg",
+        className: "comment-user-name"
+      }, userName)), _react["default"].createElement("div", {
+        className: "comment-thumbup"
+      }, _react["default"].createElement("button", {
+        onClick: this.isClick
+      }, this.state.click ? _react["default"].createElement(_ThumbUpAlt["default"], null) : _react["default"].createElement(_ThumbUpOffAlt["default"], null)), _react["default"].createElement("div", {
         style: {
-          width: width,
-          height: height
+          fontSize: "14px"
         }
+      }, this.state.clickNum))), _react["default"].createElement("div", {
+        className: "comment-content"
+      }, _react["default"].createElement(_Rating["default"], {
+        size: "small",
+        fixed: true,
+        starDefault: rating
+      }), _react["default"].createElement("div", null, content)), _react["default"].createElement("div", {
+        className: "comment-img-date"
       }, _react["default"].createElement("div", {
-        className: "popup-header"
-      }, _react["default"].createElement("div", null), title ? _react["default"].createElement("div", {
-        style: {
-          fontSize: "22px"
-        }
-      }, title) : _react["default"].createElement("div", null), close ? _react["default"].createElement("button", {
-        onClick: this.togglePopup
-      }, _react["default"].createElement(_Cancel["default"], null)) : _react["default"].createElement("div", null)), title && _react["default"].createElement("div", {
-        className: "popup-hr"
+        className: "comment-img-section"
+      }, img.map(function (src, i) {
+        return _react["default"].createElement("img", {
+          key: i,
+          src: src,
+          alt: "photo-" + i,
+          className: "comment-photo"
+        });
+      })), _react["default"].createElement("div", {
+        className: "comment-date"
+      }, date)));
+      if (mode === "direct") return _react["default"].createElement("div", null, _react["default"].createElement("div", {
+        className: "comment-header"
+      }, _react["default"].createElement("div", {
+        className: "comment-title"
+      }, _react["default"].createElement(_Avatar["default"], {
+        alt: "user_avatar",
+        src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7A5w9fXNr22x_vZzJ17ubf2X2VX7ZSzBeMQ&usqp=CAU",
+        width: 45
       }), _react["default"].createElement("div", {
-        className: title || close ? "popup-content" : "popup-no-header-content"
-      }, children))));
+        className: "comment-user-name"
+      }, "\u65C5\u904A\u5C0F\u5E6B\u624B")), _react["default"].createElement("div", {
+        className: "comment-pin"
+      }, _react["default"].createElement(_PushPin["default"], {
+        sx: {
+          fontSize: 15
+        }
+      }), _react["default"].createElement("div", {
+        style: {
+          fontSize: "12px"
+        }
+      }, "\u7F6E\u9802"))), _react["default"].createElement("div", {
+        className: "comment-content"
+      }, directDes));
     }
   }]);
 
-  return Popup;
+  return Comment;
 }(_react.Component);
 
-exports.Popup = Popup;
+exports.Comment = Comment;
 
-_defineProperty(Popup, "propTypes", {
-  clickBtn: _propTypes["default"].string.isRequired,
-  width: _propTypes["default"].number,
-  height: _propTypes["default"].number,
-  title: _propTypes["default"].string,
-  close: _propTypes["default"].bool
+_defineProperty(Comment, "propTypes", {
+  userName: _propTypes["default"].string,
+  like: _propTypes["default"].number,
+  rating: _propTypes["default"].number,
+  comment: _propTypes["default"].string,
+  img: _propTypes["default"].array,
+  date: _propTypes["default"].string,
+  directDes: _propTypes["default"].string,
+  mode: _propTypes["default"].string
 });
 
-_defineProperty(Popup, "defaultProps", {
-  width: 400,
-  height: 200,
-  close: true
+_defineProperty(Comment, "defaultProps", {
+  like: 0,
+  mode: "comment"
 });
 
-var _default = (0, _reactCssModules["default"])(Popup, _Popup["default"]);
+var _default = (0, _reactCssModules["default"])(Comment, _Comment["default"]);
 
 exports["default"] = _default;
