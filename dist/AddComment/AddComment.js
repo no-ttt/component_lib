@@ -15,8 +15,6 @@ var _reactCssModules = _interopRequireDefault(require("react-css-modules"));
 
 var _AddComment = _interopRequireDefault(require("../style/AddComment.styl"));
 
-var _Popup = _interopRequireDefault(require("../PoPup/Popup"));
-
 var _Avatar = _interopRequireDefault(require("../Avatar/Avatar"));
 
 var _Rating = _interopRequireDefault(require("../Rating/Rating"));
@@ -111,17 +109,10 @@ var AddComment = function (_Component) {
       var _this2 = this;
 
       var _this$props = this.props,
-          clickBtn = _this$props.clickBtn,
-          title = _this$props.title,
           src = _this$props.src,
           userName = _this$props.userName;
       console.log(this.state.img);
-      return _react["default"].createElement(_Popup["default"], {
-        clickBtn: clickBtn,
-        width: 400,
-        height: 480,
-        title: title
-      }, _react["default"].createElement("div", null, _react["default"].createElement("div", {
+      return _react["default"].createElement("div", null, _react["default"].createElement("div", {
         className: "add-comment-user-info"
       }, _react["default"].createElement(_Avatar["default"], {
         alt: "user_avatar",
@@ -198,7 +189,7 @@ var AddComment = function (_Component) {
       }) : "")), _react["default"].createElement("button", {
         className: "add-comment-btn",
         onClick: this.submit
-      }, "\u6211\u8981\u767C\u4F48"))));
+      }, "\u6211\u8981\u767C\u4F48")));
     }
   }]);
 
@@ -208,8 +199,6 @@ var AddComment = function (_Component) {
 exports.AddComment = AddComment;
 
 _defineProperty(AddComment, "propTypes", {
-  clickBtn: _propTypes["default"].string.isRequired,
-  title: _propTypes["default"].string,
   src: _propTypes["default"].string,
   userName: _propTypes["default"].string,
   returnComment: _propTypes["default"].func
