@@ -67,7 +67,8 @@ var NavBar = function (_Component) {
     value: function render() {
       var _this$props = this.props,
           feature = _this$props.feature,
-          width = _this$props.width;
+          width = _this$props.width,
+          link = _this$props.link;
       var option = [];
       var iconStyle = [];
 
@@ -76,7 +77,8 @@ var NavBar = function (_Component) {
         if (feature[i].icon === "schedule") iconStyle.push(_react["default"].createElement(_DateRange["default"], null));
         if (feature[i].icon === "like") iconStyle.push(_react["default"].createElement(_FavoriteBorder["default"], null));
         if (feature[i].icon === "home") iconStyle.push(_react["default"].createElement(_Home["default"], null));
-        option.push(_react["default"].createElement("div", {
+        option.push(_react["default"].createElement("a", {
+          href: feature[i].link,
           className: "navbar-btn"
         }, _react["default"].createElement("div", {
           className: "navbar-frame"
