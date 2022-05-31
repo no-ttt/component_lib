@@ -5,7 +5,7 @@
     <div>Hello, World!</div>
   </Popup>
 ```
-### Wthout title
+### Without title
 ```jsx
   const clickBtn = <div>Click Me !</div>;
 
