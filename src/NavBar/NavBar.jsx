@@ -9,7 +9,7 @@ import HomeIcon from '@material-ui/icons/Home'
 
 export class NavBar extends Component {
 	static propTypes = {
-		/** nabar 所有物件 (icon, name ; icon : dashboard, schedule, like, home) */
+		/** nabar 所有物件 (icon, name, link)； icon : dashboard / schedule / like / home */
 		feature: PropTypes.array.isRequired,
 		/** navbar 寬度 */
 		width: PropTypes.number,
@@ -21,7 +21,7 @@ export class NavBar extends Component {
 
 
 	render() {
-		const { feature, width } = this.props;
+		const { feature, width, link } = this.props;
 		let option = [];
 		let iconStyle = [];
 
@@ -36,10 +36,10 @@ export class NavBar extends Component {
 				iconStyle.push (<HomeIcon />)
 
 			option.push (
-				<div className="navbar-btn">
+				<a href={feature[i].link} className="navbar-btn">
 					<div className="navbar-frame">{ iconStyle }</div>
 					<div className="navbar-title">{ feature[i].name }</div>
-				</div>
+				</a>
 			);
 
 			iconStyle = []
