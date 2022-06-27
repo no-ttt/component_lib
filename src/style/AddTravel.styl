@@ -1,0 +1,110 @@
+.add-travel-content {
+	display flex 
+	align-items center
+	flex-direction column
+	padding-top 10px
+}
+
+.add-travel-row {
+	margin-bottom 20px
+}
+
+.add-travel-title {
+	font-weight bold
+	margin-bottom 10px
+}
+
+.add-travel-input {
+	width 300px
+	height 20px
+	outline none
+	border 1px #C4C4C4 solid
+	font-size 14px
+	padding 5px
+}
+
+.add-travel-people-frame {
+	border 1px #C4C4C4 dashed
+	border-radius 50%
+	width 50px
+	height 50px
+	display flex
+	justify-content center
+	align-items center
+	cursor pointer
+}
+
+.add-travel-people-frame:hover {
+	border 1px gray dashed
+}
+
+.add-travel-textarea {
+	border 1px #C4C4C4 solid
+	border-radius 5px
+	outline none
+	padding 10px 10px
+	width 290px
+}
+
+.add-travel-btn {
+	background rgba(128, 128, 128, 0.6)
+	width 300px
+	height 30px
+	margin-top 5px
+	border-radius 5px
+	outline none
+	font-size 18px
+}
+
+.add-travel-btn:hover {
+	background #FAECBB
+}
+
+.add-travel-user-section {
+	display flex 
+	flex-direction row
+	align-items center
+	width 310px
+	height 60px
+	overflow-y auto
+}
+
+.add-travel-img {
+	position relative
+}
+
+.add-travel-img:hover .add-travel-upload-cancel {
+	display block
+	position absolute
+	margin-left 30px
+}
+
+.add-travel-upload-cancel {
+	display none
+}
+
+.add-travel-upload-img {
+	border-radius 50%
+	width 50px
+	height 50px
+	object-fit cover
+	margin-left 10px
+}
+
+
+/* width */
+#add-travel::-webkit-scrollbar {
+	height 4px
+}
+
+/* Track */
+#add-travel::-webkit-scrollbar-track {
+	background-color white
+	border-radius 10px
+}
+
+/* Handle */
+#add-travel::-webkit-scrollbar-thumb {
+	background black
+	border-radius 10px
+}
