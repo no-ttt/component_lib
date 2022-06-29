@@ -6,7 +6,6 @@ import Avatar from '../Avatar/Avatar'
 import Rating from '../Rating/Rating'
 import AddAPhotoIcon from '@mui/icons-material/AddAPhoto'
 import ClearIcon from '@mui/icons-material/Clear'
-import default_avatar from '../img/default_avatar.png'
 
 export class AddComment extends Component {
 	static propTypes = {
@@ -16,10 +15,6 @@ export class AddComment extends Component {
 		userName: PropTypes.string,
 		/** 回傳填寫內容 (rating, comment, img) => {} */
 		returnComment: PropTypes.func,
-	}
-
-	static defaultProps = {
-		src: default_avatar,
 	}
 
 	constructor(props) {
@@ -48,18 +43,18 @@ export class AddComment extends Component {
 	
 	submit = () => {
     // json base64
-    // axios.post("/img", { img: this.state.img });
-
-		this.props.returnComment(this.state.rating, this.state.comment, this.state.img)
+		// axios.post("/img", { img: this.state.img });
+		
+		const { rating, comment, img} = this.state
+		this.props.returnComment(rating, comment, img)
   };
 
 	render() {
 		const { src, userName } = this.props;
-		console.log(this.state.img)
 		return (
 			<div>
 				<div className="add-comment-user-info">
-					<Avatar alt="user_avatar" src={src} width={45} />
+					<Avatar alt={userName} src={src} width={45} />
 					<div class="add-comment-user">{userName}</div>
 				</div>
 				<div className="add-comment-section">
@@ -85,7 +80,8 @@ export class AddComment extends Component {
 										<img className="add-comment-upload-img" src={src} />
 									</div>
 								)
-								: "" }
+								: "" 
+							}
 						</div>
 					</div>
 					<button className="add-comment-btn" onClick={this.submit}>我要發佈</button>
