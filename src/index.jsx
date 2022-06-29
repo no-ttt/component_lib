@@ -15,3 +15,4 @@ export {default as Comment} from "./Comment/Comment";
 export {default as Progress} from "./Progress/Progress";
 export {default as AddComment} from "./AddComment/AddComment";
 export {default as AddTravel} from "./AddTravel/AddTravel";
+export {default as NearbySpot} from "./NearbySpot/NearbySpot";
