@@ -112,10 +112,10 @@ export class AddTravel extends Component {
 				<div className="add-travel-row">
 					<div className="add-travel-title">交通方式</div>
 					<select className="add-travel-select" onChange={e => this.setState({ traffic: e.target.value })}>
-						<option >機車</option>
-						<option>汽車</option>
-						<option>大眾運輸工具</option>
+						<option >汽車</option>
 						<option>腳踏車</option>
+						<option>大眾運輸工具</option>
+						<option>走路</option>
 					</select>
 				</div>
 				<div className="add-travel-row">
