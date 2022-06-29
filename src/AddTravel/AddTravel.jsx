@@ -56,7 +56,7 @@ export class AddTravel extends Component {
 		const { member } = this.state
 		return (
 			<div>
-				<div className="add-travel-content">
+				<div className="add-travel-content" id="add-travel">
 					<div className="add-travel-row">
 					<div className="add-travel-title">行程名稱</div>
 					<input type="text" id="travel-name" autocomplete="off" name="travel-name" 
@@ -111,10 +111,12 @@ export class AddTravel extends Component {
 				</div>
 				<div className="add-travel-row">
 					<div className="add-travel-title">交通方式</div>
-					<input type="text" id="travel-traffic" name="travel-traffic" 
-						className="add-travel-input" 
-						onChange={e => this.setState({ traffic: e.target.value })} 
-					/>
+					<select className="add-travel-select" onChange={e => this.setState({ traffic: e.target.value })}>
+						<option >機車</option>
+						<option>汽車</option>
+						<option>大眾運輸工具</option>
+						<option>腳踏車</option>
+					</select>
 				</div>
 				<div className="add-travel-row">
 					<div className="add-travel-title">備註</div>
