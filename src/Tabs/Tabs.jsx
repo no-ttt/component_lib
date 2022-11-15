@@ -5,14 +5,14 @@ import styles from '../style/Tabs.styl'
 
 export class Tabs extends Component {
 	static propTypes = {
-		/** Tab 的 (title, content) */
+		/** Tabs 資訊 (title, content) */
 		data: PropTypes.array.isRequired,
-		/** 標籤名稱 (d) => {d.title} */
-		getTitle: PropTypes.func,
-		/** 標籤位置是否置中 */
+		/** 點擊的 Tab，回傳它的 title (data) => { data.title } */
+		tab: PropTypes.func.isRequired,
+		/** TabBar 位置是否置中 */
 		tabPosCenter: PropTypes.bool,
-		/** 點擊標籤觸發 (data) => {setData(data)} */
-		clickFunc: PropTypes.func,
+		/** 點擊 Tab 觸發，回傳目前 Tab 的內容 (data) => { setData(data) } */
+		setCurrent: PropTypes.func.isRequired,
 	}
 
 	static defaultProps = {
@@ -27,28 +27,29 @@ export class Tabs extends Component {
 	}
 
 	handleClick = (content, index) => {
-		this.setState({ 
-			contentIndex: index 
+		this.setState({
+			contentIndex: index
 		})
-		this.props.clickFunc(content, index)
+		this.props.setCurrent(content)
 	}
 
 	render() {
-		const { data, getTitle, children, tabPosCenter } = this.props;
+		const { data, tab, tabPosCenter, children } = this.props
+		const { contentIndex } = this.state
 		return (
-			<div className="tab-layout">
+			<div>
 				<div className="tab" style={{ display: "flex", justifyContent: tabPosCenter ? "center" : "flex-start" }}>
-					{data.map((d, index) => (
-						<button 
-							style={{ borderBottom: this.state.contentIndex === index ? "1px black solid" : "" }} 
-							onClick={() => this.handleClick(d, index)}>
-								{ getTitle(d) }
-						</button>
-					))}
-				</div>	
-				<div className="tab-content">
-					{ React.cloneElement(children) }
+					{
+						data.map((d, index) => (
+							<button key={index}
+								style={{ borderBottom: contentIndex === index ? "1px black solid" : "" }}
+								onClick={() => this.handleClick(d, index)}>
+								{tab(d)}
+							</button>
+						))
+					}
 				</div>
+				<div className="tab-content">{children}</div>
 			</div>
 		)
 	}

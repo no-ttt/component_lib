@@ -5,32 +5,31 @@ import styles from '../style/HintImg.styl'
 
 export class HintImg extends Component {
 	static propTypes = {
-		/** 底層圖片 */
+		/** 背景圖片 */
 		src: PropTypes.string.isRequired,
 		/** 圖片寬度 */
 		width: PropTypes.number,
 		/** 圖片高度 */
 		height: PropTypes.number,
-		/** 控制遮罩 */
-		mask: PropTypes.boolean,
-		/** 內容文字 */
-		content: PropTypes.string,
-		/** 內容文字浮現位置 (數字越大出現位置越下面)*/
-		textPos: PropTypes.number,
+		/** 內容描述的標題文字 */
+		title: PropTypes.string.isRequired,
 	}
 
 	static defaultProps = {
-		width: 250,
-		height: 200,
-		mask: false,
-		textPos: 0
+		width: 400,
+		height: 250,
 	}
 
 	render() {
-		const { src, width, height, mask, content, textPos } = this.props;
+		const { src, width, height, title, children } = this.props
 		return (
-			<div className={mask ? "hintImg-cover" : "hintImg-no-cover"} style={{width: width, height: height}}>
-				<div className="hintImg-txt" style={{marginTop: textPos}}>{content}</div>
+			<div className="hintImg-layout" style={{ width: width, height: height }}>
+				<div className="hintImg-cover" />
+				<div className="hintImg-txt">
+					<div style={{ fontSize: "20px" }}>{title}</div>
+					<div className="hintImg-hr" />
+				</div>
+				<div className="hintImg-txt hintImg-des-height">{children}</div>
 				<img src={src} alt="bg" className="hintImg-bg" />
 			</div>
 		)
