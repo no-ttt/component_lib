@@ -7,30 +7,30 @@ import StarIcon from '@mui/icons-material/Star'
 export class Rating extends Component {
   static propTypes = {
 		/** 數量預設值 */
-		starDefault: PropTypes.number,
+		default: PropTypes.number.isRequired,
 		/** 最大值 */
 		max: PropTypes.number,
 		/** 星星是否固定 */
 		fixed: PropTypes.boolean,
-		/** 星星大小 (small or large) */
+		/** 星星大小 (small or large, default: 一般大小) */
 		size: PropTypes.string,
-		/** 回傳數值 (n) => {} */
+		/** 星星顏色 */
+		color: PropTypes.string,
+		/** 回傳數值 (n) => {} */	
 		value: PropTypes.func,
 	}
 
 	static defaultProps = {
-		starDefault: 0,
 		max: 5,
 		fixed: false,
-
+		color: "#ffd700",
 	}
 
 	constructor(props) {
 		super(props);
 		this.state =  {
-			rating: this.props.starDefault,
-			hover: this.props.starDefault,
-			fixed: this.props.fixed,
+			rating: this.props.default,
+			hover: this.props.default,
 		}
 	}
 
@@ -42,8 +42,8 @@ export class Rating extends Component {
 	}
 
 	render() {
-		const { rating, hover, fixed } = this.state;
-		const { max, size } = this.props;
+		const { rating, hover } = this.state
+		const { max, size, fixed, color } = this.props
 		return (
 			<div>
 				{
@@ -52,7 +52,8 @@ export class Rating extends Component {
 						return (
 							<button
 								key={index}
-								className={index <= (hover || rating) ? "on" : "off"}
+								// className={index <= (hover || rating) ? "on" : "off"}
+								style={{ color: index <= (hover || rating) ? color : "#ccc" }}
 								onClick={() => !fixed && this.setValue(index)}
 								onMouseEnter={() => !fixed && this.setState({ hover: index })}
 								onMouseLeave={() => !fixed && this.setState({ hover: rating })}

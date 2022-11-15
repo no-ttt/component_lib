@@ -6,6 +6,12 @@
 	flex-direction column
 	align-items center
 	background-color white
+	width 100%
+	height 100%
+	min-height 200px
+	max-height 350px
+	min-width 150px
+	max-width: 400px
 }
 
 .card-frame:hover {
@@ -15,49 +21,23 @@
 .card-layout {
 	display flex
 	flex-direction column
+	justify-content space-between
 	width 94%
+	height 96%
 }
 
 .card-pic {
 	object-fit cover
+	height 82%
 	margin-top 10px
-}
-
-.card-des {
-	margin-top 10px
-	display flex
-	flex-direction row
-	justify-content space-between
-}
-
-.card-title {
-	font-weight bold
-	font-size 16px
-	width 75%
-	text-overflow ellipsis
-	white-space nowrap
-	overflow hidden
-}
-
-.card-people {
-	display flex
-	flex-direction row
-}
-
-.card-people-txt {
-	margin-left 5px
-	font-size 14px
-}
-
-.card-time-txt {
-	margin-top 10px
-	margin-left 5px
-	color gray
-	font-size 14px
 }
 
 .card-flip {
 	perspective 1000px
+	min-height 200px
+	max-height 300px
+	min-width 150px
+	max-width: 400px
 }
 
 .card-flip-inner {
@@ -65,7 +45,7 @@
 	width 100%
 	height 100%
 	text-align center
-	transition transform 0.6s
+	transition transform 0.8s
 	transform-style preserve-3d
 	border 1px #C4C4C4 solid
 	box-shadow 0 2px 6px 0 rgba(0,0,0,0.2)
@@ -99,11 +79,21 @@
 
 .card-flip-back-bd {
 	width 80%
-	height 60%
+	height 70%
 	display flex
 	flex-direction column
 	justify-content space-around
 	align-items center
+}
+
+.card-loc {
+	display flex
+	flex-direction row
+	align-items center
+}
+
+.card-loc-txt {
+	font-size 14px
 }
 
 .card-flip-hr {
@@ -117,4 +107,57 @@
 	-webkit-box-orient vertical
 	-webkit-line-clamp 5
 	overflow hidden
+}
+
+.card-flip-other {
+	width 100%
+	height 50%
+	overflow hidden
+	display flex
+	align-items center
+	flex-direction column
+}
+
+.card-hint-pic {
+	object-fit cover
+	height 100%
+	width 100%	
+}
+
+.card-hint {
+	margin-top 10px
+	height 82%
+	width 100%
+	position relative
+	display flex
+	justify-content center
+	align-items center
+}
+
+.card-hint-cover {
+	position absolute
+	background-color rgba(0, 0, 0, 0.6)
+	opacity 0
+	width 100%
+	height 100%
+	transition all 0.5s ease-out
+}
+
+.card-hint:hover .card-hint-cover {
+	opacity 1
+}
+
+.card-hint-txt {
+	position absolute
+	opacity 0
+	width 80%
+	height 70%
+	display flex
+	flex-direction column
+	justify-content space-around
+	align-items center
+}
+
+.card-hint:hover .card-hint-txt {
+	opacity 1
 }

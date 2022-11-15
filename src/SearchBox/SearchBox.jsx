@@ -6,9 +6,9 @@ import SearchIcon from '@material-ui/icons/Search'
 
 export class SearchBox extends Component {
 	static propTypes = {
-		/** 搜尋欄寬度 */
+		/** 搜尋欄寬度 (min-width: 100px) */
 		width: PropTypes.number,
-		/** 搜尋欄高度 */
+		/** 搜尋欄高度 (min-height: 30px) */
 		height: PropTypes.number,
 		/** 提示字大小 */
 		fontSize: PropTypes.number,
@@ -24,16 +24,16 @@ export class SearchBox extends Component {
 
 	_handleKeyDown = (e) => {
 		if (e.key === 'Enter') {
-		  this.props.func(e.target.value);
+			this.props.func(e.target.value);
 		}
 	}
-	
+
 	render() {
-		const { width, height, fontSize } = this.props;
+		const { width, height, fontSize } = this.props
 		return (
 			<div className="searchbox_block" style={{ width: width, height: height }}>
 				<SearchIcon className="searchbox_icon" />
-				<input type="text" placeholder="想去哪 ?" 
+				<input type="text" placeholder="想去哪？"
 					className="searchbox_input" style={{ fontSize: fontSize }}
 					onKeyDown={this._handleKeyDown}
 				/>

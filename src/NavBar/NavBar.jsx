@@ -11,7 +11,7 @@ export class NavBar extends Component {
 	static propTypes = {
 		/** nabar 所有物件 (icon, name, link)； icon : dashboard / schedule / like / home */
 		feature: PropTypes.array.isRequired,
-		/** navbar 寬度 */
+		/** navbar 寬度 (min-width: 300px) */
 		width: PropTypes.number,
 	}
 
@@ -21,24 +21,24 @@ export class NavBar extends Component {
 
 
 	render() {
-		const { feature, width, link } = this.props;
-		let option = [];
-		let iconStyle = [];
+		const { feature, width } = this.props
+		let option = []
+		let iconStyle = []
 
 		for (let i = 0; i < feature.length; i++) {
 			if (feature[i].icon === "dashboard")
-				iconStyle.push (<DashboardIcon />)
+				iconStyle.push(<DashboardIcon />)
 			if (feature[i].icon === "schedule")
-				iconStyle.push (<DateRangeIcon />)
+				iconStyle.push(<DateRangeIcon />)
 			if (feature[i].icon === "like")
-				iconStyle.push (<FavoriteBorderIcon />)
+				iconStyle.push(<FavoriteBorderIcon />)
 			if (feature[i].icon === "home")
-				iconStyle.push (<HomeIcon />)
+				iconStyle.push(<HomeIcon />)
 
-			option.push (
+			option.push(
 				<a href={feature[i].link} className="navbar-btn">
-					<div className="navbar-frame">{ iconStyle }</div>
-					<div className="navbar-title">{ feature[i].name }</div>
+					<div className="navbar-frame">{iconStyle}</div>
+					<div className="navbar-title">{feature[i].name}</div>
 				</a>
 			);
 
@@ -47,7 +47,7 @@ export class NavBar extends Component {
 
 		return (
 			<div className="navbar-layout" style={{ width: width }}>
-				{ option }
+				{option}
 			</div>
 		)
 	}
