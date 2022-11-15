@@ -61,21 +61,27 @@ var HintImg = function (_Component) {
           src = _this$props.src,
           width = _this$props.width,
           height = _this$props.height,
-          mask = _this$props.mask,
-          content = _this$props.content,
-          textPos = _this$props.textPos;
+          title = _this$props.title,
+          children = _this$props.children;
       return _react["default"].createElement("div", {
-        className: mask ? "hintImg-cover" : "hintImg-no-cover",
+        className: "hintImg-layout",
         style: {
           width: width,
           height: height
         }
       }, _react["default"].createElement("div", {
-        className: "hintImg-txt",
+        className: "hintImg-cover"
+      }), _react["default"].createElement("div", {
+        className: "hintImg-txt"
+      }, _react["default"].createElement("div", {
         style: {
-          marginTop: textPos
+          fontSize: "20px"
         }
-      }, content), _react["default"].createElement("img", {
+      }, title), _react["default"].createElement("div", {
+        className: "hintImg-hr"
+      })), _react["default"].createElement("div", {
+        className: "hintImg-txt hintImg-des-height"
+      }, children), _react["default"].createElement("img", {
         src: src,
         alt: "bg",
         className: "hintImg-bg"
@@ -92,16 +98,12 @@ _defineProperty(HintImg, "propTypes", {
   src: _propTypes["default"].string.isRequired,
   width: _propTypes["default"].number,
   height: _propTypes["default"].number,
-  mask: _propTypes["default"]["boolean"],
-  content: _propTypes["default"].string,
-  textPos: _propTypes["default"].number
+  title: _propTypes["default"].string.isRequired
 });
 
 _defineProperty(HintImg, "defaultProps", {
-  width: 250,
-  height: 200,
-  mask: false,
-  textPos: 0
+  width: 400,
+  height: 250
 });
 
 var _default = (0, _reactCssModules["default"])(HintImg, _HintImg["default"]);

@@ -87,7 +87,7 @@ var SearchBox = function (_Component) {
         className: "searchbox_icon"
       }), _react["default"].createElement("input", {
         type: "text",
-        placeholder: "\u60F3\u53BB\u54EA ?",
+        placeholder: "\u60F3\u53BB\u54EA\uFF1F",
         className: "searchbox_input",
         style: {
           fontSize: fontSize

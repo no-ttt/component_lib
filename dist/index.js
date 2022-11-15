@@ -15,22 +15,10 @@ Object.defineProperty(exports, "NavBar", {
     return _NavBar["default"];
   }
 });
-Object.defineProperty(exports, "Post", {
-  enumerable: true,
-  get: function get() {
-    return _Post["default"];
-  }
-});
 Object.defineProperty(exports, "Card", {
   enumerable: true,
   get: function get() {
     return _Card["default"];
-  }
-});
-Object.defineProperty(exports, "Carousel", {
-  enumerable: true,
-  get: function get() {
-    return _Carousel["default"];
   }
 });
 Object.defineProperty(exports, "SearchBox", {
@@ -39,28 +27,34 @@ Object.defineProperty(exports, "SearchBox", {
     return _SearchBox["default"];
   }
 });
-Object.defineProperty(exports, "PostWall", {
+Object.defineProperty(exports, "HintImg", {
   enumerable: true,
   get: function get() {
-    return _PostWall["default"];
+    return _HintImg["default"];
   }
 });
-Object.defineProperty(exports, "DragDropList", {
+Object.defineProperty(exports, "ActivityList", {
   enumerable: true,
   get: function get() {
-    return _DragDropList["default"];
+    return _ActivityList["default"];
   }
 });
-Object.defineProperty(exports, "Popup", {
+Object.defineProperty(exports, "RecommendTrip", {
   enumerable: true,
   get: function get() {
-    return _Popup["default"];
+    return _RecommendTrip["default"];
   }
 });
-Object.defineProperty(exports, "Rating", {
+Object.defineProperty(exports, "Post", {
   enumerable: true,
   get: function get() {
-    return _Rating["default"];
+    return _Post["default"];
+  }
+});
+Object.defineProperty(exports, "Article", {
+  enumerable: true,
+  get: function get() {
+    return _Article["default"];
   }
 });
 Object.defineProperty(exports, "Tabs", {
@@ -69,34 +63,10 @@ Object.defineProperty(exports, "Tabs", {
     return _Tabs["default"];
   }
 });
-Object.defineProperty(exports, "HintImg", {
+Object.defineProperty(exports, "Rating", {
   enumerable: true,
   get: function get() {
-    return _HintImg["default"];
-  }
-});
-Object.defineProperty(exports, "Dropdown", {
-  enumerable: true,
-  get: function get() {
-    return _Dropdown["default"];
-  }
-});
-Object.defineProperty(exports, "Comment", {
-  enumerable: true,
-  get: function get() {
-    return _Comment["default"];
-  }
-});
-Object.defineProperty(exports, "Progress", {
-  enumerable: true,
-  get: function get() {
-    return _Progress["default"];
-  }
-});
-Object.defineProperty(exports, "AddComment", {
-  enumerable: true,
-  get: function get() {
-    return _AddComment["default"];
+    return _Rating["default"];
   }
 });
 
@@ -104,32 +74,22 @@ var _Avatar = _interopRequireDefault(require("./Avatar/Avatar"));
 
 var _NavBar = _interopRequireDefault(require("./NavBar/NavBar"));
 
-var _Post = _interopRequireDefault(require("./Post/Post"));
-
 var _Card = _interopRequireDefault(require("./Card/Card"));
-
-var _Carousel = _interopRequireDefault(require("./Carousel/Carousel"));
 
 var _SearchBox = _interopRequireDefault(require("./SearchBox/SearchBox"));
 
-var _PostWall = _interopRequireDefault(require("./PostWall/PostWall"));
+var _HintImg = _interopRequireDefault(require("./HintImg/HintImg"));
 
-var _DragDropList = _interopRequireDefault(require("./DragDropList/DragDropList"));
+var _ActivityList = _interopRequireDefault(require("./ActivityList/ActivityList"));
 
-var _Popup = _interopRequireDefault(require("./Popup/Popup"));
+var _RecommendTrip = _interopRequireDefault(require("./RecommendTrip/RecommendTrip"));
 
-var _Rating = _interopRequireDefault(require("./Rating/Rating"));
+var _Post = _interopRequireDefault(require("./Post/Post"));
+
+var _Article = _interopRequireDefault(require("./Article/Article"));
 
 var _Tabs = _interopRequireDefault(require("./Tabs/Tabs"));
 
-var _HintImg = _interopRequireDefault(require("./HintImg/HintImg"));
-
-var _Dropdown = _interopRequireDefault(require("./Dropdown/Dropdown"));
-
-var _Comment = _interopRequireDefault(require("./Comment/Comment"));
-
-var _Progress = _interopRequireDefault(require("./Progress/Progress"));
-
-var _AddComment = _interopRequireDefault(require("./AddComment/AddComment"));
+var _Rating = _interopRequireDefault(require("./Rating/Rating"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }

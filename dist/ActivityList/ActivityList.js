@@ -5,7 +5,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports["default"] = exports.Card = void 0;
+exports["default"] = exports.ActivityList = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
@@ -13,11 +13,11 @@ var _propTypes = _interopRequireDefault(require("prop-types"));
 
 var _reactCssModules = _interopRequireDefault(require("react-css-modules"));
 
-var _Card = _interopRequireDefault(require("../style/Card.styl"));
+var _ActivityList = _interopRequireDefault(require("../style/ActivityList.styl"));
+
+var _HintImg = _interopRequireDefault(require("../HintImg/HintImg"));
 
 var _LocationOn = _interopRequireDefault(require("@mui/icons-material/LocationOn"));
-
-var _Rating = _interopRequireDefault(require("../Rating/Rating"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
@@ -47,139 +47,103 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-var Card = function (_Component) {
-  _inherits(Card, _Component);
+var ActivityList = function (_Component) {
+  _inherits(ActivityList, _Component);
 
-  var _super = _createSuper(Card);
+  var _super = _createSuper(ActivityList);
 
-  function Card() {
-    _classCallCheck(this, Card);
+  function ActivityList(props) {
+    var _this;
 
-    return _super.apply(this, arguments);
+    _classCallCheck(this, ActivityList);
+
+    _this = _super.call(this, props);
+    _this.state = {
+      hintImg: _this.props.data[0]
+    };
+    return _this;
   }
 
-  _createClass(Card, [{
+  _createClass(ActivityList, [{
     key: "render",
     value: function render() {
+      var _this2 = this;
+
       var _this$props = this.props,
-          title = _this$props.title,
-          src = _this$props.src,
-          loc = _this$props.loc,
+          data = _this$props.data,
           width = _this$props.width,
           height = _this$props.height,
-          flip = _this$props.flip,
-          children = _this$props.children,
-          hover = _this$props.hover,
-          rating = _this$props.rating,
-          commentNum = _this$props.commentNum;
+          listWidth = _this$props.listWidth;
+      var hintImg = this.state.hintImg;
+
+      var title = _react["default"].createElement("div", null, hintImg.name);
+
       return _react["default"].createElement("div", {
-        className: !flip ? "card-frame" : "card-flip",
+        className: "activity-layout"
+      }, _react["default"].createElement(_HintImg["default"], {
+        src: hintImg.picture,
+        title: title,
+        width: width,
+        height: height
+      }, _react["default"].createElement("div", null, hintImg.des)), _react["default"].createElement("div", {
         style: {
-          width: width,
-          height: height
-        }
-      }, !flip ? _react["default"].createElement("div", {
-        className: "card-layout"
-      }, hover ? _react["default"].createElement("div", {
-        className: "card-hint"
-      }, _react["default"].createElement("div", {
-        className: "card-hint-cover"
-      }), _react["default"].createElement("div", {
-        className: "card-hint-txt"
-      }, _react["default"].createElement("div", {
-        className: "card-loc"
-      }, _react["default"].createElement(_LocationOn["default"], {
-        style: {
-          color: "white"
-        }
-      }), _react["default"].createElement("div", {
-        style: {
-          color: "white"
+          height: height,
+          width: listWidth + 40
         },
-        className: "card-loc-txt"
-      }, loc)), _react["default"].createElement("div", {
-        className: "card-flip-hr"
-      }), _react["default"].createElement("div", {
-        className: "card-flip-other"
-      }, _react["default"].createElement(_Rating["default"], {
-        "default": rating,
-        max: rating,
-        fixed: true,
-        color: "white"
-      }), _react["default"].createElement("div", {
-        style: {
-          fontSize: "12px",
-          marginTop: "10px",
-          color: "white"
-        }
-      }, rating.toFixed(1), " \xB7 ", commentNum, " \u5247\u8A55\u8AD6"))), _react["default"].createElement("img", {
-        src: src,
-        alt: title,
-        className: "card-hint-pic"
-      })) : _react["default"].createElement("img", {
-        src: src,
-        alt: title,
-        className: "card-pic"
-      }), _react["default"].createElement("div", {
-        style: {
-          textAlign: "center",
-          fontWeight: "bold"
-        }
-      }, title)) : _react["default"].createElement("div", {
-        className: "card-flip-inner"
-      }, _react["default"].createElement("div", {
-        className: "card-flip-front"
-      }, _react["default"].createElement("div", {
-        className: "card-layout"
-      }, _react["default"].createElement("img", {
-        src: src,
-        alt: title,
-        className: "card-pic"
-      }), _react["default"].createElement("div", {
-        style: {
-          textAlign: "center",
-          fontWeight: "bold"
-        }
-      }, title))), _react["default"].createElement("div", {
-        className: "card-flip-back"
-      }, _react["default"].createElement("div", {
-        className: "card-flip-back-bd"
-      }, _react["default"].createElement("div", {
-        className: "card-loc"
-      }, _react["default"].createElement(_LocationOn["default"], null), _react["default"].createElement("div", {
-        className: "card-loc-txt"
-      }, loc)), _react["default"].createElement("div", {
-        className: "card-flip-hr"
-      }), _react["default"].createElement("div", {
-        className: "card-flip-des"
-      }, children)))));
+        className: "activity-item-block",
+        id: "style-3"
+      }, data.map(function (d, i) {
+        return _react["default"].createElement("div", {
+          key: i,
+          style: {
+            width: listWidth
+          },
+          className: "activity-item",
+          onClick: function onClick() {
+            return _this2.setState({
+              hintImg: d
+            });
+          }
+        }, _react["default"].createElement("div", {
+          className: "activity-item-date"
+        }, d.startTime, " - ", d.endTime), _react["default"].createElement("div", {
+          className: "activity-detail"
+        }, _react["default"].createElement("div", {
+          style: {
+            width: listWidth - 120
+          },
+          className: "activity-name"
+        }, d.name), _react["default"].createElement("div", {
+          className: "activity-detail"
+        }, _react["default"].createElement(_LocationOn["default"], {
+          fontSize: "small"
+        }), _react["default"].createElement("div", {
+          style: {
+            fontSize: "12px"
+          }
+        }, d.location))));
+      })));
     }
   }]);
 
-  return Card;
+  return ActivityList;
 }(_react.Component);
 
-exports.Card = Card;
+exports.ActivityList = ActivityList;
 
-_defineProperty(Card, "propTypes", {
-  title: _propTypes["default"].string,
-  src: _propTypes["default"].string.isRequired,
+_defineProperty(ActivityList, "propTypes", {
+  data: _propTypes["default"].array.isRequired,
   width: _propTypes["default"].number,
   height: _propTypes["default"].number,
-  flip: _propTypes["default"].bool,
-  loc: _propTypes["default"].string,
-  hover: _propTypes["default"].bool,
-  rating: _propTypes["default"].number,
-  commentNum: _propTypes["default"].number
+  listWidth: _propTypes["default"].number
 });
 
-_defineProperty(Card, "defaultProps", {
-  width: 240,
-  height: 220,
-  flip: false,
-  hover: false
+_defineProperty(ActivityList, "defaultProps", {
+  width: 450,
+  height: 280,
+  listWidth: 360
 });
 
-var _default = (0, _reactCssModules["default"])(Card, _Card["default"]);
+var _default = (0, _reactCssModules["default"])(ActivityList, _ActivityList["default"]);
 
 exports["default"] = _default;

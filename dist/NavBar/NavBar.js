@@ -67,8 +67,7 @@ var NavBar = function (_Component) {
     value: function render() {
       var _this$props = this.props,
           feature = _this$props.feature,
-          width = _this$props.width,
-          link = _this$props.link;
+          width = _this$props.width;
       var option = [];
       var iconStyle = [];
 

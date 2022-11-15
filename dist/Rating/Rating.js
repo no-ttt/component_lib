@@ -78,9 +78,8 @@ var Rating = function (_Component) {
     });
 
     _this.state = {
-      rating: _this.props.starDefault,
-      hover: _this.props.starDefault,
-      fixed: _this.props.fixed
+      rating: _this.props["default"],
+      hover: _this.props["default"]
     };
     return _this;
   }
@@ -92,16 +91,19 @@ var Rating = function (_Component) {
 
       var _this$state = this.state,
           rating = _this$state.rating,
-          hover = _this$state.hover,
-          fixed = _this$state.fixed;
+          hover = _this$state.hover;
       var _this$props = this.props,
           max = _this$props.max,
-          size = _this$props.size;
+          size = _this$props.size,
+          fixed = _this$props.fixed,
+          color = _this$props.color;
       return _react["default"].createElement("div", null, _toConsumableArray(Array(max)).map(function (star, index) {
         index += 1;
         return _react["default"].createElement("button", {
           key: index,
-          className: index <= (hover || rating) ? "on" : "off",
+          style: {
+            color: index <= (hover || rating) ? color : "#ccc"
+          },
           onClick: function onClick() {
             return !fixed && _this2.setValue(index);
           },
@@ -129,17 +131,18 @@ var Rating = function (_Component) {
 exports.Rating = Rating;
 
 _defineProperty(Rating, "propTypes", {
-  starDefault: _propTypes["default"].number,
+  "default": _propTypes["default"].number.isRequired,
   max: _propTypes["default"].number,
   fixed: _propTypes["default"]["boolean"],
   size: _propTypes["default"].string,
+  color: _propTypes["default"].string,
   value: _propTypes["default"].func
 });
 
 _defineProperty(Rating, "defaultProps", {
-  starDefault: 0,
   max: 5,
-  fixed: false
+  fixed: false,
+  color: "#ffd700"
 });
 
 var _default = (0, _reactCssModules["default"])(Rating, _Rating["default"]);

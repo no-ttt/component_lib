@@ -60,7 +60,7 @@ var Tabs = function (_Component) {
         contentIndex: index
       });
 
-      _this.props.clickFunc(content, index);
+      _this.props.setCurrent(content);
     });
 
     _this.state = {
@@ -76,12 +76,11 @@ var Tabs = function (_Component) {
 
       var _this$props = this.props,
           data = _this$props.data,
-          getTitle = _this$props.getTitle,
-          children = _this$props.children,
-          tabPosCenter = _this$props.tabPosCenter;
-      return _react["default"].createElement("div", {
-        className: "tab-layout"
-      }, _react["default"].createElement("div", {
+          tab = _this$props.tab,
+          tabPosCenter = _this$props.tabPosCenter,
+          children = _this$props.children;
+      var contentIndex = this.state.contentIndex;
+      return _react["default"].createElement("div", null, _react["default"].createElement("div", {
         className: "tab",
         style: {
           display: "flex",
@@ -89,16 +88,17 @@ var Tabs = function (_Component) {
         }
       }, data.map(function (d, index) {
         return _react["default"].createElement("button", {
+          key: index,
           style: {
-            borderBottom: _this2.state.contentIndex === index ? "1px black solid" : ""
+            borderBottom: contentIndex === index ? "1px black solid" : ""
           },
           onClick: function onClick() {
             return _this2.handleClick(d, index);
           }
-        }, getTitle(d));
+        }, tab(d));
       })), _react["default"].createElement("div", {
         className: "tab-content"
-      }, _react["default"].cloneElement(children)));
+      }, children));
     }
   }]);
 
@@ -109,9 +109,9 @@ exports.Tabs = Tabs;
 
 _defineProperty(Tabs, "propTypes", {
   data: _propTypes["default"].array.isRequired,
-  getTitle: _propTypes["default"].func,
+  tab: _propTypes["default"].func.isRequired,
   tabPosCenter: _propTypes["default"].bool,
-  clickFunc: _propTypes["default"].func
+  setCurrent: _propTypes["default"].func.isRequired
 });
 
 _defineProperty(Tabs, "defaultProps", {

@@ -61,33 +61,35 @@ var Post = function (_Component) {
           title = _this$props.title,
           src = _this$props.src,
           width = _this$props.width,
-          height = _this$props.height,
           fontSize = _this$props.fontSize,
           borderStyle = _this$props.borderStyle;
       return _react["default"].createElement("div", {
         className: "post-layout"
       }, _react["default"].createElement("div", {
-        className: "post-pic"
-      }, borderStyle === "Circle" && _react["default"].createElement("div", {
-        className: "post-cover",
+        className: "post-overfit",
         style: {
           width: width,
-          height: height
+          height: width
         }
+      }, _react["default"].createElement("div", {
+        className: "post-pic"
+      }, borderStyle === "Circle" && _react["default"].createElement("div", {
+        className: "post-cover"
       }), _react["default"].createElement("img", {
         title: title,
         src: src,
         alt: title,
         width: width,
-        height: height,
+        height: width,
         className: "post-image",
         style: borderStyle === "Circle" ? {
           borderRadius: "100%"
         } : {}
-      })), _react["default"].createElement("div", {
+      }))), borderStyle === "Circle" && _react["default"].createElement("div", {
+        className: "post-des"
+      }, "|"), _react["default"].createElement("div", {
         className: "post-des"
       }, _react["default"].createElement("div", {
-        className: "post-name",
         style: {
           fontSize: fontSize
         }
@@ -104,14 +106,12 @@ _defineProperty(Post, "propTypes", {
   title: _propTypes["default"].string.isRequired,
   src: _propTypes["default"].string.isRequired,
   width: _propTypes["default"].number,
-  height: _propTypes["default"].number,
   fontSize: _propTypes["default"].number,
   borderStyle: _propTypes["default"].string
 });
 
 _defineProperty(Post, "defaultProps", {
   width: 220,
-  height: 220,
   fontSize: 16,
   borderStyle: "Square"
 });

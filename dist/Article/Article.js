@@ -5,7 +5,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports["default"] = exports.Card = void 0;
+exports["default"] = exports.Article = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
@@ -13,11 +13,7 @@ var _propTypes = _interopRequireDefault(require("prop-types"));
 
 var _reactCssModules = _interopRequireDefault(require("react-css-modules"));
 
-var _Card = _interopRequireDefault(require("../style/Card.styl"));
-
-var _LocationOn = _interopRequireDefault(require("@mui/icons-material/LocationOn"));
-
-var _Rating = _interopRequireDefault(require("../Rating/Rating"));
+var _Article = _interopRequireDefault(require("../style/Article.styl"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
@@ -47,139 +43,82 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-var Card = function (_Component) {
-  _inherits(Card, _Component);
+var Article = function (_Component) {
+  _inherits(Article, _Component);
 
-  var _super = _createSuper(Card);
+  var _super = _createSuper(Article);
 
-  function Card() {
-    _classCallCheck(this, Card);
+  function Article() {
+    _classCallCheck(this, Article);
 
     return _super.apply(this, arguments);
   }
 
-  _createClass(Card, [{
+  _createClass(Article, [{
     key: "render",
     value: function render() {
       var _this$props = this.props,
-          title = _this$props.title,
-          src = _this$props.src,
-          loc = _this$props.loc,
+          data = _this$props.data,
           width = _this$props.width,
           height = _this$props.height,
-          flip = _this$props.flip,
-          children = _this$props.children,
-          hover = _this$props.hover,
-          rating = _this$props.rating,
-          commentNum = _this$props.commentNum;
-      return _react["default"].createElement("div", {
-        className: !flip ? "card-frame" : "card-flip",
+          desHeight = _this$props.desHeight;
+      return _react["default"].createElement("div", null, _react["default"].createElement("div", {
+        style: {
+          width: width + 250,
+          height: desHeight,
+          marginTop: height - desHeight
+        },
+        className: "article-color-block"
+      }, _react["default"].createElement("div", {
+        className: "article-content",
+        style: {
+          width: width + 250
+        }
+      }, _react["default"].createElement("img", {
+        src: data.src,
+        alt: "data.title",
         style: {
           width: width,
           height: height
-        }
-      }, !flip ? _react["default"].createElement("div", {
-        className: "card-layout"
-      }, hover ? _react["default"].createElement("div", {
-        className: "card-hint"
-      }, _react["default"].createElement("div", {
-        className: "card-hint-cover"
-      }), _react["default"].createElement("div", {
-        className: "card-hint-txt"
-      }, _react["default"].createElement("div", {
-        className: "card-loc"
-      }, _react["default"].createElement(_LocationOn["default"], {
-        style: {
-          color: "white"
-        }
-      }), _react["default"].createElement("div", {
-        style: {
-          color: "white"
         },
-        className: "card-loc-txt"
-      }, loc)), _react["default"].createElement("div", {
-        className: "card-flip-hr"
-      }), _react["default"].createElement("div", {
-        className: "card-flip-other"
-      }, _react["default"].createElement(_Rating["default"], {
-        "default": rating,
-        max: rating,
-        fixed: true,
-        color: "white"
+        className: "article-img"
       }), _react["default"].createElement("div", {
         style: {
-          fontSize: "12px",
-          marginTop: "10px",
-          color: "white"
-        }
-      }, rating.toFixed(1), " \xB7 ", commentNum, " \u5247\u8A55\u8AD6"))), _react["default"].createElement("img", {
-        src: src,
-        alt: title,
-        className: "card-hint-pic"
-      })) : _react["default"].createElement("img", {
-        src: src,
-        alt: title,
-        className: "card-pic"
-      }), _react["default"].createElement("div", {
+          width: width * 1.2
+        },
+        className: "article-content-des"
+      }, _react["default"].createElement("div", {
+        className: "article-des-title"
+      }, data.title), _react["default"].createElement("div", {
+        className: "article-des-txt"
+      }, data.des)))), _react["default"].createElement("div", {
         style: {
-          textAlign: "center",
-          fontWeight: "bold"
-        }
-      }, title)) : _react["default"].createElement("div", {
-        className: "card-flip-inner"
-      }, _react["default"].createElement("div", {
-        className: "card-flip-front"
-      }, _react["default"].createElement("div", {
-        className: "card-layout"
-      }, _react["default"].createElement("img", {
-        src: src,
-        alt: title,
-        className: "card-pic"
-      }), _react["default"].createElement("div", {
-        style: {
-          textAlign: "center",
-          fontWeight: "bold"
-        }
-      }, title))), _react["default"].createElement("div", {
-        className: "card-flip-back"
-      }, _react["default"].createElement("div", {
-        className: "card-flip-back-bd"
-      }, _react["default"].createElement("div", {
-        className: "card-loc"
-      }, _react["default"].createElement(_LocationOn["default"], null), _react["default"].createElement("div", {
-        className: "card-loc-txt"
-      }, loc)), _react["default"].createElement("div", {
-        className: "card-flip-hr"
-      }), _react["default"].createElement("div", {
-        className: "card-flip-des"
-      }, children)))));
+          width: width + 250,
+          height: "10px"
+        },
+        className: "article-color-block"
+      }));
     }
   }]);
 
-  return Card;
+  return Article;
 }(_react.Component);
 
-exports.Card = Card;
+exports.Article = Article;
 
-_defineProperty(Card, "propTypes", {
-  title: _propTypes["default"].string,
-  src: _propTypes["default"].string.isRequired,
+_defineProperty(Article, "propTypes", {
+  data: _propTypes["default"].object.isRequired,
   width: _propTypes["default"].number,
   height: _propTypes["default"].number,
-  flip: _propTypes["default"].bool,
-  loc: _propTypes["default"].string,
-  hover: _propTypes["default"].bool,
-  rating: _propTypes["default"].number,
-  commentNum: _propTypes["default"].number
+  desHeight: _propTypes["default"].number
 });
 
-_defineProperty(Card, "defaultProps", {
-  width: 240,
-  height: 220,
-  flip: false,
-  hover: false
+_defineProperty(Article, "defaultProps", {
+  width: 220,
+  height: 150,
+  desHeight: 80
 });
 
-var _default = (0, _reactCssModules["default"])(Card, _Card["default"]);
+var _default = (0, _reactCssModules["default"])(Article, _Article["default"]);
 
 exports["default"] = _default;
