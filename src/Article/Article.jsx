@@ -24,7 +24,7 @@ export class Article extends Component {
 	render() {
 		const { data, width, height, desHeight } = this.props
 		return (
-			<div>
+			<div style={{ width: (width + 250) }} className="article-layout">
 				<div style={{ width: (width + 250), height: desHeight, marginTop: (height - desHeight) }} className="article-color-block">
 					<div className="article-content" style={{ width: (width + 250) }}>
 						<img src={data.src} alt="data.title" style={{ width: width, height: height }} className="article-img" />
