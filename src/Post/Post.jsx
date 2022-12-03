@@ -6,7 +6,7 @@ import styles from '../style/Post.styl'
 export class Post extends Component {
 	static propTypes = {
 		/** 景點名稱 */
-		title: PropTypes.string.isRequired,
+		name: PropTypes.string.isRequired,
 		/** 景點圖片 */
 		src: PropTypes.string.isRequired,
 		/** 圖片寬度和高度 */
@@ -24,19 +24,19 @@ export class Post extends Component {
 	}
 
 	render() {
-		const { title, src, width, fontSize, borderStyle } = this.props
+		const { name, src, width, fontSize, borderStyle } = this.props
 		return (
 			<div className="post-layout">
 				<div className="post-overfit" style={{ width: width, height: width }}>
 					<div className="post-pic">
 						{borderStyle === "Circle" && <div className="post-cover" />}
-						<img title={title} src={src} alt={title} width={width} height={width}
+						<img title={name} src={src} alt={name} width={width} height={width}
 							className="post-image" style={borderStyle === "Circle" ? { borderRadius: "100%" } : {}} />
 					</div>
 				</div>
 				{borderStyle === "Circle" && <div className="post-des">|</div>}
 				<div className="post-des">
-					<div style={{ fontSize: fontSize }}>{title}</div>
+					<div style={{ fontSize: fontSize }}>{name}</div>
 				</div>
 			</div>
 		)

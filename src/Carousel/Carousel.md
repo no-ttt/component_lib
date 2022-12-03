@@ -20,7 +20,7 @@
   };
   
   <div style={{ display: "flex", justifyContent: "center" }}>
-    <Carousel cols={3} gap={10} data={data} width={200} height={180}>
+    <Carousel cols={3} gap={15} data={data} width={200} height={180}>
       <Item />
     </Carousel>
   </div>
