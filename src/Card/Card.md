@@ -1,3 +1,4 @@
+### Spot Card
 ```jsx
   const data = { 
     title: "鹿野高台", 
@@ -13,5 +14,31 @@
     <Card title={data.title} src={data.src} loc={data.loc} height={280} flip={true}>
       {data.des}
     </Card>
+  </div>
+```
+
+### Trip Card
+```jsx
+  const data = [
+    { 
+      title: "熱氣球之旅", 
+      src: "https://cdn2.ettoday.net/images/4995/d4995352.jpg",
+      people: 8,
+      des: "Aug 8 - Aug 10"
+    },
+    { 
+      title: "台南喝到掛", 
+      src: "https://media.gq.com.tw/photos/5dbc268ecfb8d000081c005b/master/pass/2019071953952917.jpg",
+      people: 4,
+      des: "5 Days - 132 Likes"
+    },
+  ];
+
+  <div style={{ display: "flex", justifyContent: "space-around" }}>
+    {
+      data.map((d) => (
+        <Card mode="trip" title={d.title} src={d.src} people={d.people} des={d.des} height={220} width={240} />
+      ))
+    }
   </div>
 ```

@@ -11,7 +11,7 @@ export class NavBar extends Component {
 	static propTypes = {
 		/** nabar 所有物件 (icon, name, link)； icon : dashboard / schedule / like / home */
 		feature: PropTypes.array.isRequired,
-		/** navbar 寬度 (min-width: 300px) */
+		/** navbar 寬度 (min-width: 250px) */
 		width: PropTypes.number,
 	}
 
@@ -21,7 +21,7 @@ export class NavBar extends Component {
 
 
 	render() {
-		const { feature, width } = this.props
+		const { feature, width, children } = this.props
 		let option = []
 		let iconStyle = []
 
@@ -43,7 +43,12 @@ export class NavBar extends Component {
 			);
 
 			iconStyle = []
+
 		}
+
+		option.push(
+			<div>{children}</div>
+		)
 
 		return (
 			<div className="navbar-layout" style={{ width: width }}>

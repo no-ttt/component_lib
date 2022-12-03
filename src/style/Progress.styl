@@ -1,0 +1,63 @@
+.progress-title-section {
+	display flex
+	justify-content space-between
+	align-items flex-end
+	width 100%
+}
+
+.progress-title {
+	font-size 28px
+	font-weight bolder
+}
+
+.progress-comment-num {
+	font-size 15px
+	color grey
+}
+
+.progress-rating-section {
+	display flex
+	justify-content space-between
+	align-items center
+	width 100%
+	margin-top 10px
+}
+
+.progress-rating {
+	font-size 25px
+	font-weight bold
+}
+
+.progress-section {
+	margin-top 10px
+}
+
+.progress-individual {
+	display flex
+	justify-content space-between
+	align-items flex-end
+	width 100%
+	margin-bottom 5px
+}
+
+.progress-label {
+	font-size 15px
+	font-weight blod
+}
+
+progress {
+	background white
+	appearance none /* 設置iOS下清除灰色背景 */
+	-webkit-appearance none
+}
+	/* 設置進度條顏色 */
+	::-webkit-progress-value {
+		background #ffd700
+		border-radius 20px
+		height 10px
+	}
+
+	/* 設置進度條背景顏色 */
+	::-webkit-progress-bar {
+		background white
+	}

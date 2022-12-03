@@ -9,7 +9,7 @@ export class Article extends Component {
 		data: PropTypes.object.isRequired,
 		/** 圖片寬度 (min-width: 200px) */
 		width: PropTypes.number,
-		/** 圖片高度 (mun-height: 150px) */
+		/** 圖片高度 (min-height: 150px) */
 		height: PropTypes.number,
 		/** 文章內容區塊高度 (小於圖片高度) */
 		desHeight: PropTypes.number,

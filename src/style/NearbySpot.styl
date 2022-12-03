@@ -1,0 +1,40 @@
+.nearby-spot {
+	display flex
+	justify-content space-between
+	width 250px
+	height 90px
+}
+
+.nearby-spot-photo {
+	width 120px
+	height 100%
+	object-fit cover
+}
+
+.nearby-spot-photo:hover {
+	transform scale(1.2, 1.2)
+	transition all 1s ease-out
+}
+
+.nearby-spot-des {
+	height 100%
+	display flex
+	justify-content space-between
+	flex-direction column
+}
+
+.nearby-spot-title {
+	width 120px
+	overflow hidden
+	text-overflow ellipsis
+	white-space nowrap
+}
+
+.nearby-spot-title:hover {
+	cursor pointer
+}
+
+.nearby-spot-distance {
+	font-size 14px
+	color gray
+}
