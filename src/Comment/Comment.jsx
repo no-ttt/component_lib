@@ -42,8 +42,8 @@ export class Comment extends Component {
 		this.state = {
 			click: false,
 			clickNum: this.props.like,
-			more: true,
-			contentHeight: 0,
+			// more: true,
+			// contentHeight: 0,
 		}
 		this.isClick = this.isClick.bind(this)
 	}
@@ -61,19 +61,19 @@ export class Comment extends Component {
 			})
 	}
 
-	componentDidUpdate(prevProps) {
-		if (prevProps.content !== this.props.content) {
-			this.setState({
-				contentHeight: document.getElementById('container').offsetHeight
-			})
-		}
-	}
+	// componentDidUpdate(prevProps) {
+	// 	if (prevProps.content !== this.props.content) {
+	// 		this.setState({
+	// 			contentHeight: document.getElementById('container').offsetHeight
+	// 		})
+	// 	}
+	// }
 
-	componentDidMount() {
-		this.setState({
-			contentHeight: document.getElementById('container').offsetHeight
-		})
-	}
+	// componentDidMount() {
+	// 	this.setState({
+	// 		contentHeight: document.getElementById('container').offsetHeight
+	// 	})
+	// }
 
 	render() {
 		const { userName, src, rating, content, img, since, mode, guideDes } = this.props
@@ -93,13 +93,14 @@ export class Comment extends Component {
 							<Rating size="small" fixed={true} default={rating} />
 							<div className="comment-date">{since}</div>
 						</div>
-						<div id="container" className={!more ? "comment-content-txt" : "comment-content-txt-hidden"}>{content}</div>
-						{
+						{/* <div id="container" className={!more ? "comment-content-txt" : "comment-content-txt-hidden"}>{content}</div> */}
+						<div className="comment-content-txt">{content}</div>
+						{/* {
 							more &&
 								(contentHeight === 88)
 								? <button className="comment-more" onClick={() => this.setState({ more: !more })}>顯示更多</button>
 								: ""
-						}
+						} */}
 					</div>
 					<div className="comment-img-date">
 						<div className="comment-img-section" id="style-3">
