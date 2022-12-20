@@ -5,8 +5,12 @@ import styles from '../style/Article.styl'
 
 export class Article extends Component {
 	static propTypes = {
-		/** 文章資訊 (title, des, src) */
-		data: PropTypes.object.isRequired,
+		/** 文章標題 */
+		title: PropTypes.string.isRequired,
+		/** 文章內容簡介 */
+		des: PropTypes.string.isRequired,
+		/** 代表圖片 */
+		src: PropTypes.string.isRequired,
 		/** 圖片寬度 (min-width: 200px) */
 		width: PropTypes.number,
 		/** 圖片高度 (min-height: 150px) */
@@ -22,15 +26,15 @@ export class Article extends Component {
 	}
 
 	render() {
-		const { data, width, height, desHeight } = this.props
+		const { title, des, src, width, height, desHeight } = this.props
 		return (
 			<div style={{ width: (width + 250) }} className="article-layout">
 				<div style={{ width: (width + 250), height: desHeight, marginTop: (height - desHeight) }} className="article-color-block">
 					<div className="article-content" style={{ width: (width + 250) }}>
-						<img src={data.src} alt="data.title" style={{ width: width, height: height }} className="article-img" />
+						<img src={src} alt={title} style={{ width: width, height: height }} className="article-img" />
 						<div style={{ width: (width * 1.2) }} className="article-content-des">
-							<div className="article-des-title">{data.title}</div>
-							<div className="article-des-txt">{data.des}</div>
+							<div className="article-des-title">{title}</div>
+							<div className="article-des-txt">{des}</div>
 						</div>
 					</div>
 				</div>

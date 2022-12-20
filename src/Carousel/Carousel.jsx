@@ -11,7 +11,7 @@ export class Carousel extends Component {
 		cols: PropTypes.number,
 		/** 間距 */
 		gap: PropTypes.number,
-		/** 所有 item 相關資訊 (title, src)*/
+		/** 所有 item 相關資訊 (ex. title, src) */
 		data: PropTypes.array.isRequired,
 		/** item 的寬度 */
 		width: PropTypes.number,

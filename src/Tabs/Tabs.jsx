@@ -43,7 +43,8 @@ export class Tabs extends Component {
 						data.map((d, index) => (
 							<button key={index}
 								style={{ borderBottom: contentIndex === index ? "1px black solid" : "" }}
-								onClick={() => this.handleClick(d, index)}>
+								onClick={() => this.handleClick(d, index)}
+							>
 								{tab(d)}
 							</button>
 						))

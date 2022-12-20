@@ -42,5 +42,5 @@
     },
   ];
 
-  <ActivityList data={data} />
+  <ActivityList data={data} name={(d) => d.name} des={(d) => d.des} location={(d) => d.location} picture={(d) => d.picture} startTime={(d) => d.startTime} endTime={(d) => d.endTime} />
 ```
