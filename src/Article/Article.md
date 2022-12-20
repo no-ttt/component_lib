@@ -5,5 +5,5 @@
     src: "https://farm4.staticflickr.com/3667/19664749544_413f64416d_c.jpg",
   };
 
-  <Article data={data} />
+  <Article title={data.title} des={data.des} src={data.src} />
 ```
