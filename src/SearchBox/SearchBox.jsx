@@ -23,8 +23,6 @@ export class SearchBox extends Component {
 		option: PropTypes.func.isRequired,
 		/** 搜尋結果的連結 (get link) */
 		link: PropTypes.func.isRequired,
-		/** 回傳選擇的值 */
-		returnValue: PropTypes.func.isRequired,
 	}
 
 	static defaultProps = {
@@ -44,7 +42,7 @@ export class SearchBox extends Component {
 
 	handleKeyDown = (e) => {
 		const { activeSuggestion, setIsOnComposition } = this.state
-		const { suggestion, option, returnValue } = this.props
+		const { suggestion } = this.props
 		if (setIsOnComposition) {
 			if (e.key === 'ArrowDown') {
 				e.preventDefault()
@@ -59,28 +57,18 @@ export class SearchBox extends Component {
 			} else if (e.key === 'Enter') {
 				e.preventDefault()
 				document.getElementById("link-to").click()
-				returnValue(option(suggestion[activeSuggestion]))
 			}
 		}
 	}
 
 	handleChange = (e) => {
 		const { searchFunc } = this.props
-		
-		if (e.target.value === "") {
-			this.setState({
-				value: "",
-				setIsOnComposition: false,
-				activeSuggestion: -1,
-			})
-		} else {
-			searchFunc(e.target.value)
-			this.setState({
-				value: e.target.value,
-				setIsOnComposition: false,
-				activeSuggestion: -1,
-			})
-		}
+		searchFunc(e.target.value)
+		this.setState({
+			value: e.target.value,
+			setIsOnComposition: false,
+			activeSuggestion: -1,
+		})
 	}
 
 	render() {
@@ -101,7 +89,7 @@ export class SearchBox extends Component {
 				</div>
 				{
 					suggestion.map((cond, i) => (
-						<a key={i} id="link-to" href={link(cond)} 
+						<a key={i} id="link-to" href={link(cond)}
 							className={i === activeSuggestion ? 'searchbox-dropdown-content-option-active' : 'searchbox-dropdown-content-option'}
 							onMouseOver={() => this.setState({ activeSuggestion: -1 })}
 						>
