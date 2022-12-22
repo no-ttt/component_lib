@@ -15,6 +15,6 @@
   };
 
   <SearchBox fontSize={16} suggestion={suggestion} option={(d) => d.option} link={(d) => d.link} width={800} height={40}
-    hintText="搜尋看看？" searchFunc={(text) => search(text)}
+    hintText="搜尋看看？" searchFunc={(text) => search(text)} returnValue={(value) => alert(value)}
   />
 ```
