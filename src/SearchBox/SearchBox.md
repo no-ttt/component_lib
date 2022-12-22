@@ -1,4 +1,6 @@
 ```jsx
+  import React, { useState } from 'react'
+
   const data = [
     { option: "南投縣埔里鎮", link: "https://www.google.com/maps/place/545%E5%8D%97%E6%8A%95%E7%B8%A3%E5%9F%94%E9%87%8C%E9%8E%AE%E5%9F%94%E9%87%8C/" },
     { option: "南投縣魚池鄉", link: "https://www.google.com/maps/search/545%E5%8D%97%E6%8A%95%E7%B8%A3%E5%9F%94%E9%87%8C%E9%8E%AE%E9%AD%9A%E6%B1%A0" },
@@ -6,7 +8,13 @@
     { option: "台北市", link: "https://www.google.com/maps/place/%E5%8F%B0%E5%8C%97%E5%B8%82/" },
   ];
 
-  <SearchBox fontSize={16} option={(d) => d.option} link={(d) => d.link} width={800} height={40}
-    setOption={(text) => data.filter(value => value.option.indexOf(text) !== -1)} hintText="搜尋看看？"
+  const [suggestion, setSuggestion] = useState([]);
+
+  function search(text) {
+    setSuggestion(data.filter(value => value.option.indexOf(text) !== -1));
+  };
+
+  <SearchBox fontSize={16} suggestion={suggestion} option={(d) => d.option} link={(d) => d.link} width={800} height={40}
+    hintText="搜尋看看？" searchFunc={(text) => search(text)}
   />
 ```
