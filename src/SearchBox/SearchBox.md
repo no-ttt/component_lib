@@ -11,10 +11,15 @@
   const [suggestion, setSuggestion] = useState([]);
 
   function search(text) {
-    setSuggestion(data.filter(value => value.option.indexOf(text) !== -1));
+    if (text == "") {
+      setSuggestion([]);
+    }
+    else {
+      setSuggestion(data.filter(value => value.option.indexOf(text) !== -1));
+    }
   };
 
   <SearchBox fontSize={16} suggestion={suggestion} option={(d) => d.option} link={(d) => d.link} width={800} height={40}
-    hintText="搜尋看看？" searchFunc={(text) => search(text)} returnValue={(value) => alert(value)}
+    hintText="搜尋看看？" searchFunc={(text) => search(text)}
   />
 ```
