@@ -5,7 +5,7 @@ import styles from '../style/Tabs.styl'
 
 export class Tabs extends Component {
 	static propTypes = {
-		/** Tabs 資訊 (title, content) */
+		/** Tabs 資訊 (ex. title, content) */
 		data: PropTypes.array.isRequired,
 		/** 點擊的 Tab，回傳它的 title (data) => { data.title } */
 		tab: PropTypes.func.isRequired,

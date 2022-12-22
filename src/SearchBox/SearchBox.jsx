@@ -15,8 +15,10 @@ export class SearchBox extends Component {
 		fontSize: PropTypes.number,
 		/** 提示字 */
 		hintText: PropTypes.string,
-		/** 執行搜尋的 event (return suggestions) */
-		setOption: PropTypes.func.isRequired,
+		/** 執行搜尋的 event */
+		searchFunc: PropTypes.func.isRequired,
+		/** 經過搜尋跑出來的所有結果 */
+		suggestion: PropTypes.array.isRequired,
 		/** 搜尋底下可能會出現的結果 (get option) */
 		option: PropTypes.func.isRequired,
 		/** 搜尋結果的連結 (get link) */
@@ -33,24 +35,24 @@ export class SearchBox extends Component {
 		super(props)
 		this.state = {
 			value: "",
-			suggestions: [],
 			activeSuggestion: -1,
 			setIsOnComposition: false,
 		}
 	}
 
 	handleKeyDown = (e) => {
-		const { activeSuggestion, suggestions, setIsOnComposition } = this.state
+		const { activeSuggestion, setIsOnComposition } = this.state
+		const { suggestion } = this.props
 		if (setIsOnComposition) {
 			if (e.key === 'ArrowDown') {
 				e.preventDefault()
 				this.setState({
-					activeSuggestion: (activeSuggestion + 1) % suggestions.length,
+					activeSuggestion: (activeSuggestion + 1) % suggestion.length,
 				})
 			} else if (e.key === 'ArrowUp') {
 				e.preventDefault()
 				this.setState({
-					activeSuggestion: (activeSuggestion - 1) % suggestions.length,
+					activeSuggestion: (activeSuggestion - 1) % suggestion.length,
 				})
 			} else if (e.key === 'Enter') {
 				e.preventDefault()
@@ -60,25 +62,27 @@ export class SearchBox extends Component {
 	}
 
 	handleChange = (e) => {
-		const { setOption } = this.props
-		console.log(e.target.value)
+		const { searchFunc } = this.props
+		
 		if (e.target.value === "") {
 			this.setState({
 				value: "",
-				suggestions: [],
 				setIsOnComposition: false,
+				activeSuggestion: -1,
 			})
 		} else {
+			searchFunc(e.target.value)
 			this.setState({
 				value: e.target.value,
-				suggestions: setOption(e.target.value)
+				setIsOnComposition: false,
+				activeSuggestion: -1,
 			})
 		}
 	}
 
 	render() {
-		const { width, height, fontSize, hintText, option, link } = this.props
-		const { value, suggestions, activeSuggestion } = this.state
+		const { width, height, fontSize, hintText, option, link, suggestion } = this.props
+		const { value, activeSuggestion } = this.state
 		return (
 			<div id="searchbox-content" style={{ width: width }}>
 				<div className="searchbox-block" style={{ width: (width - 20), height: height }}>
@@ -89,11 +93,11 @@ export class SearchBox extends Component {
 						onChange={this.handleChange}
 						onCompositionEnd={(e) => { if (e.type === 'compositionend') this.setState({ setIsOnComposition: true }) }}
 						onFocus={() => document.getElementById("searchbox-content").style.borderRadius = "10px"}
-						onBlur={() => suggestions.length === 0 ? document.getElementById("searchbox-content").style.borderRadius = "30px" : ""}
+						onBlur={() => suggestion.length === 0 ? document.getElementById("searchbox-content").style.borderRadius = "30px" : ""}
 					/>
 				</div>
 				{
-					suggestions.map((cond, i) => (
+					suggestion.map((cond, i) => (
 						<a key={i} id="link-to" href={link(cond)} 
 							className={i === activeSuggestion ? 'searchbox-dropdown-content-option-active' : 'searchbox-dropdown-content-option'}
 							onMouseOver={() => this.setState({ activeSuggestion: -1 })}
