@@ -23,6 +23,8 @@ export class SearchBox extends Component {
 		option: PropTypes.func.isRequired,
 		/** 搜尋結果的連結 (get link) */
 		link: PropTypes.func.isRequired,
+		/** 回傳選擇的值 */
+		returnValue: PropTypes.func.isRequired,
 	}
 
 	static defaultProps = {
@@ -42,7 +44,7 @@ export class SearchBox extends Component {
 
 	handleKeyDown = (e) => {
 		const { activeSuggestion, setIsOnComposition } = this.state
-		const { suggestion } = this.props
+		const { suggestion, option, returnValue } = this.props
 		if (setIsOnComposition) {
 			if (e.key === 'ArrowDown') {
 				e.preventDefault()
@@ -57,6 +59,7 @@ export class SearchBox extends Component {
 			} else if (e.key === 'Enter') {
 				e.preventDefault()
 				document.getElementById("link-to").click()
+				returnValue(option(suggestion[activeSuggestion]))
 			}
 		}
 	}
