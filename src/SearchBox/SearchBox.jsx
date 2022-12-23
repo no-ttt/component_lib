@@ -56,7 +56,7 @@ export class SearchBox extends Component {
 				})
 			} else if (e.key === 'Enter') {
 				e.preventDefault()
-				document.getElementById("link-to").click()
+				document.getElementById("link-to-" + (activeSuggestion)).click() 
 			}
 		}
 	}
@@ -89,7 +89,7 @@ export class SearchBox extends Component {
 				</div>
 				{
 					suggestion.map((cond, i) => (
-						<a key={i} id="link-to" href={link(cond)}
+						<a key={i} id={"link-to-" + i} href={link(cond)}
 							className={i === activeSuggestion ? 'searchbox-dropdown-content-option-active' : 'searchbox-dropdown-content-option'}
 							onMouseOver={() => this.setState({ activeSuggestion: -1 })}
 						>
