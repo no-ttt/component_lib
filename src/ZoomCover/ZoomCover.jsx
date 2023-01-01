@@ -60,7 +60,7 @@ export class ZoomCover extends Component {
 						</div>
 					</div>
 				}
-				
+
 			</div>
 		)
 	}
