@@ -55,7 +55,7 @@ export class ActivityList extends Component {
 				<div style={{ height: height, width: (listWidth + 40) }} className="activity-item-block" id="style-3">
 					{data.map((d, i) => (
 						<div key={i} style={{ width: listWidth }} className="activity-item" onClick={() => this.setState({ hintImg: d })}>
-							<div className="activity-item-date">{startTime(d)} - {endTime(d)}</div>
+							<div className="activity-item-date">{startTime(d)} ~ {endTime(d)}</div>
 							<div className="activity-detail">
 								<div style={{ width: (listWidth - 120) }} className="activity-name">{name(d)}</div>
 								<div className="activity-detail">

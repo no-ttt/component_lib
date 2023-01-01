@@ -13,10 +13,13 @@ export class Tabs extends Component {
 		tabPosCenter: PropTypes.bool,
 		/** 點擊 Tab 觸發，回傳目前 Tab 的內容 (data) => { setData(data) } */
 		setCurrent: PropTypes.func.isRequired,
+		/** border style */
+		border: PropTypes.bool,
 	}
 
 	static defaultProps = {
 		tabPosCenter: true,
+		border: false,
 	}
 
 	constructor(props) {
@@ -34,7 +37,7 @@ export class Tabs extends Component {
 	}
 
 	render() {
-		const { data, tab, tabPosCenter, children } = this.props
+		const { data, tab, tabPosCenter, children, border } = this.props
 		const { contentIndex } = this.state
 		return (
 			<div>
@@ -42,7 +45,8 @@ export class Tabs extends Component {
 					{
 						data.map((d, index) => (
 							<button key={index}
-								style={{ borderBottom: contentIndex === index ? "1px black solid" : "" }}
+								className={ border ? "tab-border-button" : "tab-button" }
+								style={ border ? { backgroundColor: contentIndex === index ? "black" : "", color: contentIndex === index ? "white" : "" } : { borderBottom: contentIndex === index ? "1px black solid" : "" }}
 								onClick={() => this.handleClick(d, index)}
 							>
 								{tab(d)}
