@@ -36,7 +36,7 @@ export class NavBar extends Component {
 				iconStyle.push(<HomeIcon />)
 
 			option.push(
-				<a href={feature[i].link} className="navbar-btn">
+				<a key={feature[i].name} href={feature[i].link} className="navbar-btn">
 					<div className="navbar-frame">{iconStyle}</div>
 					<div className="navbar-title">{feature[i].name}</div>
 				</a>
