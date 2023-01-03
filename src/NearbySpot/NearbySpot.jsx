@@ -12,20 +12,23 @@ export class NearbySpot extends Component {
 		src: PropTypes.string.isRequired,
 		/** 評分 */
 		rating: PropTypes.number,
-		/** 導向連結 */
-		link: PropTypes.link,
-		/** 導向連結時是否以新分頁開啟 */
+		/** 圖片說明 */
+		des: PropTypes.string,
+		/** des 是否為連結 */
+		isLink: PropTypes.bool,
+		/** 導向連結時是否以新分頁開啟 (isLink=true) */
 		blank: PropTypes.bool,
 	}
 
 	static defaultProps = {
 		rating: 5,
-		link: "",
-		blank: true,
+		des: "",
+		blank: false,
+		isLink: false,
 	}
 
 	render() {
-		const { name, src, rating, link, blank } = this.props
+		const { name, src, rating, des, blank, isLink } = this.props
 		return (
 			<div className="nearby-spot">
 				<div style={{ overflow: "hidden" }}>
@@ -36,7 +39,12 @@ export class NearbySpot extends Component {
 						<div className="nearby-spot-title">{name}</div>
 						<Rating size="small" fixed={true} default={rating} />
 					</div>
-					<a href={link} target={blank ? "blank" : ""} className="nearby-spot-link">More</a>
+					{
+						isLink ?
+						<a href={des} target={blank ? "blank" : ""} className="nearby-spot-link">More</a>
+						: <div className="nearby-spot-distance">{des}</div>
+					}
+					
 				</div>
 			</div>
 		)
