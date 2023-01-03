@@ -41,10 +41,9 @@ export class NearbySpot extends Component {
 					</div>
 					{
 						isLink ?
-						<a href={des} target={blank ? "blank" : ""} className="nearby-spot-link">More</a>
-						: <div className="nearby-spot-distance">{des}</div>
+							<a href={des} target={blank ? "blank" : ""} className="nearby-spot-link">More</a>
+							: <div className="nearby-spot-distance">{des}</div>
 					}
-					
 				</div>
 			</div>
 		)
