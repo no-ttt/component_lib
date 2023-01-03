@@ -1,12 +1,12 @@
 .nearby-spot {
 	display flex
 	justify-content space-between
-	width 250px
+	width 220px
 	height 90px
 }
 
 .nearby-spot-photo {
-	width 120px
+	width 100px
 	height 100%
 	object-fit cover
 }
@@ -24,7 +24,7 @@
 }
 
 .nearby-spot-title {
-	width 120px
+	width 100px
 	overflow hidden
 	text-overflow ellipsis
 	white-space nowrap
@@ -34,7 +34,13 @@
 	cursor pointer
 }
 
-.nearby-spot-distance {
+.nearby-spot-link {
 	font-size 14px
 	color gray
+	cursor pointer
+	text-decoration: none
+}
+
+.nearby-spot-link:hover {
+	color black
 }
