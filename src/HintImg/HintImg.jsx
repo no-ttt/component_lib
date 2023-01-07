@@ -30,6 +30,7 @@ export class HintImg extends Component {
 					<div className="hintImg-hr" />
 				</div>
 				<div className="hintImg-txt hintImg-des-height">{children}</div>
+				{/* link 的部分沒有加入 props */}
 				{
 					link && <a href={link} target="blank" className="hintImg-more">More Info &gt;</a>
 				}
