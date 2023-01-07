@@ -31,7 +31,7 @@ export class HintImg extends Component {
 				</div>
 				<div className="hintImg-txt hintImg-des-height">{children}</div>
 				{
-					link && <a href={link} target="blank" className="hintImg-more">More</a>
+					link && <a href={link} target="blank" className="hintImg-more">More Info &gt;</a>
 				}
 				<img src={src} alt="bg" className="hintImg-bg" />
 			</div>
