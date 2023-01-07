@@ -12,25 +12,21 @@ export class NearbySpot extends Component {
 		src: PropTypes.string.isRequired,
 		/** 評分 */
 		rating: PropTypes.number,
-		/** 圖片說明 */
+		/** 說明文字 */
 		des: PropTypes.string,
-		/** des 是否為連結 */
+		/** 是否加入連結 */
 		isLink: PropTypes.bool,
-		/** 導向頁面的連結 (isLink=true) */
-		link: PropTypes.string,
-		/** 導向連結時是否以新分頁開啟 (isLink=true) */
-		blank: PropTypes.bool,
+		/** 連結網址 */
+		link: PropTypes.string
 	}
 
 	static defaultProps = {
 		rating: 5,
-		des: "",
-		blank: false,
 		isLink: false,
 	}
 
 	render() {
-		const { name, src, rating, des, blank, isLink, link } = this.props
+		const { name, src, rating, des, isLink, link } = this.props
 		return (
 			<div className="nearby-spot">
 				<div style={{ overflow: "hidden" }}>
@@ -38,14 +34,10 @@ export class NearbySpot extends Component {
 				</div>
 				<div className="nearby-spot-des">
 					<div>
-						<div className="nearby-spot-title">{name}</div>
+						{ isLink ? <a href={link} target="blank" className="nearby-spot-title nearby-spot-title-link">{name}</a> :<div className="nearby-spot-title">{name}</div> }
 						<Rating size="small" isFixed={true} default={rating} />
 					</div>
-					{
-						isLink ?
-							<a href={link} target={blank ? "blank" : ""} className="nearby-spot-link">{des}</a>
-							: <div className="nearby-spot-distance">{des}</div>
-					}
+					<div className="nearby-spot-distance">{des}</div>
 				</div>
 			</div>
 		)
