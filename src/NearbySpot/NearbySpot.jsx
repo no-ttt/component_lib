@@ -34,7 +34,7 @@ export class NearbySpot extends Component {
 				</div>
 				<div className="nearby-spot-des">
 					<div>
-						{ isLink ? <a href={link} target="blank" className="nearby-spot-title nearby-spot-title-link">{name}</a> :<div className="nearby-spot-title">{name}</div> }
+						{ isLink ? <a href={link} target="blank" className="nearby-spot-title-link">{name}</a> :<div className="nearby-spot-title">{name}</div> }
 						<Rating size="small" isFixed={true} default={rating} />
 					</div>
 					<div className="nearby-spot-distance">{des}</div>
