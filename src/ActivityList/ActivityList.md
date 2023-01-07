@@ -6,7 +6,8 @@
       location: "南投縣仁愛鄉",
       picture: "https://www.taiwan.net.tw/att/event/e7d96932-6633-4a2c-b724-c1ad89893c19.jpg",
       startTime: "2022/08/13",
-      endTime: "2022/11/04"
+      endTime: "2022/11/04",
+      link: "#"
     },
     {
       name: "2022阿里山日出印象音樂會",
@@ -14,7 +15,8 @@
       location: "嘉義縣阿里山鄉",
       picture: "https://www.taiwan.net.tw/att/event/ef1bff5c-a2cd-468b-a96e-c1032ed89e87.jpg",
       startTime: "2022/01/01",
-      endTime: "2022/01/01"
+      endTime: "2022/01/01",
+      link: "#"
     },
     {
       name: "2022奔羊節",
@@ -22,7 +24,8 @@
       location: "南投縣仁愛鄉",
       picture: "https://www.taiwan.net.tw/att/event/e0b1b0eb-1ac9-4e7c-bf5d-805242b0a85c.jpg",
       startTime: "2022/02/18",
-      endTime: "2022/02/18"
+      endTime: "2022/02/18",
+      link: "#"
     },
     {
       name: "2022日月潭國際萬人泳渡",
@@ -30,7 +33,8 @@
       location: "南投縣魚池鄉",
       picture: "https://www.taiwan.net.tw/att/event/32664653-b656-4e7f-bb6d-ed1b726fa3b9.jpg",
       startTime: "2022/09/01",
-      endTime: "2022/09/30"
+      endTime: "2022/09/30",
+      link: "#"
     },
     {
       name: "2022南投世界茶業博覽會",
@@ -38,9 +42,10 @@
       location: "南投縣南投市",
       picture: "https://www.taiwan.net.tw/att/event/700ff267-3b42-49c0-9986-9ccc8f92774d.jpg",
       startTime: "2022/10/08",
-      endTime: "2022/10/16"
+      endTime: "2022/10/16",
+      link: "#"
     },
   ];
 
-  <ActivityList data={data} name={(d) => d.name} des={(d) => d.des} location={(d) => d.location} picture={(d) => d.picture} startTime={(d) => d.startTime} endTime={(d) => d.endTime} />
+  <ActivityList data={data} name={(d) => d.name} des={(d) => d.des} location={(d) => d.location} link={(d) => d.link} picture={(d) => d.picture} startTime={(d) => d.startTime} endTime={(d) => d.endTime} />
 ```

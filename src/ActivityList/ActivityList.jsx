@@ -15,6 +15,8 @@ export class ActivityList extends Component {
 		des: PropTypes.func.isRequired,
 		/** 活動所屬地點 (get location) */
 		location: PropTypes.func.isRequired,
+		/** 活動詳細內容連結 (get link) */
+		link: PropTypes.func.isRequired,
 		/** 代表圖片 (get picture) */
 		picture: PropTypes.func.isRequired,
 		/** 活動開始時間 (get startTime) */
@@ -43,13 +45,13 @@ export class ActivityList extends Component {
 	}
 
 	render() {
-		const { data, width, height, listWidth, name, des, location, picture, startTime, endTime } = this.props
+		const { data, width, height, listWidth, name, des, location, link, picture, startTime, endTime } = this.props
 		const { hintImg } = this.state
 		const title = <div>{name(hintImg)}</div>
 
 		return (
 			<div className="activity-layout">
-				<HintImg src={picture(hintImg)} title={title} width={width} height={height}>
+				<HintImg src={picture(hintImg)} title={title} width={width} height={height} link={link(hintImg)}>
 					<div>{des(hintImg)}</div>
 				</HintImg>
 				<div style={{ height: height, width: (listWidth + 40) }} className="activity-item-block" id="style-3">

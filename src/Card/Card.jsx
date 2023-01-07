@@ -70,7 +70,7 @@ export class Card extends Component {
 										</div>
 										: <img src={src} alt={title} className="card-pic" />
 								}
-								{mode === "spot" && <div style={{ textAlign: "center", fontWeight: "bold" }}>{title}</div>}
+								{mode === "spot" && <div className="card-name">{title}</div>}
 								{
 									mode === "trip" &&
 									<div>
@@ -89,9 +89,7 @@ export class Card extends Component {
 								<div className="card-flip-front">
 									<div className="card-layout">
 										<img src={src} alt={title} className="card-pic" />
-										<div style={{ textAlign: "center", fontWeight: "bold" }}>
-											{title}
-										</div>
+										<div className="card-name">{title}</div>
 									</div>
 								</div>
 								<div className="card-flip-back">

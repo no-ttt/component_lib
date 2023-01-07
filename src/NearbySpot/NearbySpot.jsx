@@ -39,7 +39,7 @@ export class NearbySpot extends Component {
 				<div className="nearby-spot-des">
 					<div>
 						<div className="nearby-spot-title">{name}</div>
-						<Rating size="small" fixed={true} default={rating} />
+						<Rating size="small" isFixed={true} default={rating} />
 					</div>
 					{
 						isLink ?

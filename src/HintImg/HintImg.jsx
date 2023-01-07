@@ -12,7 +12,7 @@ export class HintImg extends Component {
 		/** 圖片高度 */
 		height: PropTypes.number,
 		/** 內容描述的標題文字 */
-		title: PropTypes.string.isRequired,
+		title: PropTypes.object.isRequired,
 	}
 
 	static defaultProps = {
@@ -21,7 +21,7 @@ export class HintImg extends Component {
 	}
 
 	render() {
-		const { src, width, height, title, children } = this.props
+		const { src, width, height, title, children, link } = this.props
 		return (
 			<div className="hintImg-layout" style={{ width: width, height: height }}>
 				<div className="hintImg-cover" />
@@ -30,6 +30,9 @@ export class HintImg extends Component {
 					<div className="hintImg-hr" />
 				</div>
 				<div className="hintImg-txt hintImg-des-height">{children}</div>
+				{
+					link && <a href={link} target="blank" className="hintImg-more">More</a>
+				}
 				<img src={src} alt="bg" className="hintImg-bg" />
 			</div>
 		)

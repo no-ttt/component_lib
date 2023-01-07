@@ -27,17 +27,17 @@ export class NavBar extends Component {
 
 		for (let i = 0; i < feature.length; i++) {
 			if (feature[i].icon === "dashboard")
-				iconStyle.push(<DashboardIcon />)
+				iconStyle.push(<div key={i} className="navbar-frame"><DashboardIcon /></div>)
 			if (feature[i].icon === "schedule")
-				iconStyle.push(<DateRangeIcon />)
+				iconStyle.push(<div key={i} className="navbar-frame"><DateRangeIcon /></div>)
 			if (feature[i].icon === "like")
-				iconStyle.push(<FavoriteBorderIcon />)
+				iconStyle.push(<div key={i} className="navbar-frame"><FavoriteBorderIcon /></div>)
 			if (feature[i].icon === "home")
-				iconStyle.push(<HomeIcon />)
+				iconStyle.push(<div key={i} className="navbar-frame"><HomeIcon /></div>)
 
 			option.push(
-				<a key={feature[i].name} href={feature[i].link} className="navbar-btn">
-					<div className="navbar-frame">{iconStyle}</div>
+				<a key={i} href={feature[i].link} className="navbar-btn">
+					{iconStyle}
 					<div className="navbar-title">{feature[i].name}</div>
 				</a>
 			);
@@ -47,7 +47,7 @@ export class NavBar extends Component {
 		}
 
 		option.push(
-			<div>{children}</div>
+			<div key={option.length}>{children}</div>
 		)
 
 		return (

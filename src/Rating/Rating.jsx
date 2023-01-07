@@ -11,7 +11,7 @@ export class Rating extends Component {
 		/** 最大值 */
 		max: PropTypes.number,
 		/** 星星是否固定 */
-		fixed: PropTypes.boolean,
+		isFixed: PropTypes.bool,
 		/** 星星大小 (small or large, default: 一般大小) */
 		size: PropTypes.string,
 		/** 星星顏色 */
@@ -22,7 +22,7 @@ export class Rating extends Component {
 
 	static defaultProps = {
 		max: 5,
-		fixed: false,
+		isFixed: false,
 		color: "#ffd700",
 	}
 
@@ -43,7 +43,7 @@ export class Rating extends Component {
 
 	render() {
 		const { rating, hover } = this.state
-		const { max, size, fixed, color } = this.props
+		const { max, size, isFixed, color } = this.props
 		return (
 			<div>
 				{
@@ -54,9 +54,9 @@ export class Rating extends Component {
 								key={index}
 								// className={index <= (hover || rating) ? "on" : "off"}
 								style={{ color: index <= (hover || rating) ? color : "#ccc" }}
-								onClick={() => !fixed && this.setValue(index)}
-								onMouseEnter={() => !fixed && this.setState({ hover: index })}
-								onMouseLeave={() => !fixed && this.setState({ hover: rating })}
+								onClick={() => !isFixed && this.setValue(index)}
+								onMouseEnter={() => !isFixed && this.setState({ hover: index })}
+								onMouseLeave={() => !isFixed && this.setState({ hover: rating })}
 							>
 								<StarIcon className="rating-icon" fontSize={size} />
 							</button>

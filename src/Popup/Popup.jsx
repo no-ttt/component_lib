@@ -7,7 +7,7 @@ import CloseIcon from '@mui/icons-material/Close'
 export class Popup extends Component {
 	static propTypes = {
 		/** 觸發彈跳窗的元件 */
-		clickBtn: PropTypes.string.isRequired,
+		clickBtn: PropTypes.object.isRequired,
 		/** 彈跳窗的寬度 */
 		width: PropTypes.number,
 		/** 彈跳窗的高度 */
