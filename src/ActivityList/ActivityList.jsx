@@ -47,7 +47,7 @@ export class ActivityList extends Component {
 	render() {
 		const { data, width, height, listWidth, name, des, location, link, picture, startTime, endTime } = this.props
 		const { hintImg } = this.state
-		const title = <div>{name(hintImg)}</div>
+		const title = <div style={{ width: "100%" }} className="activity-name">{name(hintImg)}</div>
 
 		return (
 			<div className="activity-layout">
