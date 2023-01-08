@@ -32,6 +32,8 @@ export class Card extends Component {
 		people: PropTypes.number,
 		/** 行程描述 (mode="trip") */
 		des: PropTypes.string,
+		/** 顯示更多的連結 (mode="spot", flip=true) */
+		link: PropTypes.string,
 	}
 
 	static defaultProps = {
@@ -44,7 +46,7 @@ export class Card extends Component {
 	}
 
 	render() {
-		const { title, src, loc, width, height, flip, children, hover, rating, commentNum, mode, people, des } = this.props
+		const { title, src, loc, width, height, flip, children, hover, rating, commentNum, mode, people, des, link } = this.props
 		return (
 			<div>
 				<div className={!flip ? "card-frame" : "card-flip"} style={{ width: width, height: height }} >
@@ -102,6 +104,7 @@ export class Card extends Component {
 										<div className="card-flip-des">
 											{children}
 										</div>
+										<a className="card-des-more-btn" href={link} target="blank">More</a>
 									</div>
 								</div>
 							</div>

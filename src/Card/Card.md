@@ -11,7 +11,7 @@
 
   <div style={{ display: "flex", justifyContent: "space-around" }}>
     <Card title={data.title} src={data.src} loc={data.loc} hover={true} rating={data.rating} commentNum={data.commentNum} />
-    <Card title={data.title} src={data.src} loc={data.loc} height={280} flip={true}>
+    <Card title={data.title} src={data.src} loc={data.loc} height={280} flip={true} link="https://tour.taitung.gov.tw/zh-tw/attraction/details/450">
       {data.des}
     </Card>
   </div>
