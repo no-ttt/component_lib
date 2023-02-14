@@ -6,11 +6,11 @@
   </Popup>
 ```
 
-### Without title
+### Dialog
 ```jsx
   const clickBtn = <div>Click Me !</div>;
 
-  <Popup clickBtn={clickBtn} width={200} height={20} close={false}>
-    <div style={{ display: "flex", justifyContent: "center"}}>Hello World!</div>
+  <Popup clickBtn={clickBtn} width={200} height={100} close={false} dialog={true}>
+    <div style={{ display: "flex", justifyContent: "center", height: "30px"}}>Hello World!</div>
   </Popup>
 ```

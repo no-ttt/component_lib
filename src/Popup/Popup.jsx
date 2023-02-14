@@ -16,12 +16,15 @@ export class Popup extends Component {
 		title: PropTypes.string,
 		/** 是否加入關閉按鈕 */
 		close: PropTypes.bool,
+		/** 對話框模式 */
+		dialog: PropTypes.bool,
 	}
 
 	static defaultProps = {
 		width: 400,
 		height: 200,
 		close: true,
+		dialog: false
 	}
 
 	constructor(props) {
@@ -39,7 +42,7 @@ export class Popup extends Component {
 	}
 
 	render() {
-		const { clickBtn, width, height, children, title, close } = this.props
+		const { clickBtn, width, height, children, title, close, dialog } = this.props
 		const { isOpen } = this.state
 		return (
 			<div>
@@ -55,6 +58,12 @@ export class Popup extends Component {
 							</div>
 							{title && <div className="popup-hr"></div>}
 							<div className={title || close ? "popup-content" : "popup-no-header-content"}>{children}</div>
+							{
+								dialog &&
+								<div className="user-confirm">
+									<button className="user-confirm-btn" style={{ marginTop: height-70 }} onClick={this.togglePopup}>取消</button>
+								</div>
+							}
 						</div>
 					</div>
 				}
