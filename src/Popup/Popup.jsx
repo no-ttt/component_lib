@@ -18,6 +18,8 @@ export class Popup extends Component {
 		close: PropTypes.bool,
 		/** 對話框模式 */
 		dialog: PropTypes.bool,
+		/** save event (dialog=true) */
+		confirm: PropTypes.func,
 	}
 
 	static defaultProps = {
@@ -42,7 +44,7 @@ export class Popup extends Component {
 	}
 
 	render() {
-		const { clickBtn, width, height, children, title, close, dialog } = this.props
+		const { clickBtn, width, height, children, title, close, dialog, confirm } = this.props
 		const { isOpen } = this.state
 		return (
 			<div>
@@ -61,6 +63,7 @@ export class Popup extends Component {
 							{
 								dialog &&
 								<div className="user-confirm">
+									<button className="user-confirm-btn" onClick={confirm}>確認</button>
 									<button className="user-confirm-btn" onClick={this.togglePopup}>取消</button>
 								</div>
 							}
