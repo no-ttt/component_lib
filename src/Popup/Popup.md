@@ -10,7 +10,7 @@
 ```jsx
   const clickBtn = <div>Click Me !</div>;
 
-  <Popup clickBtn={clickBtn} width={200} height={100} close={false} dialog={true} confirm={() => alert("save")}>
+  <Popup clickBtn={clickBtn} width={200} height={100} close={false} dialog={true} confirm={() => console.log("save")}>
     <div style={{ display: "flex", justifyContent: "center", flexDirection: "column" }}>
       <div>Hello, World!</div>
     </div>

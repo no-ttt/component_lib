@@ -43,6 +43,12 @@ export class Popup extends Component {
 		})
 	}
 
+	clickConfirm = () => {
+		const { confirm } = this.props
+		this.togglePopup()
+		confirm()
+	}
+
 	render() {
 		const { clickBtn, width, height, children, title, close, dialog, confirm } = this.props
 		const { isOpen } = this.state
@@ -63,7 +69,7 @@ export class Popup extends Component {
 							{
 								dialog &&
 								<div className="user-confirm">
-									<button className="user-confirm-btn" onClick={confirm}>確認</button>
+									<button className="user-confirm-btn" onClick={this.clickConfirm}>確認</button>
 									<button className="user-confirm-btn" onClick={this.togglePopup}>取消</button>
 								</div>
 							}
