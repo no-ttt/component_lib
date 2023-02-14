@@ -57,11 +57,11 @@ export class Popup extends Component {
 								{close ? <button className="popup-cancel-btn" onClick={this.togglePopup}><CloseIcon /></button> : <div />}
 							</div>
 							{title && <div className="popup-hr"></div>}
-							<div className={title || close ? "popup-content" : "popup-no-header-content"}>{children}</div>
+							<div className={title || close ? "popup-content" : "popup-no-header-content"} style={{ height: height-40 }}>{children}</div>
 							{
 								dialog &&
 								<div className="user-confirm">
-									<button className="user-confirm-btn" style={{ marginTop: height-70 }} onClick={this.togglePopup}>取消</button>
+									<button className="user-confirm-btn" onClick={this.togglePopup}>取消</button>
 								</div>
 							}
 						</div>
