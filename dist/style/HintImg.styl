@@ -20,12 +20,6 @@
 .hintImg-txt {
 	position absolute
 	opacity 0
-	transform translatey(150%)
-	transition all 1s ease-out
-	font-size 14px
-	display -webkit-box	
-	-webkit-box-orient vertical
-	-webkit-line-clamp 5
 	overflow hidden
 	width 90%
 	color white
@@ -33,7 +27,14 @@
 }
 
 .hintImg-des-height {
-	min-height 35%
+	height 13vh
+	transform translatey(150%)
+	transition all 1s ease-out
+	font-size 14px
+	display -webkit-box	
+	-webkit-box-orient vertical
+	-webkit-line-clamp 5
+	padding-top 10px
 }
 
 .hintImg-layout:hover .hintImg-txt {
@@ -53,3 +54,22 @@
 	height 100%
 }
 
+.hintImg-more {
+	position absolute
+	margin-top 50%
+	width 90%
+	color white
+	text-align center
+	opacity 0
+	transition all 1.5s ease-out
+	text-decoration none
+}
+
+.hintImg-more:hover {
+	cursor pointer
+}
+
+.hintImg-layout:hover .hintImg-more {
+	opacity 1
+	transform translatey(-3%)
+}

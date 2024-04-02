@@ -1,0 +1,70 @@
+.recommend-trip-overfit {
+	overflow hidden
+	width 100%
+	height 100%
+	border-radius 5px
+}
+
+.recommend-trip-cover {
+	position relative
+	width 100%
+	height 100%
+	border-radius 5px
+}
+
+.recommend-trip-cover::before {
+	content " "
+	width 100%
+	height 100%
+	position absolute
+	background-color rgba(0, 0, 0, 0.4)
+}
+
+.recommend-trip-cover:hover {
+	transform scale(1.2, 1.2)
+	transition all 1s ease-out
+	border-radius 5px
+}
+
+.recommend-trip-img {
+	width 100%
+	height 100%
+	border-radius 5px
+	object-fit cover
+}
+
+.recommend-trip-content {
+	position absolute
+	z-index 1
+	color white
+	margin -70px 0 0 15px
+}
+
+.recommend-activity-content {
+	position absolute
+	z-index 1
+	color white
+	margin -60px 0 0 15px
+}
+
+.recommend-trip-title {
+	overflow hidden
+	text-overflow ellipsis
+	white-space nowrap
+}
+
+.recommend-trip-des {
+	display flex
+	justify-content space-between
+	font-size 14px
+	margin-top 8px
+	width 120px
+}
+
+.recommend-activity-des {
+	display flex
+	justify-content space-between
+	font-size 14px
+	margin-top 8px
+}
+
